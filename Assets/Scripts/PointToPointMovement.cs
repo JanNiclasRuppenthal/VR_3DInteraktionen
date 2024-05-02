@@ -1,28 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class PointToPointMovement : MonoBehaviour
 {
     
-    [SerializeField] private float speed; 
-    
-    private Vector3[] positions = new []
-    {
-        new Vector3(-4.1f, -2.02f, 8.546f),
-        new Vector3(1.92f, -0.82f, 4.726f),
-        new Vector3(1.92f, -0.82f, 2.025f),
-        new Vector3(-4.1f, -2.02f, 4.696f)
-    };
+    private float speed;
+    private Vector3[] positions;
     private int nextIndex;
+    private int startIndex;
     private Vector3 nextPosition;
+
+    public bool infinite;
     
-    
-    
-    
-    // Start is called before the first frame update
-    void Start()
+
+    public void setPositionIndex(Vector3[] positions, float speed)
     {
+        this.positions = positions;
+        this.speed = speed;
+        
         nextIndex = -1;
         for (int index = 0; index < positions.Length; index++)
         {
@@ -37,22 +35,42 @@ public class Movement : MonoBehaviour
         {
             Debug.LogWarning("Did not update nextIndex! Maybe wrong position of GameObject?");
         }
-        
+
+        startIndex = nextIndex;
         nextPosition = positions[nextIndex];
     }
 
-    // Update is called once per frame
-    void Update()
+    public void movement()
     {
         if (this.transform.position == nextPosition)
         {
-            nextIndex = ++nextIndex % positions.Length;
-            nextPosition = positions[nextIndex];
+
+            if (this.gameObject.name.Contains("Actor"))
+            {
+                if (infinite || nextIndex != startIndex)
+                {
+                    nextIndex = ++nextIndex % positions.Length;
+                    nextPosition = positions[nextIndex];
+                }
+            }
+            else if (this.gameObject.name.Contains("Camera"))
+            {
+                if (infinite || nextIndex != positions.Length-1)
+                {
+                    nextIndex = ++nextIndex % positions.Length;
+                    nextPosition = positions[nextIndex];
+                }
+            }
         }
         else
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, nextPosition,
-                    speed * Time.deltaTime);
+                speed * Time.deltaTime);
         }
+    }
+
+    public void setInfiniteStatus(bool infinite)
+    {
+        this.infinite = infinite;
     }
 }
