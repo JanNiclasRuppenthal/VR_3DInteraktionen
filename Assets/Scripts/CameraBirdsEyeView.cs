@@ -24,9 +24,7 @@ public class CameraBirdsEyeMovement : MonoBehaviour
     public void movement()
     {
         float vertical = speed * Time.deltaTime;
-
         transform.RotateAround(targetPosition, Vector3.right, vertical);
-
         this.transform.LookAt(targetPosition);
         
     }

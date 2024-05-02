@@ -73,10 +73,7 @@ public class CameraMovement : MonoBehaviour
             this.transform.position = new Vector3(0, 0, 0);
             this.transform.rotation = new Quaternion(0f, 0f,0f, 0f);
             
-            for (int index = 0; index < actors.Length; index++)
-            {
-                actors[index].setInfiniteStatus(true);
-            }
+            setInfiniteStatusForActors(true);
 
             isMoving = false;
             isRotating = false;
@@ -95,11 +92,7 @@ public class CameraMovement : MonoBehaviour
         else if (isRotating && this.transform.rotation.x > 0.55f)
         {
             finishedRotating = true;
-
-            for (int index = 0; index < actors.Length; index++)
-            {
-                actors[index].setInfiniteStatus(false);
-            }
+            setInfiniteStatusForActors(false);
         }
         else if (isMoving && !isRotating)
         {
@@ -118,6 +111,14 @@ public class CameraMovement : MonoBehaviour
         for (int index = 0; index < partsOfAmesRoom.Length; index++)
         {
             partsOfAmesRoom[index].SetActive(active);
+        }
+    }
+
+    private void setInfiniteStatusForActors(bool infinite)
+    {
+        for (int index = 0; index < actors.Length; index++)
+        {
+            actors[index].setInfiniteStatus(infinite);
         }
     }
 }

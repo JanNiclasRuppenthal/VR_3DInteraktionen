@@ -49,16 +49,14 @@ public class PointToPointMovement : MonoBehaviour
             {
                 if (infinite || nextIndex != startIndex)
                 {
-                    nextIndex = ++nextIndex % positions.Length;
-                    nextPosition = positions[nextIndex];
+                    selectNextPosition();
                 }
             }
             else if (this.gameObject.name.Contains("Camera"))
             {
                 if (infinite || nextIndex != positions.Length-1)
                 {
-                    nextIndex = ++nextIndex % positions.Length;
-                    nextPosition = positions[nextIndex];
+                    selectNextPosition();
                 }
             }
         }
@@ -73,4 +71,12 @@ public class PointToPointMovement : MonoBehaviour
     {
         this.infinite = infinite;
     }
+
+
+    private void selectNextPosition()
+    {
+        nextIndex = ++nextIndex % positions.Length;
+        nextPosition = positions[nextIndex];
+    }
+    
 }
