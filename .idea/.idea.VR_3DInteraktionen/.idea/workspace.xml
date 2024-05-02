@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63fe88fb-4c5f-4aa2-9765-641d723a2098" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.VR_3DInteraktionen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VR_3DInteraktionen/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/EditorAmesRoom.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/EditorAmesRoom.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ActorMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ActorMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PointToPointMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PointToPointMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +99,7 @@
       <option name="presentableId" value="Default" />
       <updated>1714641346306</updated>
       <workItem from="1714641348599" duration="1936000" />
-      <workItem from="1714665638516" duration="9285000" />
+      <workItem from="1714665638516" duration="13526000" />
     </task>
     <servers />
   </component>

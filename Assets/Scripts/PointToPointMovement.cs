@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class PointToPointMovement : MonoBehaviour
 {
-    
     private float speed;
     private Vector3[] positions;
     private int nextIndex;
@@ -44,11 +43,18 @@ public class PointToPointMovement : MonoBehaviour
     {
         if (this.transform.position == nextPosition)
         {
-
             if (this.gameObject.name.Contains("Actor"))
             {
+                if (!infinite && nextIndex == startIndex)
+                {
+                    turnActorAround();
+                    this.gameObject.GetComponent<ActorMovement>().setMovingStatus(false);
+                }
+                
+                
                 if (infinite || nextIndex != startIndex)
                 {
+                    turnActorAround();
                     selectNextPosition();
                 }
             }
@@ -77,6 +83,12 @@ public class PointToPointMovement : MonoBehaviour
     {
         nextIndex = ++nextIndex % positions.Length;
         nextPosition = positions[nextIndex];
+    }
+
+    private void turnActorAround()
+    {
+        Transform transformActor = this.gameObject.transform;
+        transformActor.eulerAngles = new Vector3(0, 90f * (nextIndex + 1), 0);
     }
     
 }
