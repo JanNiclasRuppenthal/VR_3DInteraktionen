@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class ActorMovement : MonoBehaviour
 {
     public float speed = 1.5f;
-    
+
+    public InputActionProperty button;
+
     private PointToPointMovement pMovement;
     private Vector3[] positions = new [] 
     {
@@ -29,7 +33,7 @@ public class ActorMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) || button.action.WasPressedThisFrame())
         {
             areMoving = !areMoving;
             pMovement.setInfiniteStatus(true);
