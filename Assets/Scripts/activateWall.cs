@@ -14,7 +14,7 @@ public class activateWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (wall.gameObject.name != "Wand mitte")
+        if (wall.gameObject.name == "Wand mitte")
         {
             if (Input.GetKeyDown(KeyCode.W) || button.action.WasPressedThisFrame())
             {

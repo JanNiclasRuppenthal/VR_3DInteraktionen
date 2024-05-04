@@ -1,14 +1,21 @@
 Editor:
 
 Tastenbelegungen und ihre Funktionen:
-    - w             ->      De- oder Aktivierung einer Zwischenwand im Ames Raum
-    - p             ->      Starten oder Pausieren der Bewegung der Astronauten
-    - Leertaste     ->      Starten oder Pausieren der Kamerafahrt
-    - r             ->      Reset der Kameraposition
+    - W                     ->      De- oder Aktivierung einer Zwischenwand im Ames Raum
+    - P                     ->      Starten oder Pausieren der Bewegung der Astronauten
+    - Leertaste             ->      Starten oder Pausieren der Kamerafahrt
+    - R                     ->      Reset der Kameraposition
     
 
 VR:
+    - Linker Joystick       ->      Bewegung 
+    - Rechter Joystick      ->      Drehung um 45 Grad
 
+    Rechter Controller:
+        - A                 ->      De- oder Aktivierung der vorderen Wand
+    Linker Controller:
+        - X                 ->      Starten oder Pausieren der Bewegung der Astronauten
+        - Y                 ->      De- oder Aktivierung einer Zwischenwand im Ames Raum
 
 
 
@@ -29,3 +36,4 @@ Verwendete externe Quellen (beide Aufgabenteile):
 - Unity Package Manager:
     - ProBuilder with Experimental features
     - XR Interaction Toolkit with Starter Assets
+    - TextMeshPro
