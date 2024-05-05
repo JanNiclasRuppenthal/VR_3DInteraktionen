@@ -66,7 +66,7 @@ Virtual Reality\\ Ames-Raum}
 \begin{figure}
     \centering
     \movie[externalviewer]{
-\includegraphics[width=0.9\textwidth, keepaspectratio]{ezgif-frame-001}
+\includegraphics[width=0.9\textwidth, keepaspectratio]{NoWall-Frame}
 }{MovementAmesRoom.mp4}
 \caption{Kamerafahrt im Unity Editor ohne Wand}
 \end{figure}
@@ -76,8 +76,8 @@ Virtual Reality\\ Ames-Raum}
 \begin{figure}
     \centering
     \movie[externalviewer]{
-\includegraphics[width=0.9\textwidth, keepaspectratio]{ezgif-frame-001}
-}{MovementAmesRoom.mp4}
+\includegraphics[width=0.9\textwidth, keepaspectratio]{Wall-Frame}
+}{MovementAmesRoomWall.mp4}
 \caption{Kamerafahrt im Unity Editor mit Wand}
 \end{figure}
 \end{frame}
@@ -106,7 +106,7 @@ Virtual Reality\\ Ames-Raum}
 \begin{figure}
     \centering
 \includegraphics[width=0.75\textheight, keepaspectratio]{nick}
-\caption{Checkerboard Boden}
+\caption{Checkerboard Boden \cite{nick}}
 \end{figure}
 \end{frame}
 
@@ -125,7 +125,7 @@ Virtual Reality\\ Ames-Raum}
 \begin{figure}
     \centering
 \includegraphics[width=0.9\textwidth, keepaspectratio]{astro}
-\caption{Astronaut Asset}
+\caption{Astronaut Asset \cite{astronaut}}
 \end{figure}
 \end{frame}
 
@@ -137,7 +137,7 @@ Virtual Reality\\ Ames-Raum}
 \begin{figure}
     \centering
 \includegraphics[width=0.9\textwidth, keepaspectratio]{thema1}
-\caption{Astronaut Asset}
+\caption{Astronaut Asset \cite{astronaut}}
 \end{figure}
 \end{frame}
 
@@ -149,7 +149,7 @@ Virtual Reality\\ Ames-Raum}
 \begin{figure}
     \centering
 \includegraphics[width=0.9\textwidth, keepaspectratio]{thema2}
-\caption{Bilder}
+\caption{Bilder \cite{planet} \cite{rakete}}
 \end{figure}
 \end{frame}
 
@@ -171,12 +171,13 @@ Virtual Reality\\ Ames-Raum}
 \begin{figure}
     \centering
 \includegraphics[width=0.9\textwidth, keepaspectratio]{thema4}
-\caption{Sternenhimmel}
+\caption{Sternenhimmel \cite{nightsky}}
 \end{figure}
 \end{frame}
 
 \begin{frame}{Hinzufügen von Skripten}
 \begin{itemize}
+\item Für die Zwischenwand.
 \item Für die Astronauten.
 \item Für die Kamerafahrt.
 \item Für den Sternenhimmel.
@@ -193,18 +194,38 @@ Virtual Reality\\ Ames-Raum}
 
 
 \begin{frame}{VR Illusion}
+\begin{figure}
     \centering
     \movie[externalviewer]{
-\includegraphics[width=0.9\textwidth, keepaspectratio]{ezgif-frame-001}
-}{MovementAmesRoom.mp4}
+\includegraphics[height=0.8\textheight, keepaspectratio]{VR-Frame}
+}{VRMovementAmesRoom.mp4}
+\caption{Rundgang in der VR-Umgebung}
+\end{figure}
 \end{frame}
 
 
-\begin{frame}{Werfen}
-    \centering
-    \movie[externalviewer]{
-\includegraphics[width=0.9\textwidth, keepaspectratio]{ezgif-frame-001}
-}{MovementAmesRoom.mp4}
+\begin{frame}{Durchführung}
+\begin{itemize}
+\item Anpassung der InputActions des XR Interaction Toolkits.
+\item Anbringen von Mesh Collidern.
+\item Hinzufügen von unsichtbaren Wänden und Rampe.
+\item Anfügen des Grab Interactable Skripts.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Quellen}
+	\begin{thebibliography}{10}
+\bibitem{nick}[1]{ \url{dennisroberts.com/NICKELODEON-AMES-ROOM}
+}
+\bibitem{astronaut}[2]{ \url{assetstore.unity.com/packages/3d/characters/humanoids/sci-fi/stylized-astronaut-114298}
+}
+\bibitem{rakete}[3]{ \url{pxhere.com/de/photo/932971}
+}
+\bibitem{planet}[4]{ \url{pxhere.com/de/photo/1162603}
+}
+\bibitem{nightsky}[5]{ \url{tools.wwwtyro.net/space-3d/index.html}}
+\end{thebibliography}
 \end{frame}
 
 
