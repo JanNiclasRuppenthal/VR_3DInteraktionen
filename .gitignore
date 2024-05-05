@@ -6,7 +6,9 @@
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
-/[Bb]uilds/
+
+# Added a * to add the apk file
+/[Bb]uilds/*
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
@@ -70,3 +72,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+
+
+
+#Insert an exception for the .apk file
+!Builds/VRAmesRoom.apk
