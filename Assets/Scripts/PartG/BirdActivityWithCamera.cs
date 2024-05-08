@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdActivity : MonoBehaviour
+public class BirdActivityWithCamera : MonoBehaviour
 {
     [SerializeField] private GameObject spawnManager;
-
+    [SerializeField] private Camera mainCamera;
     [SerializeField] [Range(-180, 180)] private float angle = 90f;
     private float speed = 20f;
 
@@ -38,7 +38,11 @@ public class BirdActivity : MonoBehaviour
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition3, 
                 speed * Time.deltaTime);
-            this.transform.LookAt(targetPosition3);
+            //this.transform.LookAt(targetPosition3);
+            
+            Vector3 lookDirection = targetPosition3 - this.transform.position;
+            lookDirection.Normalize();
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(lookDirection), 6 * Time.deltaTime);
         }
         else if (!targetPosition.Equals(lastPosition))
         {
@@ -47,6 +51,8 @@ public class BirdActivity : MonoBehaviour
         else
         {
             this.transform.RotateAround(targetPosition3, Vector3.up, this.angle * Time.deltaTime);
+            mainCamera.gameObject.transform.rotation = Quaternion.Euler(0, this.transform.rotation.eulerAngles.y, 0);
+
             //Vector3 vectorTree = (targetPosition3 - this.transform.position).normalized;
             //Vector3 tangent = Vector3.Cross(vectorTree, Vector3.up).normalized;
             //this.transform.LookAt(this.transform.position + tangent);
