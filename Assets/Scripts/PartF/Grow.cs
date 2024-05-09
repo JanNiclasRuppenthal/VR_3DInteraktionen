@@ -8,6 +8,7 @@ public class Grow : MonoBehaviour
     private float speed = 0.05f;
 
     private GameObject spawnManager;
+    private GameObject fallingLeaves;
     private Spawn spawnScript;
     
     
@@ -16,6 +17,7 @@ public class Grow : MonoBehaviour
     {
         spawnManager = GameObject.Find("SpawnManager");
         spawnScript = spawnManager.GetComponent<Spawn>();
+        fallingLeaves = this.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -24,8 +26,11 @@ public class Grow : MonoBehaviour
         float x = this.transform.localScale.x + speed * Time.deltaTime;
         float y = this.transform.localScale.y + speed  * Time.deltaTime;
         float z = this.transform.localScale.z + speed  * Time.deltaTime;
-        
-        this.transform.localScale = new Vector3(x, y, z);
+
+        Vector3 newScale = new Vector3(x, y, z);
+
+        this.transform.localScale = newScale;
+        fallingLeaves.transform.localScale = newScale;
 
 
         if (x >= max)

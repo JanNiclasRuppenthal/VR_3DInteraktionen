@@ -6,14 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="63fe88fb-4c5f-4aa2-9765-641d723a2098" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VR_3DInteraktionen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VR_3DInteraktionen/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Darth_Artisan/Free_Trees/Meshes/Materials/Free_Tree.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Darth_Artisan/Free_Trees/Meshes/Materials/Free_Tree.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Darth_Artisan/Free_Trees/Prefabs/Oak_Tree.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Darth_Artisan/Free_Trees/Prefabs/Oak_Tree.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AufgabenteilE.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AufgabenteilE.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/AufgabenteilF.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AufgabenteilF.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PartD/RotationBirdVariable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PartD/RotationBirdVariable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PartE/RotationBirdVariableLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PartE/RotationBirdVariableLook.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PartF/BirdActivity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PartF/BirdActivity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PartF/Grow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PartF/Grow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PartF/Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PartF/Spawn.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +108,7 @@
       <workItem from="1714920878308" duration="69000" />
       <workItem from="1715191342284" duration="219000" />
       <workItem from="1715191610891" duration="372000" />
-      <workItem from="1715274557673" duration="6944000" />
+      <workItem from="1715274557673" duration="11412000" />
     </task>
     <servers />
   </component>
