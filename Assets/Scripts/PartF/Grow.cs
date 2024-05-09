@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Grow : MonoBehaviour
 {
-    [SerializeField] private float min = 0.4f;
-    [SerializeField] private float max = 1f;
-    [SerializeField] private float speed = 0.2f;
+    private float max = 4f;
+    private float speed = 0.05f;
 
     private GameObject spawnManager;
+    private Spawn spawnScript;
     
     
     // Start is called before the first frame update
     void Start()
     {
         spawnManager = GameObject.Find("SpawnManager");
+        spawnScript = spawnManager.GetComponent<Spawn>();
     }
 
     // Update is called once per frame
@@ -29,10 +30,9 @@ public class Grow : MonoBehaviour
 
         if (x >= max)
         {
-            this.gameObject.SetActive(false);
-            spawnManager.GetComponent<Spawn>().treecount -= 1;
-            spawnManager.GetComponent<Spawn>().trees.RemoveAt(0);
-            Destroy(this.gameObject);
+            spawnScript.trees.RemoveAt(0);
+            spawnScript.treecount -= 1;
+            Destroy(this.gameObject); 
             return;
         }
     }

@@ -24,7 +24,11 @@ public class BirdActivity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        targetPosition = spawnScript.trees[0];
+        if (spawnScript.treecount > 0)
+        {
+            targetPosition = spawnScript.trees[0];
+        }
+
         Vector3 targetPosition3 = new Vector3(targetPosition.x, 2, targetPosition.y);
         
         if (Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.z), targetPosition) <= 5f)

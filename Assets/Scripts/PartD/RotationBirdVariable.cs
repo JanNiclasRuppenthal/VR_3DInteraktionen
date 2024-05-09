@@ -6,7 +6,7 @@ public class RotationBirdVariable : MonoBehaviour
 {
     [SerializeField] private GameObject oakTree;
     [Range(-180, 180)]
-    public float angle = 0;
+    public float angle = 90;
     
     
     void Update()
