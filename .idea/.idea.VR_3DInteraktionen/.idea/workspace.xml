@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="63fe88fb-4c5f-4aa2-9765-641d723a2098" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VR_3DInteraktionen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VR_3DInteraktionen/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Darth_Artisan/Free_Trees/Meshes/Materials/Free_Tree.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Darth_Artisan/Free_Trees/Meshes/Materials/Free_Tree.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Darth_Artisan/Free_Trees/Prefabs/Oak_Tree.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Darth_Artisan/Free_Trees/Prefabs/Oak_Tree.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quirky Series Ultimate/FREE/Animations/AC_Sparrow.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quirky Series Ultimate/FREE/Animations/AC_Sparrow.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/AufgabenteilF.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AufgabenteilF.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PartF/BirdActivity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PartF/BirdActivity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PartF/Grow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PartF/Grow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PartF/Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PartF/Spawn.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +25,11 @@
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0f2ae8ab9582468aba74e46ff923b57a27800/a9/81c3554a/Animator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4b234520e36749be9cf6b053d911690f46ac00/91/825f41a5/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PartG/BirdActivityWithCamera.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -34,28 +41,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.37931034&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Uebung02&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "XThreadsFramesViewSplitterKey": "0.37931034",
+    "git-widget-placeholder": "Uebung02",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.editor",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\janru\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\janru\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\janru\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\janru\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\janru\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\janru\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.21f1\Editor\Unity.exe" />
@@ -83,10 +90,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="20312">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="30248">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="20312" />
+      <option name="pid" value="30248" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -109,6 +116,7 @@
       <workItem from="1715191342284" duration="219000" />
       <workItem from="1715191610891" duration="372000" />
       <workItem from="1715274557673" duration="11412000" />
+      <workItem from="1715348789328" duration="5763000" />
     </task>
     <servers />
   </component>

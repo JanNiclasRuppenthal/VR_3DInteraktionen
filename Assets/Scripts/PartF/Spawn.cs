@@ -7,11 +7,11 @@ using Random = UnityEngine.Random;
 public class Spawn : MonoBehaviour
 {
 
-    public List<Vector2> trees = new List<Vector2>()
+    [SerializeField] public List<Vector2> trees = new List<Vector2>()
     {
         new Vector2(0, 0),
         new Vector2(-40, 0),
-        new Vector2(0, 20),
+        new Vector2(-20, 20),
         new Vector2(-20, -20),
         new Vector2(20, 0),
         new Vector2(20, 20),
@@ -19,19 +19,11 @@ public class Spawn : MonoBehaviour
         new Vector2(-20, 0),
         new Vector2(40, 30),
         new Vector2(20, -20),
-        new Vector2(10, -40),
-        new Vector2(40, -30),
-        new Vector2(10, 40),
-        new Vector2(-40, -30),
-        new Vector2(-20, 20),
-        new Vector2(-10, -40),
-        new Vector2(-40, 30),
-        new Vector2(-10, 40),
-        new Vector2(0, -20)
+        new Vector2(40, -30)
     };
     
     public GameObject prefab;
-    public int treecount = 19;
+    public int treecount = 11;
     public float minSize = 0.4f;
     private float startTime;
     private GameObject parent;
@@ -48,7 +40,7 @@ public class Spawn : MonoBehaviour
     {
         if (Math.Abs(startTime - Time.time) > 1.25f)
         {
-            if (treecount < 19)
+            if (treecount < 11)
             {
                 Vector2 pos = new Vector2(Random.Range(-45.0f, 45.0f), Random.Range(-45.0f, 45.0f));
                 if (isAcceptable(pos))

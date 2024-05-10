@@ -13,11 +13,13 @@ public class BirdActivity : MonoBehaviour
     private Spawn spawnScript;
     private Vector2 targetPosition;
     private Vector2 lastPosition;
+    private Animator _animator;
     
     // Start is called before the first frame update
     void Start()
     {
         spawnScript = spawnManager.GetComponent<Spawn>();
+        _animator = this.GetComponent<Animator>();
         moveToBiggestTree = true;
     }
 
@@ -46,7 +48,7 @@ public class BirdActivity : MonoBehaviour
         }
         else if (!targetPosition.Equals(lastPosition))
         {
-            moveToBiggestTree = true;
+            StartCoroutine(moveNext());
         }
         else
         {
@@ -56,7 +58,18 @@ public class BirdActivity : MonoBehaviour
             //this.transform.LookAt(this.transform.position + tangent);
         }
     }
-    
-    
-    
+
+
+    public void changeAnimatorState(string tag, bool state)
+    {
+        _animator.SetBool(tag, state);
+    }
+
+    IEnumerator moveNext()
+    {
+        changeAnimatorState("treeDisappeared", true);
+        yield return new WaitForSeconds(0.4f);
+        moveToBiggestTree = true;
+        changeAnimatorState("treeDisappeared", false);
+    }
 }
