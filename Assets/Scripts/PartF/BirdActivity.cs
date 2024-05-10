@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,46 +8,56 @@ public class BirdActivity : MonoBehaviour
     [SerializeField] private GameObject spawnManager;
 
     [SerializeField] [Range(-180, 180)] private float angle = 90f;
-    private float speed = 20f;
-
-    private bool moveToBiggestTree;
-    private Spawn spawnScript;
-    private Vector2 targetPosition;
-    private Vector2 lastPosition;
+    
+    private float _speed = 20f;
+    private bool _moveToBiggestTree;
+    private bool _hit = false;
+    private Spawn _spawnScript;
+    private Vector2 _targetPosition;
+    private Vector2 _lastPosition;
     private Animator _animator;
+    private Rigidbody rb;
+    private int _countLives = 3;
     
     // Start is called before the first frame update
     void Start()
     {
-        spawnScript = spawnManager.GetComponent<Spawn>();
+        _spawnScript = spawnManager.GetComponent<Spawn>();
         _animator = this.GetComponent<Animator>();
-        moveToBiggestTree = true;
+        _moveToBiggestTree = true;
+        rb = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawnScript.treecount > 0)
+        if (_countLives == 0)
         {
-            targetPosition = spawnScript.trees[0];
+            return;
+        }
+        
+        if (_spawnScript.trees.Count > 0)
+        {
+            Vector3 nextPosition = _spawnScript.trees[0].transform.position;
+            _targetPosition = new Vector2(nextPosition.x, nextPosition.z);
         }
 
-        Vector3 targetPosition3 = new Vector3(targetPosition.x, 2, targetPosition.y);
+        Vector3 targetPosition3 = new Vector3(_targetPosition.x, 2, _targetPosition.y);
         
-        if (Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.z), targetPosition) <= 5f)
+        if (Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.z), _targetPosition) <= 5f)
         {
-            moveToBiggestTree = false;
-            lastPosition = targetPosition;
+            _moveToBiggestTree = false;
+            _lastPosition = _targetPosition;
         }
         
         
-        if (moveToBiggestTree)
+        if (_moveToBiggestTree)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition3, 
-                speed * Time.deltaTime);
+                _speed * Time.deltaTime);
             this.transform.LookAt(targetPosition3);
         }
-        else if (!targetPosition.Equals(lastPosition))
+        else if (!_targetPosition.Equals(_lastPosition) )
         {
             StartCoroutine(moveNext());
         }
@@ -67,9 +78,44 @@ public class BirdActivity : MonoBehaviour
 
     IEnumerator moveNext()
     {
-        changeAnimatorState("treeDisappeared", true);
-        yield return new WaitForSeconds(0.4f);
-        moveToBiggestTree = true;
-        changeAnimatorState("treeDisappeared", false);
+        string tag = (_hit) ? "hit" : "treeDisappeared";
+        changeAnimatorState(tag, true);
+        yield return new WaitForSeconds(0.3f);
+        _moveToBiggestTree = true;
+        changeAnimatorState(tag, false);
+    }
+
+    IEnumerator hitByTree()
+    {
+        yield return new WaitForSeconds(0.3f);
+        _moveToBiggestTree = true;
+        _hit = false;
+    }
+
+    IEnumerator sparrowDies()
+    {
+        changeAnimatorState("died", true);
+        yield return new WaitForSeconds(0.3f);
+        rb.useGravity = true;
+    }
+
+    private void OnTriggerEnter(Collider treeCollider)
+    {
+        _moveToBiggestTree = false;
+        _hit = true;
+        
+        Grow growScriptOfTree = treeCollider.gameObject.GetComponent<Grow>();
+        growScriptOfTree.explode();
+
+        if (--_countLives == 0)
+        {
+            StartCoroutine(sparrowDies());
+        }
+        else
+        {
+            StartCoroutine(hitByTree());
+        }
+        growScriptOfTree.removeTreeFromList();
+        Destroy(treeCollider.gameObject);
     }
 }

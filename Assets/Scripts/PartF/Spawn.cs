@@ -2,69 +2,53 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class Spawn : MonoBehaviour
 {
-
-    [SerializeField] public List<Vector2> trees = new List<Vector2>()
-    {
-        new Vector2(0, 0),
-        new Vector2(-40, 0),
-        new Vector2(-20, 20),
-        new Vector2(-20, -20),
-        new Vector2(20, 0),
-        new Vector2(20, 20),
-        new Vector2(40, 0),
-        new Vector2(-20, 0),
-        new Vector2(40, 30),
-        new Vector2(20, -20),
-        new Vector2(40, -30)
-    };
+    public List<GameObject> trees;
+    public int maxTrees;
     
-    public GameObject prefab;
-    public int treecount = 11;
+    public GameObject oakTreePrefab;
     public float minSize = 0.4f;
-    private float startTime;
-    private GameObject parent;
+    private float _startTime;
+    private GameObject _parent;
     
     // Start is called before the first frame update
     void Start()
     {
-        startTime = Time.time;
-        parent = GameObject.Find("Trees");
+        _startTime = Time.time;
+        _parent = GameObject.Find("Trees");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Math.Abs(startTime - Time.time) > 1.25f)
+        if (Math.Abs(_startTime - Time.time) > 3f)
         {
-            if (treecount < 11)
+            if (trees.Count < maxTrees)
             {
                 Vector2 pos = new Vector2(Random.Range(-45.0f, 45.0f), Random.Range(-45.0f, 45.0f));
                 if (isAcceptable(pos))
                 {
-                    GameObject go = Instantiate(prefab, new Vector3(pos.x, 0, pos.y), Quaternion.identity);
+                    GameObject go = Instantiate(oakTreePrefab, new Vector3(pos.x, 0, pos.y), Quaternion.identity);
                     go.transform.localScale = new Vector3(minSize, minSize, minSize);
                     go.AddComponent<Grow>();
-                    go.transform.parent = parent.transform;
-                    treecount += 1;
-                    trees.Add(pos);
+                    go.transform.parent = _parent.transform;
+                    trees.Add(go);
                 }
 
             }
-
-            startTime = Time.time;
+            _startTime = Time.time;
         }
     }
 
     bool isAcceptable(Vector2 xz)
     {
-        
-        foreach (Vector2 tree in trees)
+        foreach (GameObject tree in trees)
         {
-            if(Vector2.Distance(tree, xz) < 7)
+            if(Vector2.Distance(tree.transform.position, xz) < 7)
             {
                 return false;
             }

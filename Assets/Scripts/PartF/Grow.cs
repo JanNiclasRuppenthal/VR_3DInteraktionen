@@ -5,65 +5,73 @@ using UnityEngine.Experimental.Rendering;
 
 public class Grow : MonoBehaviour
 {
-    private float max = 4f;
-    private float speed = 0.05f;
-    private GameObject spawnManager;
-    private BirdActivity sparrowScript;
-    private Spawn spawnScript;
-    private MeshRenderer renderer;
-    private ParticleSystem fallingLeaves;
-    private ParticleSystem explosion;
+    private readonly float _max = 4f;
+    private readonly float _growingSpeed = 0.05f;
+    private GameObject _spawnManager;
+    private Spawn _spawnScript;
+    private MeshRenderer _meshRenderer;
+    private ParticleSystem _fallingLeavesParticleSystem;
+    private ParticleSystem _explosionParticleSystem;
     
     
     
     // Start is called before the first frame update
     void Start()
     {
-        spawnManager = GameObject.Find("SpawnManager");
-        spawnScript = spawnManager.GetComponent<Spawn>();
-        
-        sparrowScript = GameObject.Find("Sparrow").GetComponent<BirdActivity>();
+        _spawnManager = GameObject.Find("SpawnManager");
+        _spawnScript = _spawnManager.GetComponent<Spawn>();
 
-        renderer = this.gameObject.GetComponent<MeshRenderer>();
+        _meshRenderer = this.gameObject.GetComponent<MeshRenderer>();
         
-        fallingLeaves = this.transform.GetChild(0).GetComponent<ParticleSystem>();
-        fallingLeaves.gameObject.SetActive(true);
+        _fallingLeavesParticleSystem = this.transform.GetChild(0).GetComponent<ParticleSystem>();
+        _fallingLeavesParticleSystem.gameObject.SetActive(true);
         
-        explosion = this.transform.GetChild(1).GetComponent<ParticleSystem>();
+        _explosionParticleSystem = this.transform.GetChild(1).GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float x = this.transform.localScale.x + speed * Time.deltaTime;
-        float y = this.transform.localScale.y + speed  * Time.deltaTime;
-        float z = this.transform.localScale.z + speed  * Time.deltaTime;
+        float x = this.transform.localScale.x + _growingSpeed * Time.deltaTime;
+        float y = this.transform.localScale.y + _growingSpeed  * Time.deltaTime;
+        float z = this.transform.localScale.z + _growingSpeed  * Time.deltaTime;
 
         Vector3 newScale = new Vector3(x, y, z);
 
         this.transform.localScale = newScale;
-        fallingLeaves.transform.localScale = newScale;
+        _fallingLeavesParticleSystem.transform.localScale = newScale;
+        _explosionParticleSystem.gameObject.transform.localScale = newScale;
 
 
-        if (x >= max)
+        if (x >= _max)
         {
-            fallingLeaves.gameObject.SetActive(false);
-            renderer.enabled = false;
-            explosion.gameObject.transform.localScale = newScale;
-            explosion.gameObject.SetActive(true);
-            explosion.Play();
+            explode();
 
-            StartCoroutine(test());
+            StartCoroutine(destroyTree());
             return;
         }
     }
 
-    IEnumerator test()
+    IEnumerator destroyTree()
     {
         yield return new WaitForSeconds(0.4f);
-        spawnScript.trees.RemoveAt(0);
-        spawnScript.treecount -= 1;
+        removeTreeFromList();
         Destroy(this.gameObject);
+    }
+
+
+    public void removeTreeFromList()
+    {
+        _spawnScript.trees.Remove(this.gameObject);
+    }
+
+
+    public void explode()
+    {
+        _fallingLeavesParticleSystem.gameObject.SetActive(false);
+        _meshRenderer.enabled = false;
+        _explosionParticleSystem.gameObject.SetActive(true);
+        _explosionParticleSystem.Play();
     }
     
 }
