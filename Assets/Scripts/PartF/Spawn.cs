@@ -48,7 +48,7 @@ public class Spawn : MonoBehaviour
     {
         foreach (GameObject tree in trees)
         {
-            if(Vector2.Distance(tree.transform.position, xz) < 7)
+            if(Vector2.Distance(new Vector2(tree.transform.position.x, tree.transform.position.z), xz) <= 10f)
             {
                 return false;
             }
