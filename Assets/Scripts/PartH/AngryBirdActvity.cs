@@ -17,7 +17,7 @@ public class AngryBirdActivity : MonoBehaviour
     private bool _moveToBiggestTree;
     private bool _hit = false;
     private int mode = 1;
-    private Spawn _spawnScript;
+    private SpawnPartH _spawnScript;
     private Vector2 _targetPosition;
     private Vector2 _lastPosition;
     private Animator _animator;
@@ -28,7 +28,7 @@ public class AngryBirdActivity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _spawnScript = spawnManager.GetComponent<Spawn>();
+        _spawnScript = spawnManager.GetComponent<SpawnPartH>();
         _animator = this.GetComponent<Animator>();
         _moveToBiggestTree = true;
         rb = angryBird.GetComponent<Rigidbody>();
@@ -161,7 +161,7 @@ public class AngryBirdActivity : MonoBehaviour
         }
         else
         {
-            Grow growScriptOfTree = collider.gameObject.GetComponent<Grow>();
+            GrowPartH growScriptOfTree = collider.gameObject.GetComponent<GrowPartH>();
             growScriptOfTree.explode();
 
             growScriptOfTree.removeTreeFromList();
