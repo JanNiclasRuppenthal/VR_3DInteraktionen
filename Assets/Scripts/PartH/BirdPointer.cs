@@ -17,7 +17,6 @@ public class BirdPointer : MonoBehaviour
     }
 
     private GameObject conL;
-    private GameObject conR;
     private GameObject player;
     private SpawnPartH spawnScript;
     private GameObject spawnManager;
@@ -46,9 +45,7 @@ public class BirdPointer : MonoBehaviour
         spawnScript.trees.Insert(0, this.gameObject);
 
         conL = GameObject.Find("Left Controller");
-        conR = GameObject.Find("Right Controller");
         conL.transform.GetChild(1).gameObject.SetActive(false);
-        conR.transform.GetChild(1).gameObject.SetActive(false);
         player = GameObject.Find("XR Origin");
         player.GetComponent<chargeRaycast>().charge();
     }
