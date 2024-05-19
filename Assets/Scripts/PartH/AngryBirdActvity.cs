@@ -7,7 +7,7 @@ public class AngryBirdActivity : MonoBehaviour
 {
     [SerializeField] private GameObject spawnManager;
     [SerializeField] private GameObject camera;
-    [SerializeField] private GameObject angryBird;
+    [SerializeField] private ParticleSystem smoke;
 
 
     [SerializeField] [Range(-180, 180)] private float angle = 90f;
@@ -31,7 +31,7 @@ public class AngryBirdActivity : MonoBehaviour
         _spawnScript = spawnManager.GetComponent<SpawnPartH>();
         _animator = this.GetComponent<Animator>();
         _moveToBiggestTree = true;
-        rb = angryBird.GetComponent<Rigidbody>();
+        rb = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -43,12 +43,6 @@ public class AngryBirdActivity : MonoBehaviour
         }
         Vector3 targetPosition3 = new Vector3(_targetPosition.x, 2, _targetPosition.y);
         Vector3 nextPosition2 = new Vector3(this.transform.position.x, this.transform.position.y - 0.125f, this.transform.position.z);
-        angryBird.transform.position = nextPosition2;
-            
-        Vector3 lookDirection2 = targetPosition3 - angryBird.transform.position;
-        lookDirection2.Normalize();
-        angryBird.transform.rotation = this.transform.rotation;
-    
 
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -146,7 +140,6 @@ public class AngryBirdActivity : MonoBehaviour
 
     void angryBirdDies()
     {
-        GameObject.Find ("Sparrow_AB").transform.localScale = new Vector3(0, 0, 0);
         rb.useGravity = true;
         _moveToBiggestTree = false;
         _countLives = 0;
@@ -155,13 +148,15 @@ public class AngryBirdActivity : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         _moveToBiggestTree = false;
-        if (collider.gameObject.transform.tag == "Ground")
+        if (collider.transform.gameObject.tag == "ground")
         {
-            //Do what you want when it collided with the ground
+            Destroy(gameObject);
+            ParticleSystem go = Instantiate(smoke, transform.position, transform.rotation);
+            Destroy(go.gameObject, 1f);
         }
-        else
+        else if (collider.transform.gameObject.tag == "tree")
         {
-            GrowPartH growScriptOfTree = collider.gameObject.GetComponent<GrowPartH>();
+            Grow growScriptOfTree = collider.gameObject.GetComponent<Grow>();
             growScriptOfTree.explode();
 
             growScriptOfTree.removeTreeFromList();
