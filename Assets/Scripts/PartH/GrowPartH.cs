@@ -99,5 +99,14 @@ public class GrowPartH : MonoBehaviour
         _explosionParticleSystem.gameObject.SetActive(true);
         _explosionParticleSystem.Play();
     }
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.transform.gameObject.tag == "AngryBird")
+        {
+            explode();
+
+            StartCoroutine(destroyTree());
+        }
+    }
 
 }

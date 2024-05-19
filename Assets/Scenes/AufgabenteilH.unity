@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.35791045, g: 0.73707587, b: 0.9809706, a: 1}
+  m_IndirectSpecularColor: {r: 0.3575618, g: 0.7353643, b: 0.97655886, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5187,7 +5187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a055edabb362de249bc6a241d9e40cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bird: {fileID: 0}
+  bird: {fileID: 617606209}
 --- !u!4 &1181301569 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 118a8561eecb3de4bb2b9f83bc42f26f, type: 3}
@@ -5927,6 +5927,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d5d04526a115e2f4a9e716542cabe40d, type: 3}
       propertyPath: m_Name
       value: birdAngry
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d5d04526a115e2f4a9e716542cabe40d, type: 3}
+      propertyPath: m_TagString
+      value: AngryBird
       objectReference: {fileID: 0}
     - target: {fileID: 971789762814960579, guid: d5d04526a115e2f4a9e716542cabe40d, type: 3}
       propertyPath: m_Materials.Array.data[2]
