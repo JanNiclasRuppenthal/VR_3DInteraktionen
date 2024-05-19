@@ -7,11 +7,7 @@
     <list default="true" id="63fe88fb-4c5f-4aa2-9765-641d723a2098" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VR_3DInteraktionen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VR_3DInteraktionen/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/AufgabenteilH.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AufgabenteilH.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PartH/BirdPointer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PartH/BirdPointer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/InteractionLayerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/InteractionLayerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PartH/BowStringController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PartH/BowStringController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,6 +113,7 @@
       <workItem from="1715348789328" duration="6337000" />
       <workItem from="1715358883189" duration="8640000" />
       <workItem from="1716128151906" duration="6725000" />
+      <workItem from="1716145900351" duration="713000" />
     </task>
     <servers />
   </component>
