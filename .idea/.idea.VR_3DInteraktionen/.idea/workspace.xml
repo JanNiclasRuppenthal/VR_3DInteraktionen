@@ -6,9 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="63fe88fb-4c5f-4aa2-9765-641d723a2098" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VR_3DInteraktionen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VR_3DInteraktionen/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ArrowPig.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ArrowPig.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ArrowPigShooting.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ArrowPigShooting.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/AufgabenteilH.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AufgabenteilH.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PartH/BowStringController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PartH/BowStringController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PartH/AngryBirdActvity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PartH/AngryBirdActvity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PartH/ArrowController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PartH/ArrowController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sound/pig-snort-101soundboards.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sound/pig-snort-101soundboards.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +29,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/228a75ed9d5b4a658c89f48527e7e2e0175400/7a/cb6e1ddc/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4b234520e36749be9cf6b053d911690f46ac00/91/825f41a5/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PartG/BirdActivityWithCamera.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PartH/BowController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PartH/BowString.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PartH/GrabbingLeftController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -113,7 +119,7 @@
       <workItem from="1715348789328" duration="6337000" />
       <workItem from="1715358883189" duration="8640000" />
       <workItem from="1716128151906" duration="6725000" />
-      <workItem from="1716145900351" duration="713000" />
+      <workItem from="1716145900351" duration="4411000" />
     </task>
     <servers />
   </component>

@@ -2414,6 +2414,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 118a8561eecb3de4bb2b9f83bc42f26f, type: 3}
+--- !u!4 &438505449 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5868885539024104329, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+  m_PrefabInstance: {fileID: 1400161242}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &450204120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2706,6 +2711,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 118a8561eecb3de4bb2b9f83bc42f26f, type: 3}
+--- !u!1 &484630760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 484630761}
+  m_Layer: 0
+  m_Name: Arrows
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &484630761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484630760}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -29.655264, y: 0.25991845, z: -3.1660535}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &512854609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3362,6 +3398,102 @@ MonoBehaviour:
   camera: {fileID: 155045337}
   smoke: {fileID: 6963010692666105851, guid: dc343cf5aac0a1e4bb280ca454224b93, type: 3}
   angle: 90
+--- !u!82 &617606216
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617606209}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 99d92af67a5409b4b8551197f12a53b6, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &620174055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6158,7 +6290,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 125
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -6332,6 +6464,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5d04526a115e2f4a9e716542cabe40d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 617606212}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5d04526a115e2f4a9e716542cabe40d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 617606216}
     - targetCorrespondingSourceObject: {fileID: 536378539995834914, guid: d5d04526a115e2f4a9e716542cabe40d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1242135976}
@@ -10131,7 +10266,7 @@ GameObject:
   - component: {fileID: 6688015753001062067}
   - component: {fileID: 139700479607945350}
   m_Layer: 0
-  m_Name: Direct Interactor
+  m_Name: Direct Interactor Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11474,7 +11609,7 @@ GameObject:
   - component: {fileID: 3385890771986759494}
   - component: {fileID: 8349061881736513907}
   m_Layer: 0
-  m_Name: Direct Interactor
+  m_Name: Direct Interactor Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12941,6 +13076,7 @@ GameObject:
   - component: {fileID: 4564216429510072307}
   - component: {fileID: 9014170784703519622}
   - component: {fileID: 8074195219055036463}
+  - component: {fileID: 9014170784703519646}
   m_Layer: 0
   m_Name: Left Controller
   m_TagString: Untagged
@@ -12948,6 +13084,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9014170784703519646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9014170784703519645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e859f40bb14be0a40965ee205823e8b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bow: {fileID: 1400161245}
+  bowString: {fileID: 438505449}
+  rayInteractor: {fileID: 122084618661658059}
+  arrow: {fileID: 1161968246}
 --- !u!1 &9067829888847606814
 GameObject:
   m_ObjectHideFlags: 0
@@ -13157,3 +13309,4 @@ SceneRoots:
   - {fileID: 323969301}
   - {fileID: 1402401507}
   - {fileID: 1400161242}
+  - {fileID: 484630761}

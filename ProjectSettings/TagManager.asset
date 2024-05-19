@@ -8,6 +8,7 @@ TagManager:
   - ground
   - Bird Cam
   - AngryBird
+  - Arrow
   layers:
   - Default
   - TransparentFX

@@ -24,6 +24,7 @@ public class AngryBirdActivity : MonoBehaviour
     private Rigidbody rb;
     private int _countLives = 3;
     private int distance = -10;
+    private AudioSource _audioSourceDie;
     
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class AngryBirdActivity : MonoBehaviour
         _spawnScript = spawnManager.GetComponent<SpawnPartH>();
         _animator = this.GetComponent<Animator>();
         _moveToBiggestTree = true;
+        _audioSourceDie = this.GetComponent<AudioSource>();
         rb = this.GetComponent<Rigidbody>();
     }
 
@@ -140,6 +142,7 @@ public class AngryBirdActivity : MonoBehaviour
 
     void angryBirdDies()
     {
+        _audioSourceDie.Play(0);
         rb.useGravity = true;
         _moveToBiggestTree = false;
         _countLives = 0;
@@ -148,19 +151,23 @@ public class AngryBirdActivity : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         _moveToBiggestTree = false;
-        if (collider.transform.gameObject.tag == "ground")
+        if (collider.transform.gameObject.CompareTag("ground"))
         {
             Destroy(gameObject);
             ParticleSystem go = Instantiate(smoke, transform.position, transform.rotation);
             Destroy(go.gameObject, 1f);
         }
-        else if (collider.transform.gameObject.tag == "tree")
+        else if (collider.transform.gameObject.CompareTag("tree"))
         {
             Grow growScriptOfTree = collider.gameObject.GetComponent<Grow>();
             growScriptOfTree.explode();
 
             growScriptOfTree.removeTreeFromList();
             Destroy(collider.gameObject);
+        }
+        else if (collider.transform.gameObject.CompareTag("Arrow"))
+        {
+            angryBirdDies();
         }
     }
 
