@@ -10,6 +10,7 @@ public class SpawnPartH : MonoBehaviour
     public List<GameObject> trees;
     public int maxTrees;
     public List<GameObject> treeroots;
+    [SerializeField] private GameObject angryBird;
 
     public GameObject oakTreePrefab;
     public GameObject oakTreerootPrefab;
@@ -65,5 +66,18 @@ public class SpawnPartH : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public void shootBird(){
+        StartCoroutine(spawnNewBird());
+    }
+    IEnumerator spawnNewBird(){
+        Animator anim = GameObject.Find("angryBirdSlingshot").GetComponent<Animator> ();
+        anim.Play("Shoot");
+        GameObject bird = Instantiate(angryBird, new Vector3(43f, 17f, -43f),  Quaternion.Euler(new Vector3(0, -50, 0)));
+        bird.SetActive(true);
+        yield return new WaitForSeconds(0.6f);
+        bird.GetComponent<Rigidbody>().AddForce(new Vector3(-750,500,750));
+        bird.GetComponent<Rigidbody>().useGravity = true;
     }
 }

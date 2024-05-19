@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class AngryBirdActivity : MonoBehaviour
 {
-    [SerializeField] private GameObject spawnManager;
-    [SerializeField] private GameObject camera;
     [SerializeField] private ParticleSystem smoke;
 
 
     [SerializeField] [Range(-180, 180)] private float angle = 90f;
+    public bool enabled = false;
     
     private float _speed = 20f;
     private float _cameraspeed = 40f;
@@ -25,10 +24,14 @@ public class AngryBirdActivity : MonoBehaviour
     private int _countLives = 3;
     private int distance = -10;
     private AudioSource _audioSourceDie;
+    private GameObject camera;
+    private GameObject spawnManager;
     
     // Start is called before the first frame update
     void Start()
     {
+        spawnManager = GameObject.Find("SpawnManager");
+        camera = GameObject.Find("Bird Camera");
         _spawnScript = spawnManager.GetComponent<SpawnPartH>();
         _animator = this.GetComponent<Animator>();
         _moveToBiggestTree = true;
@@ -39,13 +42,20 @@ public class AngryBirdActivity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_countLives == 0)
-        {
-            return;
-        }
+        if (_countLives == 0) return;
+
+        Vector3 back = -this.transform.forward;
+        back.y = 0.5f; // this determines how high. Increase for higher view angle.
+        Vector3 nextPositionCam = this.transform.position - back * distance;
+        camera.transform.position = Vector3.MoveTowards(camera.transform.position, nextPositionCam,
+            _cameraspeed * Time.deltaTime);
+        camera.transform.forward = this.transform.position - camera.transform.position;
+        
+        if (!enabled) return;
+
         Vector3 targetPosition3 = new Vector3(_targetPosition.x, 2, _targetPosition.y);
         Vector3 nextPosition2 = new Vector3(this.transform.position.x, this.transform.position.y - 0.125f, this.transform.position.z);
-
+/*
         if (Input.GetKeyDown(KeyCode.P))
         {
             if (mode == 3){
@@ -54,6 +64,7 @@ public class AngryBirdActivity : MonoBehaviour
                 mode++;
             }
         }
+        */
 
         // Testing death og bird
         if (Input.GetKeyDown(KeyCode.D))
@@ -99,7 +110,7 @@ public class AngryBirdActivity : MonoBehaviour
             //this.transform.LookAt(this.transform.position + tangent);
         }
 
-        
+        /*
         if (mode == 1)
         {
             Vector3 nextPosition = new Vector3(this.transform.position.x, this.transform.position.y + 0.6f, this.transform.position.z);
@@ -125,6 +136,7 @@ public class AngryBirdActivity : MonoBehaviour
             lookDirection.Normalize();
             camera.transform.rotation = Quaternion.Slerp(camera.transform.rotation, Quaternion.LookRotation(lookDirection), 6 * Time.deltaTime);
         }
+        */
 
     }
 
@@ -146,6 +158,7 @@ public class AngryBirdActivity : MonoBehaviour
         rb.useGravity = true;
         _moveToBiggestTree = false;
         _countLives = 0;
+        spawnManager.GetComponent<SpawnPartH>().shootBird();
     }
 
     private void OnTriggerEnter(Collider collider)
