@@ -20,6 +20,7 @@ public class SpawnPartH : MonoBehaviour
     private GameObject _pRoots;
 
     private GameObject _player;
+    private AudioSource audioLaunch;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,9 @@ public class SpawnPartH : MonoBehaviour
         _parent = GameObject.Find("Trees");
         _pRoots = GameObject.Find("Treeroots");
         _player = GameObject.Find("XR Origin");
+        
+        // audio
+        audioLaunch = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -71,12 +75,15 @@ public class SpawnPartH : MonoBehaviour
     public void shootBird(){
         StartCoroutine(spawnNewBird());
     }
+
     IEnumerator spawnNewBird(){
+        yield return new WaitForSeconds(1f);
         Animator anim = GameObject.Find("angryBirdSlingshot").GetComponent<Animator> ();
         anim.Play("Shoot");
         GameObject bird = Instantiate(angryBird, new Vector3(43f, 17f, -43f),  Quaternion.Euler(new Vector3(0, -50, 0)));
         bird.SetActive(true);
         yield return new WaitForSeconds(0.6f);
+        audioLaunch.Play(0);
         bird.GetComponent<Rigidbody>().AddForce(new Vector3(-750,500,750));
         bird.GetComponent<Rigidbody>().useGravity = true;
     }
