@@ -32,7 +32,10 @@ public class BirdPointer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        script.Invoke();
+        if (!other.gameObject.transform.CompareTag("AngryBird"))
+        {
+            script.Invoke();
+        }
     }
 
 

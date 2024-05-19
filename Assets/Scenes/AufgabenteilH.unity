@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3575618, g: 0.7353643, b: 0.97655886, a: 1}
+  m_IndirectSpecularColor: {r: 0.35816163, g: 0.73602647, b: 0.9760889, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5856,6 +5856,75 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 118a8561eecb3de4bb2b9f83bc42f26f, type: 3}
+--- !u!1001 &1400161242
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 11344143904056037, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: arrowPrefab
+      value: 
+      objectReference: {fileID: 1769337597633466025, guid: d132d50d8ed3d064da85ac93c915e8ec, type: 3}
+    - target: {fileID: 11344143904056037, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: arrowMaxSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3701202431252008202, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_Name
+      value: Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946006660018580649, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008461865543561412, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008461865543561412, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008461865543561412, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008461865543561412, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008461865543561412, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008461865543561412, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008461865543561412, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008461865543561412, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008461865543561412, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008461865543561412, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
 --- !u!1001 &1402401507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9666,7 +9735,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 23
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 2
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -9699,7 +9768,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_SelectActionTrigger: 1
-  m_HideControllerOnSelect: 0
+  m_HideControllerOnSelect: 1
   m_AllowHoveredActivate: 0
   m_TargetPriorityMode: 0
   m_PlayAudioClipOnSelectEntered: 0
@@ -10436,7 +10505,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 23
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 2
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -10469,7 +10538,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_SelectActionTrigger: 1
-  m_HideControllerOnSelect: 0
+  m_HideControllerOnSelect: 1
   m_AllowHoveredActivate: 0
   m_TargetPriorityMode: 0
   m_PlayAudioClipOnSelectEntered: 0
@@ -11190,7 +11259,7 @@ Transform:
   m_GameObject: {fileID: 7696548424869716671}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.125, z: 7}
+  m_LocalPosition: {x: 0, y: -0.06, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12776,3 +12845,4 @@ SceneRoots:
   - {fileID: 626597399}
   - {fileID: 323969301}
   - {fileID: 1402401507}
+  - {fileID: 1400161242}
