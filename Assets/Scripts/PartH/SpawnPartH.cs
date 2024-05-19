@@ -84,7 +84,7 @@ public class SpawnPartH : MonoBehaviour
         bird.SetActive(true);
         yield return new WaitForSeconds(0.6f);
         audioLaunch.Play(0);
-        bird.GetComponent<Rigidbody>().AddForce(new Vector3(-750,500,750));
+        bird.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-900.0f, -400.0f),Random.Range(400f, 600f),Random.Range(400, 900f)));
         bird.GetComponent<Rigidbody>().useGravity = true;
     }
 }
