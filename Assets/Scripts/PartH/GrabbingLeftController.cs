@@ -10,8 +10,10 @@ public class GrabbingLeftController : MonoBehaviour
     [SerializeField] private Transform bowString;
     [SerializeField] private GameObject rayInteractor;
     [SerializeField] private GameObject arrow;
-    
-    
+    [SerializeField] private GameObject gameStats;
+    public bool isgrabbing = false;
+
+
     private XRGrabInteractable _interactableBow;
     private XRGrabInteractable _interactableBowString;
 
@@ -36,7 +38,11 @@ public class GrabbingLeftController : MonoBehaviour
         if (arg0.interactorObject.transform.name.Contains("Left"))
         {
             arrow.SetActive(true);
-            rayInteractor.SetActive(true);
+            if(gameStats.GetComponent<Stats>().cooldown <= 0)
+            {
+                rayInteractor.SetActive(true);
+            }
+            isgrabbing = false;
         }
     }
 
@@ -46,6 +52,7 @@ public class GrabbingLeftController : MonoBehaviour
         {
             arrow.SetActive(false);
             rayInteractor.SetActive(false);
+            isgrabbing = true;
         }
     }
 }

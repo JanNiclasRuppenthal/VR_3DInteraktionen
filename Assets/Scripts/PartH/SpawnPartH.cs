@@ -82,6 +82,7 @@ public class SpawnPartH : MonoBehaviour
         anim.Play("Shoot");
         GameObject bird = Instantiate(angryBird, new Vector3(43f, 17f, -43f),  Quaternion.Euler(new Vector3(0, -50, 0)));
         bird.SetActive(true);
+        GameObject.Find("GameStats").GetComponent<Stats>().currentBird = bird;
         yield return new WaitForSeconds(0.6f);
         audioLaunch.Play(0);
         bird.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-900.0f, -400.0f),Random.Range(400f, 600f),Random.Range(400, 900f)));

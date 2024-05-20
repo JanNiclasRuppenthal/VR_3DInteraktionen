@@ -22,3 +22,7 @@ Hinzugefuegte Assets:
     - Rauch: https://de.vecteezy.com/png/8852643-cartoon-rauch-nebel-clip-art
     - Steine: https://sketchfab.com/3d-models/detailed-low-poly-rock-b26a1c9ce7464d2f960657230883f6e1
     - Bogen und Pfeil: https://github.com/Fist-Full-of-Shrimp/Bow-and-Arrow-Assets
+
+Unity Package Manager:
+    - XR Interaction Toolkit with Starter Assets
+    - TextMeshPro

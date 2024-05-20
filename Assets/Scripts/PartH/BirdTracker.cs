@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BirdTracker : MonoBehaviour
 {
-    public GameObject bird;
+    private GameObject bird;
+    public GameObject GameStats;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,10 @@ public class BirdTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.LookAt(bird.transform.position);
+        bird = GameStats.GetComponent<Stats>().currentBird;
+        if (!bird.name.StartsWith("Game"))
+        {
+            this.transform.LookAt(bird.transform.position);
+        }
     }
 }

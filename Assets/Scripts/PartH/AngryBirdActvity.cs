@@ -26,10 +26,12 @@ public class AngryBirdActivity : MonoBehaviour
     private AudioSource _audioSourceDie;
     private GameObject camera;
     private GameObject spawnManager;
-    
+    private GameObject gameStats;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameStats = GameObject.Find("GameStats");
         spawnManager = GameObject.Find("SpawnManager");
         camera = GameObject.Find("Bird Camera");
         _spawnScript = spawnManager.GetComponent<SpawnPartH>();
@@ -180,6 +182,8 @@ public class AngryBirdActivity : MonoBehaviour
         }
         else if (collider.transform.gameObject.CompareTag("Arrow"))
         {
+            gameStats.GetComponent<Stats>().currentBird = gameStats;
+            gameStats.GetComponent<Stats>().score += 1;
             angryBirdDies();
         }
     }

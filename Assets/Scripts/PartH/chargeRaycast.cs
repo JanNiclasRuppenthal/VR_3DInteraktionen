@@ -5,6 +5,7 @@ using UnityEngine;
 public class chargeRaycast : MonoBehaviour
 {
     public GameObject rayL;
+    public GameObject conL;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,9 @@ public class chargeRaycast : MonoBehaviour
     IEnumerator chargeRay()
     {
         yield return new WaitForSeconds(10f);
-        rayL.SetActive(true);
+        if (!conL.GetComponent<GrabbingLeftController>().isgrabbing)
+        {
+            rayL.SetActive(true);
+        }
     }
 }

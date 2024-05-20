@@ -20,6 +20,7 @@ public class BirdPointer : MonoBehaviour
     private GameObject player;
     private SpawnPartH spawnScript;
     private GameObject spawnManager;
+    private GameObject gameStats;
 
     void Start()
     {
@@ -51,6 +52,8 @@ public class BirdPointer : MonoBehaviour
         conL.transform.GetChild(1).gameObject.SetActive(false);
         player = GameObject.Find("XR Origin");
         player.GetComponent<chargeRaycast>().charge();
+        gameStats = GameObject.Find("GameStats");
+        gameStats.GetComponent<Stats>().timer();
     }
 
 }
