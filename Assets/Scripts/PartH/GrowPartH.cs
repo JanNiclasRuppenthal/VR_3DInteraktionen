@@ -42,8 +42,7 @@ public class GrowPartH : MonoBehaviour
         _fallingLeavesParticleSystem.transform.localScale = newScale;
         _explosionParticleSystem.gameObject.transform.localScale = newScale;
 
-
-        if (x >= _max)
+        if ((x >= _max) && (_spawnScript.trees.Count != 0))
         {
             explode();
 
@@ -101,10 +100,10 @@ public class GrowPartH : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.transform.gameObject.tag == "AngryBird")
+        if ((collider.transform.gameObject.tag) == "AngryBird" &&  (_spawnScript.trees.Count != 0))
         {
             explode();
-
+            collider.GetComponent<AngryBirdActivity>()._countLives -= 1;
             StartCoroutine(destroyTree());
         }
     }

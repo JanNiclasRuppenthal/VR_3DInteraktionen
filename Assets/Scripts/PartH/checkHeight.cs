@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class checkHeight : MonoBehaviour
 {
-    private bool enabled = true;
+    public bool enabled = true;
     Rigidbody rb;
     void Start()
     {
