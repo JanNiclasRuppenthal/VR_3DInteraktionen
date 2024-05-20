@@ -36,7 +36,7 @@ public class BirdActivityWithCamera : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (mode == 3){
                 mode = 1;
