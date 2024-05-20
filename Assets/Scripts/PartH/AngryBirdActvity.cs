@@ -8,14 +8,15 @@ public class AngryBirdActivity : MonoBehaviour
     [SerializeField] private ParticleSystem smoke;
 
 
-    [SerializeField] [Range(-180, 180)] private float angle = 90f;
+    [SerializeField] [Range(-180, 180)] private static float angle = 90f;
     public bool enabled = false;
     public  int _countLives;
     
+    private static float _speed = 20f;
+    private static float _cameraspeed = 40f;
+    
     private bool dead = false;
     private int distance = -10;
-    private float _speed = 20f;
-    private float _cameraspeed = 40f;
     private bool _moveToBiggestTree;
     private SpawnPartH _spawnScript;
     private Vector2 _targetPosition;
@@ -48,6 +49,11 @@ public class AngryBirdActivity : MonoBehaviour
             if (dead) return;
             angryBirdDies();
             dead = true;
+
+            _speed += 5;
+            _cameraspeed += 10;
+            angle += 10;
+
         }
 
         Vector3 back = -this.transform.forward;
@@ -66,7 +72,7 @@ public class AngryBirdActivity : MonoBehaviour
 
         if (!enabled) return;
 
-        Vector3 targetPosition3 = new Vector3(_targetPosition.x, 2, _targetPosition.y);
+        Vector3 targetPosition3 = new Vector3(_targetPosition.x, 4, _targetPosition.y);
         Vector3 nextPosition2 = new Vector3(this.transform.position.x, this.transform.position.y - 0.125f, this.transform.position.z);
 
         if (_spawnScript.trees.Count > 0)
@@ -79,6 +85,7 @@ public class AngryBirdActivity : MonoBehaviour
         {
             _moveToBiggestTree = false;
             _lastPosition = _targetPosition;
+            this.transform.LookAt(targetPosition3);
         }
         
         if (_moveToBiggestTree)
@@ -96,7 +103,7 @@ public class AngryBirdActivity : MonoBehaviour
         }
         else
         {
-            this.transform.RotateAround(targetPosition3, Vector3.up, this.angle * Time.deltaTime);
+            this.transform.RotateAround(targetPosition3, Vector3.up, angle * Time.deltaTime);
         }
     }
 

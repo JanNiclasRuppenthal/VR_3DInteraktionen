@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.35791045, g: 0.73707587, b: 0.9809706, a: 1}
+  m_IndirectSpecularColor: {r: 0.35816163, g: 0.73602647, b: 0.9760889, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3775,7 +3775,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 6963010692666105851, guid: dc343cf5aac0a1e4bb280ca454224b93, type: 3}
-  angle: 90
   enabled: 1
   _countLives: 3
 --- !u!82 &617606216
@@ -7498,6 +7497,22 @@ PrefabInstance:
       propertyPath: arrowMaxSpeed
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1266200337275942604, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266200337275942604, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266200337275942604, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266200337275942604, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3486534748486003036, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
       propertyPath: onBowPulled.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -7556,7 +7571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4946006660018580649, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9008461865543561412, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7599,7 +7614,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5306345271965215632, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 9008461865543561412, guid: 1b6d9920203cf204ca025db14635a195, type: 3}
       insertIndex: 7
@@ -8926,7 +8942,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 6963010692666105851, guid: dc343cf5aac0a1e4bb280ca454224b93, type: 3}
-  angle: 90
   enabled: 0
   _countLives: 3
 --- !u!95 &1672371363

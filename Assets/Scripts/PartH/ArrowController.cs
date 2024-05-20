@@ -32,14 +32,5 @@ public class ArrowController : MonoBehaviour
         
         Rigidbody rb = arrow.GetComponent<Rigidbody>();
         rb.AddForce(midPointVisual.transform.forward * strength * arrowMaxSpeed, ForceMode.Impulse);
-        
-        // _listOfArrows.Add(arrow);
-        //
-        // if (_listOfArrows.Count >= 10)
-        // {
-        //     GameObject tempArrow = _listOfArrows[0];
-        //     Destroy(tempArrow);
-        // }
-
     }
 }
