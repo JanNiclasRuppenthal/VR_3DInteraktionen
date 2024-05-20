@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.35775155, g: 0.73686606, b: 0.9810811, a: 1}
+  m_IndirectSpecularColor: {r: 0.35791045, g: 0.73707587, b: 0.9809706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3777,6 +3777,7 @@ MonoBehaviour:
   smoke: {fileID: 6963010692666105851, guid: dc343cf5aac0a1e4bb280ca454224b93, type: 3}
   angle: 90
   enabled: 1
+  _countLives: 3
 --- !u!82 &617606216
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3873,6 +3874,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &617606218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617606209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2c1aafb7a1bbc4f9c19be3c0a401e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
 --- !u!1001 &620174055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7714,6 +7728,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5d04526a115e2f4a9e716542cabe40d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 617606216}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5d04526a115e2f4a9e716542cabe40d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 617606218}
     - targetCorrespondingSourceObject: {fileID: 536378539995834914, guid: d5d04526a115e2f4a9e716542cabe40d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1242135976}
@@ -8819,6 +8836,7 @@ MonoBehaviour:
   smoke: {fileID: 6963010692666105851, guid: dc343cf5aac0a1e4bb280ca454224b93, type: 3}
   angle: 90
   enabled: 0
+  _countLives: 3
 --- !u!95 &1672371363
 Animator:
   serializedVersion: 5
@@ -8852,6 +8870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2c1aafb7a1bbc4f9c19be3c0a401e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
 --- !u!4 &1686828788 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 118a8561eecb3de4bb2b9f83bc42f26f, type: 3}
@@ -8979,7 +8998,7 @@ Transform:
   m_GameObject: {fileID: 1687296416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.655264, y: 0.25991845, z: -3.1660535}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
