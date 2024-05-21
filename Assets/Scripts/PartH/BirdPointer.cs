@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class BirdPointer : MonoBehaviour
@@ -21,6 +22,7 @@ public class BirdPointer : MonoBehaviour
     private SpawnPartH spawnScript;
     private GameObject spawnManager;
     private GameObject gameStats;
+    private InputActionProperty button;
 
     void Start()
     {
@@ -42,18 +44,21 @@ public class BirdPointer : MonoBehaviour
 
     public void setTree()
     {
-        Debug.Log(this.gameObject.name);
-        spawnManager = GameObject.Find("SpawnManager");
-        spawnScript = spawnManager.GetComponent<SpawnPartH>();
-        spawnScript.trees.Remove(this.gameObject);
-        spawnScript.trees.Insert(0, this.gameObject);
-
-        conL = GameObject.Find("Left Controller");
-        conL.transform.GetChild(1).gameObject.SetActive(false);
-        player = GameObject.Find("XR Origin");
-        player.GetComponent<chargeRaycast>().charge();
         gameStats = GameObject.Find("GameStats");
-        gameStats.GetComponent<Stats>().timer();
+        button = gameStats.GetComponent<Stats>().raycastButton;
+        if (button.action.WasPressedThisFrame())
+        {
+            spawnManager = GameObject.Find("SpawnManager");
+            conL = GameObject.Find("Left Controller");
+            player = GameObject.Find("XR Origin");
+
+            spawnScript = spawnManager.GetComponent<SpawnPartH>();
+            spawnScript.trees.Remove(this.gameObject);
+            spawnScript.trees.Insert(0, this.gameObject);
+            conL.transform.GetChild(1).gameObject.SetActive(false);
+            player.GetComponent<chargeRaycast>().charge();
+            gameStats.GetComponent<Stats>().timer();
+        }
     }
 
 }

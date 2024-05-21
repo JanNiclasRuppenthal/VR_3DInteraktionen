@@ -27,6 +27,7 @@ public class AngryBirdActivity : MonoBehaviour
     private GameObject camera;
     private GameObject spawnManager;
     private GameObject gameStats;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,7 @@ public class AngryBirdActivity : MonoBehaviour
         _moveToBiggestTree = true;
         _audioSourceDie = this.GetComponent<AudioSource>();
         rb = this.GetComponent<Rigidbody>();
+        player = GameObject.Find("XR Origin");
     }
 
     // Update is called once per frame
@@ -128,6 +130,7 @@ public class AngryBirdActivity : MonoBehaviour
         _moveToBiggestTree = false;
         if (collider.transform.gameObject.CompareTag("ground"))
         {
+            gameStats.GetComponent<Stats>().currentBird = gameStats;
             Destroy(gameObject);
             ParticleSystem go = Instantiate(smoke, transform.position, transform.rotation);
             Destroy(go.gameObject, 1f);
@@ -135,7 +138,7 @@ public class AngryBirdActivity : MonoBehaviour
         else if (collider.transform.gameObject.CompareTag("Arrow"))
         {
             gameStats.GetComponent<Stats>().currentBird = gameStats;
-            gameStats.GetComponent<Stats>().score += 1;
+            gameStats.GetComponent<Stats>().score += (int) Vector3.Distance(this.gameObject.transform.position, player.transform.position);
             _countLives = 0;
         }
     }

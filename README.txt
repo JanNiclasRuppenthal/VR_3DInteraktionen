@@ -10,7 +10,7 @@ Steuerung in VR:
         - Sonstige Richtung         ->          Drehen
     - Linker Stick                  ->          Bewegung
     - Teleportation abbrechen       ->          Waehrend der Teleportation den Grab Button Druecken
-    - Baum auswaehlen               ->          Zeige mit dem linken Controller auf den Baum und druecke dann den Grab Button
+    - Baum auswaehlen               ->          Zeige mit dem linken Controller auf den Baum und druecke dann den Trigger Button
                     
 
 Hinzugefuegte Assets:

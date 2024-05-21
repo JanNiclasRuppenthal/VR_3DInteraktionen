@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class Stats : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Stats : MonoBehaviour
     public GameObject PanelRaycast;
     private string scoreText = "";
     private string rayText="";
+    public InputActionProperty raycastButton;
 
     // Start is called before the first frame update
     void Start()
