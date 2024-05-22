@@ -23,7 +23,7 @@ public class RotationBirdVariableLook : MonoBehaviour
         //Vector3 vectorUp = (Vector3.up - this.transform.position).normalized;
 
         Vector3 tangent = Vector3.Cross(vectorTree, Vector3.up).normalized;
-
+        if (angle < 0) tangent = -tangent;
         this.transform.LookAt(this.transform.position + tangent);
     }
 }
