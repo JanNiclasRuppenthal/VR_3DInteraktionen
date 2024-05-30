@@ -9,7 +9,7 @@ public class HMDMovement : MonoBehaviour
     private Transform Origin;
     private Vector3 startPos;
     private float baseMovement = 5f;
-    private float deadzone = 0.1f;
+    private float deadzone = 0.15f;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +48,15 @@ public class HMDMovement : MonoBehaviour
                 if(hmdLocomotion.magnitude > deadzone)
                 {
                     float movement = baseMovement * hmdLocomotion.magnitude;
-                    Origin.position += hmdLocomotion.normalized * movement * Time.deltaTime;
+                    if (hmdLocomotion.z < 0)
+                    {
+                        Origin.position -= Origin.transform.forward * movement * Time.deltaTime;
+                    }
+                    else
+                    {
+                        Origin.position += Origin.transform.forward * movement * Time.deltaTime;
+                    }
+                   
                 }
             }
         }
