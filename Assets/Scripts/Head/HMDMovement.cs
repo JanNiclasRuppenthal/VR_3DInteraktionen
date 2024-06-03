@@ -10,33 +10,49 @@ public class HMDMovement : MonoBehaviour
     private Transform locomotion;
     [SerializeField]
     private Transform centerEye;
-    private Vector3 _startPos;
+    [SerializeField]
+    private GameObject vibration;
     private readonly float _baseMovement = 5f;
-    private readonly float _deadzone = 0.15f;
+    private readonly float _maxMovement = 5f;
+    private readonly float _deadzone = 0.05f;
+    private readonly float _times = 2f;
+    private float _movement = 0f;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        _startPos = centerEye.transform.position;
+        //_startPos = centerEye.transform.position;
     }
 
     void LateUpdate()
     {
-        Vector3 hmdLocomotion = centerEye.transform.position - _startPos;
+        Vector3 hmdLocomotion = centerEye.transform.localPosition;
         hmdLocomotion.y = 0;
         hmdLocomotion.x = 0;
-        if (hmdLocomotion.magnitude > _deadzone)
+        Debug.Log("HMD");
+        Debug.Log(hmdLocomotion);
+        if (Mathf.Abs(hmdLocomotion.z) > _deadzone)
         {
-            float movement = _baseMovement * hmdLocomotion.magnitude;
-            if (hmdLocomotion.z < 0)
+            hmdLocomotion.z -= _deadzone;
+            if(hmdLocomotion.z < 0)
             {
-                locomotion.position -= locomotion.transform.forward * movement * Time.deltaTime;
+                _movement = -(Mathf.Pow(_baseMovement * hmdLocomotion.z, _times));
             }
             else
             {
-                locomotion.position += locomotion.transform.forward * movement * Time.deltaTime;
+                _movement = Mathf.Pow(_baseMovement * hmdLocomotion.z, _times);
             }
-
+            _movement = Mathf.Clamp(_movement, -_maxMovement, _maxMovement);
+            Debug.Log("movement");
+            Debug.Log(_movement);
+            locomotion.position += locomotion.transform.forward * _movement * Time.deltaTime;
+            vibration.GetComponent<Vibration>().activeVib = true;
+            vibration.GetComponent<Vibration>().setAmplitude(Mathf.Abs(_movement), _maxMovement);
+        }
+        else if(vibration.GetComponent<Vibration>().activeVib == true)
+        {
+            vibration.GetComponent<Vibration>().activeVib = false;
         }
     }
 }
