@@ -34,7 +34,7 @@ public class List : MonoBehaviour
             }
             else
             {
-                text += "<s>" + child.name + "</s> \n";
+                text += "<color=#808080><s>" + child.name + "</s></color> \n";
             }
         }
         list.GetComponent<TextMeshPro>().SetText(text);
