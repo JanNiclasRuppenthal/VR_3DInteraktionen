@@ -24,6 +24,7 @@ public class List : MonoBehaviour
     void Update()
     {
         Vector3 mid = (ConR.transform.position + ConL.transform.position) / 2;
+        mid.y += 0.15f;
         this.transform.position = mid;
         text = "<b><u>Shopping list:</u></b> \n";
         foreach (Transform child in articles.transform)

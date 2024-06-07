@@ -12,6 +12,8 @@ public class HMDMovement : MonoBehaviour
     private Transform centerEye;
     [SerializeField]
     private GameObject vibration;
+    [SerializeField]
+    private GameObject segway;
     private readonly float _baseMovement = 5f;
     private readonly float _maxMovement = 5f;
     private readonly float _deadzone = 0.05f;
@@ -49,10 +51,13 @@ public class HMDMovement : MonoBehaviour
             locomotion.position += locomotion.transform.forward * _movement * Time.deltaTime;
             vibration.GetComponent<Vibration>().activeVib = true;
             vibration.GetComponent<Vibration>().setAmplitude(Mathf.Abs(_movement), _maxMovement);
+
+            segway.GetComponent<Move>().movement = _movement;
         }
         else if(vibration.GetComponent<Vibration>().activeVib == true)
         {
             vibration.GetComponent<Vibration>().activeVib = false;
+            segway.GetComponent<Move>().movement = 0f;
         }
     }
 }

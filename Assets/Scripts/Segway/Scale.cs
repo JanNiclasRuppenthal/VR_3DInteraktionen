@@ -30,7 +30,7 @@ public class Scale : MonoBehaviour
         transform.localScale = new Vector3(initScale.x,dist/2.85f, initScale.z);
         Vector3 middle = (start.transform.position+end.transform.position)/2f;
         transform.position = middle;
-        Debug.Log(middle);
+        //Debug.Log(middle);
 
         Vector3 rotation = (end.transform.position - start.transform.position);
         transform.up = rotation;
