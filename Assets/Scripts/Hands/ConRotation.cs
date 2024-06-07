@@ -31,13 +31,14 @@ public class ConRotation : MonoBehaviour
         Vector3 relativeMid = locomotion.InverseTransformPoint(mid);
         if (Mathf.Abs(relativeMid.x) > _deadzone)
         {
-            relativeMid.x -= _deadzone;
             if (relativeMid.x < 0)
             {
+                relativeMid.x += _deadzone;
                 _rotation = -(Mathf.Pow(_baseRotation * relativeMid.x, _times));
             }
             else
             {
+                relativeMid.x -= _deadzone;
                 _rotation = Mathf.Pow(_baseRotation * relativeMid.x, _times);
             }
             _rotation = Mathf.Clamp(_rotation, -_maxRotation, _maxRotation);

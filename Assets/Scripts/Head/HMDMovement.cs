@@ -32,22 +32,19 @@ public class HMDMovement : MonoBehaviour
         Vector3 hmdLocomotion = centerEye.transform.localPosition;
         hmdLocomotion.y = 0;
         hmdLocomotion.x = 0;
-        //Debug.Log("HMD");
-        //Debug.Log(hmdLocomotion);
         if (Mathf.Abs(hmdLocomotion.z) > _deadzone)
         {
-            hmdLocomotion.z -= _deadzone;
             if(hmdLocomotion.z < 0)
             {
+                hmdLocomotion.z += _deadzone;
                 _movement = -(Mathf.Pow(_baseMovement * hmdLocomotion.z, _times));
             }
             else
             {
+                hmdLocomotion.z -= _deadzone;
                 _movement = Mathf.Pow(_baseMovement * hmdLocomotion.z, _times);
             }
             _movement = Mathf.Clamp(_movement, -_maxMovement, _maxMovement);
-            //Debug.Log("movement");
-            //ebug.Log(_movement);
             locomotion.position += locomotion.transform.forward * _movement * Time.deltaTime;
             vibration.GetComponent<Vibration>().activeVib = true;
             vibration.GetComponent<Vibration>().setAmplitude(Mathf.Abs(_movement), _maxMovement);

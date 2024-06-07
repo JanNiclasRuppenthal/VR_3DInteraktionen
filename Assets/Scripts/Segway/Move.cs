@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -58,20 +59,20 @@ public class Move : MonoBehaviour
             }
         }else if(movement < 0){
             if(hit.collider.gameObject.name == "Mall"){
-                tireLeft.transform.Rotate(-movement/circ * 360.0f *  Time.deltaTime, 0.0f, 0.0f);
-                tireRight.transform.Rotate(-movement/circ * 360.0f * Time.deltaTime, 0.0f, 0.0f);
+                tireLeft.transform.Rotate(movement/circ * 360.0f *  Time.deltaTime, 0.0f, 0.0f);
+                tireRight.transform.Rotate(movement/circ * 360.0f * Time.deltaTime, 0.0f, 0.0f);
                 //this.transform.position += -this.transform.forward * movement *  Time.deltaTime;
             }
         }else if(rotation < 0){
             if(hit.collider.gameObject.name == "Mall"){
-                float tireRotation = rotation * radiusSegway / radiusTire;
+                float tireRotation = Mathf.Abs(rotation * radiusSegway / radiusTire);
                 tireLeft.transform.Rotate(-tireRotation *  Time.deltaTime, 0.0f, 0.0f);
                 tireRight.transform.Rotate(tireRotation *  Time.deltaTime, 0.0f, 0.0f);
                 //this.transform.Rotate(0.0f,-rotation *  Time.deltaTime, 0.0f);
             }
         }else if(rotation > 0){
             if(hit.collider.gameObject.name == "Mall"){
-                float tireRotation = rotation * radiusSegway / radiusTire;
+                float tireRotation = Mathf.Abs(rotation * radiusSegway / radiusTire);
                 tireLeft.transform.Rotate(tireRotation *  Time.deltaTime, 0.0f, 0.0f);
                 tireRight.transform.Rotate(-tireRotation *  Time.deltaTime, 0.0f, 0.0f);
                 //this.transform.Rotate(0.0f,rotation *  Time.deltaTime, 0.0f);
