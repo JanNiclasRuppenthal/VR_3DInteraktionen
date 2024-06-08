@@ -14,11 +14,16 @@ public class HMDMovement : MonoBehaviour
     private GameObject vibration;
     [SerializeField]
     private GameObject segway;
+    [SerializeField]
+    private GameObject walls;
+    [SerializeField]
+    private LayerMask wallLayer;
     private readonly float _baseMovement = 7.5f;
     private readonly float _maxMovement = 5f;
     private readonly float _deadzone = 0.05f;
     private readonly float _times = 2f;
     private float _movement = 0f;
+    private float dist = 0.75f;
 
 
     // Start is called before the first frame update
@@ -34,15 +39,23 @@ public class HMDMovement : MonoBehaviour
         hmdLocomotion.x = 0;
         if (Mathf.Abs(hmdLocomotion.z) > _deadzone)
         {
-            if(hmdLocomotion.z < 0)
+            RaycastHit hit;
+            bool inFront = Physics.Raycast(locomotion.position, locomotion.forward, out hit, dist, wallLayer);
+            bool inBack = Physics.Raycast(locomotion.position, -locomotion.forward, out hit, dist, wallLayer);
+
+            if (hmdLocomotion.z < 0 && !inBack)
             {
                 hmdLocomotion.z += _deadzone;
                 _movement = -(Mathf.Pow(_baseMovement * hmdLocomotion.z, _times));
             }
-            else
+            else if (hmdLocomotion.z > 0 && !inFront)
             {
                 hmdLocomotion.z -= _deadzone;
                 _movement = Mathf.Pow(_baseMovement * hmdLocomotion.z, _times);
+            }
+            else
+            {
+                _movement = 0f;
             }
             _movement = Mathf.Clamp(_movement, -_maxMovement, _maxMovement);
             locomotion.position += locomotion.transform.forward * _movement * Time.deltaTime;
