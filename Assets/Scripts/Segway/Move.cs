@@ -22,11 +22,11 @@ public class Move : MonoBehaviour
     void Start()
     {
         tireLeft = this.transform.GetChild(7).gameObject;
-        Debug.Log(tireLeft.name);
+        //Debug.Log(tireLeft.name);
         tireRight = this.transform.GetChild(8).gameObject;
-        Debug.Log(tireRight.name);
+        //Debug.Log(tireRight.name);
         circ = 2.0f * Mathf.PI * radiusTire;
-        Debug.Log("Circ" + circ);
+        //Debug.Log("Circ" + circ);
     }
 
     RaycastHit hit;
