@@ -14,7 +14,7 @@ public class HMDMovement : MonoBehaviour
     private GameObject vibration;
     [SerializeField]
     private GameObject segway;
-    private readonly float _baseMovement = 5f;
+    private readonly float _baseMovement = 7.5f;
     private readonly float _maxMovement = 5f;
     private readonly float _deadzone = 0.05f;
     private readonly float _times = 2f;

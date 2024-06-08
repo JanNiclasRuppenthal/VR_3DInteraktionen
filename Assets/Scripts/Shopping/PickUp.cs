@@ -12,10 +12,12 @@ public class PickUp : MonoBehaviour
     private GameObject HandL;
     [SerializeField]
     private GameObject HandR;
+
+    private ListOfArticles _articlesListOfArticles;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _articlesListOfArticles = this.GetComponent<ListOfArticles>();
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class PickUp : MonoBehaviour
             if (hitc.transform.parent == articles.transform)
             {
                 hitc.gameObject.SetActive(false);
+                _articlesListOfArticles.updateTextOfList();
             }
         }
     }
