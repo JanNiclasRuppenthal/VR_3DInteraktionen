@@ -48,6 +48,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   list: {fileID: 2373441819929592311}
+  articlesFirstFloor:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  articlesSecondFloor:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   articles: {fileID: 0}
   ConL: {fileID: 0}
   ConR: {fileID: 0}
@@ -180,7 +190,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <b><u>Shopping list:</u></b>
+  m_text: <b><u>Bring me these ASAP:</u></b>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -207,8 +217,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 10.5
+  m_fontSizeBase: 10.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -565,7 +575,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4ce94c118dbcdc645ad42eb9c2160d10, type: 2}
+  - {fileID: 2100000, guid: 52ce84eb484f43a46afb131ef64c5af7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -841,7 +851,7 @@ PrefabInstance:
     - target: {fileID: 2080886562628547692, guid: cd0d1b47b7eb40b4cab2e348db0fda5c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4ce94c118dbcdc645ad42eb9c2160d10, type: 2}
+      objectReference: {fileID: 2100000, guid: 52ce84eb484f43a46afb131ef64c5af7, type: 2}
     - target: {fileID: 3592622333638919481, guid: cd0d1b47b7eb40b4cab2e348db0fda5c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -917,6 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed43d70f7237d74ab6d527a5d774446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locomotion: {fileID: 0}
   rotation: 0
   movement: 0
 --- !u!114 &529422507945184541
