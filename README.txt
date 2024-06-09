@@ -1,3 +1,4 @@
+BITTE Lesen Sie die README vollstaendig und sorgfaeltig!
 -------------------------------------------------------------------------------------------------------------------
                                     BITTE Lesen Sie die README vollstaendig und sorgfaeltig!
 -------------------------------------------------------------------------------------------------------------------
@@ -7,29 +8,29 @@
                                                         Aufgabenteil a)
 -------------------------------------------------------------------------------------------------------------------
 Fortbewegungsaufgabe:
-    - Sie erhalten nach einem harten Arbeitstag eine Liste mit vier verschiedenen Artikel, die Sie noch einkaufen muessen. Dummerweise gibt es nur ein einziges Kaufhaus, die sie momentan auf Lager hat. Für dieses Kaufhaus steht morgen ein Umbau bevor, weshalb nur noch ein Exemplar von diesen Artikel zur Verfuegung stehen.
+    - Sie erhalten nach einem harten Arbeitstag eine Liste mit vier verschiedenen Artikeln, die Sie noch einkaufen muessen. Dummerweise gibt es nur ein einziges Kaufhaus, die sie momentan auf Lager hat. Für dieses Kaufhaus steht morgen ein Umbau bevor, weshalb nur noch ein Exemplar von diesen Artikeln zur Verfuegung steht.
     - Ihr Ziel ist es, alle benoetigten Artikel einzusammeln.
     - Die vier Artikel werden bei jedem Start randomisiert ausgewaehlt.
     - Es wird dabei zugesichert, dass sie in beiden Etagen genau zwei Artikel sammeln müssen. Hiermit muessen Sie einmal mit der Rolltreppe fahren.
 
 Verwendete Locomotion:
-    - Metaphor: 
+    - Metapher: 
         - Steering-Leaning
-            - 1 DOF vTranslation: Durch Lehnen wie ein "human joystick" entlang der Z-Achse
+            - 1 DOF vTranslation: Durch Lehnen wie ein "human joystick" entlang der z-Achse.
             - 1 DOF vRotation: Durch Bewegen der Controller bzw. der physischen Stange entlang der x-Achse.
-     -Travel Task Search:
-        - ?
-    - Funktion:#
+    - Travel Task:
+        - Search
+    - Funktion:
         - Leaning:
-            - Funktion: Powerfunktion mit Deadzone
-            - Maximalgeschwindigkeit: 5 Meter pro Sekunde
+            - Funktion: Powerfunktion mit Deadzone von 5 cm
+            - Maximalgeschwindigkeit: 5 Meter pro Sekunde nach 34.8 cm
         - Steering:
-            - Funktion: Powerfunktion mit Deadzone
-            - Maximalgeschwindigkeit: 30 Grad pro Sekunde
+            - Funktion: Powerfunktion mit Deadzone von 10 cm
+            - Maximalgeschwindigkeit: 30 Grad pro Sekunde nach 28.3 cm
 
-Testen der Aufgabe und der Locomotion durch Michael Feldmann und Jan Niclas Ruppenthal:
-    - Beide sollten die Aufgabe dreimal durchfuehren. Dabei haben beide nach dem zweiten Durchlauf abgebrochen, da wir bemerkt haben, dass unsere Rotation Cybersickness verursacht. Um dies ein wenig zu lindern, haben wir nun die Rotationsgeschwindigkeit von 45 Grad pro Sekunde auf 30 Grad pro Sekunde heruntergesenkt.
-    - Die Translation ueber Lehnen konnten von beiden gut bedient werden 
+Testen der Aufgabe und der Locomotion im Stehen durch Michael Feldmann und Jan Niclas Ruppenthal:
+    - Beide sollten die Aufgabe dreimal durchfuehren. Dabei haben beide nach dem zweiten Durchlauf abgebrochen, da wir bemerkt haben, dass unsere Rotation Cybersickness verursacht. Um dies ein wenig zu lindern, haben wir nun die Rotationsgeschwindigkeit von 45 Grad pro Sekunde auf 30 Grad pro Sekunde heruntergesenkt. Zudem kann man die Locomotion auch sitzend verwenden um Cybersickness vorzubeugen, aber ein Segway betreibt man normalerweise im Stehen.
+    - Die Translation ueber Lehnen konnten von beiden gut bedient werden. 
     - Die Aufgabe kann sehr schnell geloest werden.
     - Die Locomotion wird auf der Rolltreppe deaktiviert. Dies fanden beide gut, da dies als eine kurze Ruhepause dienen konnte. Des Weiteren vibrieren auch die Controller waehrend der Fahrt auf der Rolltreppe. Wenn die Vibration nachlaesst, ist das ein Indikator fuer den Nutzer, dass die Locomotion wieder eingeschaltet ist.
     - Bis auf die Rolltreppe erzielen wir eine hohe Nutzerfreiheit.
@@ -45,8 +46,8 @@ Staerken des Interfaces:
     - Wir haben eine multimodale Interaktion implementiert.
         - Vibration der Controller werden je nach Geschwindigkeit des Segways staerker oder schwaecher.
         - Durch die physische Stange kann die Vibration der Controller verstaerkt werden.
-    - Da wir uns fuer ein plausibles Szenarion entschieden haben, erzielen wir eventuell eine hoehere Immersion.
-    - Durch die Verwendung einer Powerfunktio sowohl fuer die Translation als auch die Rotation wird eine hoehere Praezision der Fortbewegung erzielt.
+    - Da wir uns fuer ein plausibles Szenario entschieden haben, erzielen wir eventuell eine hoehere Immersion.
+    - Durch die Verwendung einer Powerfunktion sowohl fuer die Translation als auch fuer die Rotation wird eine hoehere Praezision der Fortbewegung erzielt.
     - Dabei haben wir uns auch fuer eine Deadzone entschieden, damit man sich nicht bei jeder kleinen Bewegung des Kopfes oder der Controller/physischen Stange virtuell bewegt.
 
 Schwaechen des Interfaces:
@@ -54,7 +55,7 @@ Schwaechen des Interfaces:
     - Auch wenn wir die Rotationsgeschwindigkeit verringert haben, verursacht sie trotzdem noch Cybersickness.
     - Eine virtuelle vertikale Bewegung ist nur begrenzt moeglich. Man kann sich nur vertikal ueber die Rolltreppe bewegen. Die ist jedoch statisch, da die Locomotion ausgeschaltet wird.
     - Unsere Methode ist nicht gut auf Groessen skalierbar. Wir koennen fuer grosse Distanzen nicht die Maximalgeschwindigkeit erhoehen, da der Nutzer sonst weniger Kontrolle ueber das Segway verfuegt und die Cybersickness kann dadurch auch erhoeht werden.
-    - Durch virtuelle mittlere Stange des Segways wird hier ein Verlust der Immersion erzielt. 
+    - Durch die virtuelle mittlere Stange des Segways wird hier ein Verlust der Immersion erzielt. 
     - Die Controller muessen von der Quest 3 getrackt werden. Falls das Tracking fehlschlaegt, dann kann das Interface nicht genutzt werden.
 
 Messung der Performance:
@@ -63,8 +64,8 @@ Messung der Performance:
 
 Messung der Nutzbarkeit:
     - Durchfuehrung einer empirischen Studie zur Usability:
-        - Einkaufsaufgabe durchfuehren und die Probanden muessen sich merken, woe sie die passenden Artikel gefunden haben.
-        - Dabei kann man die Nutzbarkeit nach der Aufgabe mit standardisierten Frageboegen, wie bspw. ser System Usability Scale (SUS) oder der NASA-TLX bewerten.
+        - Einkaufsaufgabe durchfuehren und die Probanden muessen sich merken, wo sie die passenden Artikel gefunden haben.
+        - Dabei kann man die Nutzbarkeit nach der Aufgabe mit standardisierten Frageboegen, wie bspw. der System Usability Scale (SUS) oder der NASA-TLX bewerten.
         - Zudem kann man diese Studie mithilfe eines Vergleichs erweitern: Man kann unsere Methode mit anderen Interfaces wie z.B. pointing-based Steering oder redirected walking vergleichen.
 
 
@@ -85,7 +86,7 @@ Wenn der Editor neugestartet wurde, dann entstehen drei neue Fehlermeldungen:
 
 Hierzu koennen Sie einfach Unity erneut neustarten, dann sind die drei Fehlermeldungen auch verschwunden.
 
-Wir haben auch alternativen Loesungsvorschlaege:
+Wir haben auch alternative Loesungsvorschlaege:
     - https://forum.unity.com/threads/package-manager-window-unable-to-perform-online-search.1136377/
 
 
@@ -107,7 +108,7 @@ Rotation:
 
 
 Einsammeln der Artikel:
-    - Mit den Haenden kann man mit den Artikel interagieren
+    - Mit den Haenden kann man mit den Artikeln interagieren
 
 
 Controller:
