@@ -18,10 +18,10 @@
 
 
 \author[Jan Niclas Ruppenthal, Michael Feldmann, Philipp Geier]{}
-\title[]{2. Übung zur Vorlesung
-Virtual Reality\\ Circles of Life}
+\title[]{3. Übung zur Vorlesung
+Virtual Reality\\ Embodied Locomotion}
 \institute[Universität Trier]{}
-\date[06. Mai 2024]{}
+\date[10. Juni 2024]{}
 \beamertemplatenavigationsymbolsempty
 \setbeamertemplate{footline}
 {
@@ -40,7 +40,8 @@ Virtual Reality\\ Circles of Life}
 
 \begin{document}
 {
-  \usebackgroundtemplate{\includegraphics[width=1.2\paperwidth]{img/unitrier}}
+  \usebackgroundtemplate{
+    \hspace{1.8cm} \includegraphics[width=.8\paperwidth]{img/cop}}
   \begin{frame}
     \maketitle
   \end{frame}
@@ -54,115 +55,182 @@ Virtual Reality\\ Circles of Life}
 %—------------------------------------------------------
 
 
-\begin{frame}{Aufgabenteil A}
-\begin{itemize}
-\item Rotiere Baum entlang Stamm mit Geschwindigkeit 90°/s:
-\end{itemize}
+\begin{frame}{Locomotion}
 \begin{figure}
     \centering
     \movie[externalviewer]{
-\includegraphics[width=0.9\textwidth, keepaspectratio]{img/aufgabeA}
-}{vid/aufgabeA.mkv}
+\includegraphics[width=0.6\textwidth, keepaspectratio]{img/Locomotion}
+}{vid/Locomotion_Movement.mp4}
+\caption{Locomotion}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Aufgabenteil B}
+\begin{frame}{Locomotion}
+\textbf{Metapher}
 \begin{itemize}
-\item Geschwindigkeit variabel zwischen -180°/s und 180°/s:
+\item Steering-Leaning:\begin{itemize}
+\item 1 DOF vTranslation: Durch Lehnen entlang der z-Achse
+\item 1 DOF vRotation: Durch Bewegen der Controller entlang der x-Achse
+\end{itemize}
+\end{itemize}
+\textbf{Travel-Task}
+\begin{itemize}
+\item Search
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Locomotion}
+\textbf{Funktion}
+\begin{itemize}
+\item Leaning:\begin{itemize}
+\item Powerfunktion mit Deadzone von 5 cm
+\item Maximalgeschwindigkeit: 5 Meter pro Sekunde nach 34.8 cm
+\end{itemize}
 \end{itemize}
 \begin{figure}
-    \centering
-    \movie[externalviewer]{
-\includegraphics[width=0.9\textwidth, keepaspectratio]{img/aufgabeB}
-}{vid/aufgabeB.mkv}
+\centering
+\includegraphics[width=.7\textwidth, keepaspectratio]{img/Movement}
+\caption{Movement}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Aufgabenteil C}
+\begin{frame}{Locomotion}
+\textbf{Funktion}
 \begin{itemize}
-\item Spatz und Baum drehen sich:
+\item Steering:\begin{itemize}
+\item Funktion: Powerfunktion mit Deadzone von 10 cm
+\item Maximalgeschwindigkeit: 30 Grad pro Sekunde nach 28.3 cm
+\end{itemize}
 \end{itemize}
 \begin{figure}
-    \centering
-    \movie[externalviewer]{
-\includegraphics[width=0.9\textwidth, keepaspectratio]{img/aufgabeC}
-}{vid/aufgabeC.mkv}
+\centering
+\includegraphics[width=.7\textwidth, keepaspectratio]{img/Rotation}
+\caption{Rotation}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Aufgabenteil D}
-\begin{itemize}
-\item Nur der Spatz dreht sich:
-\end{itemize}
+
+\begin{frame}{Aufgabe a)}
 \begin{figure}
+\begin{itemize}
+\item Fahre in der Mall und kaufe die 4 Items auf der Liste
+\item 2 Items befinden sich unten, 2 oben
+\end{itemize}
     \centering
     \movie[externalviewer]{
-\includegraphics[width=0.9\textwidth, keepaspectratio]{img/aufgabeD}
-}{vid/aufgabeD.mkv}
+\includegraphics[width=0.6\textwidth, keepaspectratio]{img/aufgabe}
+}{vid/Aufgabe.mp4}
+\caption{Mallfahrt}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Aufgabenteil E}
+\begin{frame}{Aufgabe a) Performance}
+\begin{minipage}[c]{0.72\textwidth}
 \begin{itemize}
-\item Spatz fliegt um den Baum und schaut nach vorne:
+\item Movement bedienbar
+\item Aufgabe kann schnell gelöst werden
+\item Rolltreppe als kurze Ruhepause
+\item Nutzerfreiheit (außer auf der Rolltreppe)
+\item Rotation war zu schnell (45°/s -> 30°/s)
 \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.25\textwidth}
 \begin{figure}
-    \centering
-    \movie[externalviewer]{
-\includegraphics[width=0.9\textwidth, keepaspectratio]{img/aufgabeE}
-}{vid/aufgabeE.mkv}
+\centering
+\includegraphics[width=\textwidth, keepaspectratio]{img/escalatorup}
+\caption{\cite{esc}}
 \end{figure}
+\end{minipage}
 \end{frame}
 
-\begin{frame}{Aufgabenteil F}
+\begin{frame}{Aufgabe b) Wahl des Interfaces}
+\begin{minipage}[c]{0.72\textwidth}
 \begin{itemize}
-\item Bäume wachsen und zerfallen, der Spatz sucht sich den Größten:
+\item Uns bekannte Fortbewegung mit Hand und Kopf Steuerung
+\item Was plausibles für mehr Immersion und Wiedererkennung
+\item Rolltreppe statt Rampe für das Mall-Design
 \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.25\textwidth}
 \begin{figure}
-    \centering
-    \movie[externalviewer]{
-\includegraphics[width=0.9\textwidth, keepaspectratio]{img/aufgabeF}
-}{vid/aufgabeF.mkv}
+\centering
+\includegraphics[width=\textwidth, keepaspectratio]{img/segway}
+\caption{\cite{segway}}
 \end{figure}
+\end{minipage}
 \end{frame}
 
-\begin{frame}{Aufgabenteil G}
+
+\begin{frame}{Aufgabe b) Stärken}
+\begin{minipage}[c]{0.72\textwidth}
 \begin{itemize}
-\item Perspektivenwechsel:
+\item Multimodale Interaktion mit der Lenkstange
+\item Immersion durch ein plausibles Szenario
+\item Kontrolle der Fortbewegung über Powerfunktion
+\item Stoppen der Bewegung über die Deadzone
+Präzision
 \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.25\textwidth}
 \begin{figure}
-    \centering
-    \movie[externalviewer]{
-\includegraphics[width=0.9\textwidth, keepaspectratio]{img/aufgabeG}
-}{vid/aufgabeG.mkv}
+\centering
+\includegraphics[width=\textwidth, keepaspectratio]{img/smile}
+\caption{\cite{smiley}}
 \end{figure}
+\end{minipage}
 \end{frame}
 
-\begin{frame}{Brainstorming}
+\begin{frame}{Aufgabe b) Schwächen}
+\begin{minipage}[c]{0.72\textwidth}
 \begin{itemize}
-\item Was können wir mit einem sich bewegenden Vogel machen?
-\item Wie können wir den Nutzer mit einbringen?
-\item Wie könnte eine Gamification aussehen?
+\item Physische Rotation zerstört das Interface
+\item Rotation verursacht trotz Maßnahmen Cybersickness
+\item Vertikale Bewegung nur begrenzt möglich
+\item Bewegung nicht gut auf höhere Distanzen skalierbar
+\item Immersionsverlust durch sich streckende Stange
 \end{itemize}
-\end{frame}
-
-\begin{frame}{Aufgabenteil H}
-\begin{itemize}
-\item ANGRY BIRDS!!!
-\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.25\textwidth}
 \begin{figure}
-    \centering
-    \movie[externalviewer]{
-\includegraphics[height=0.8\textheight, keepaspectratio]{img/aufgabeH}
-}{vid/aufgabeH.mp4}
+\centering
+\includegraphics[width=\textwidth, keepaspectratio]{img/smileNot}
+\caption{\cite{smileyNot}}
 \end{figure}
+\end{minipage}
 \end{frame}
 
+
+\begin{frame}{Aufgabe b) Messung der Nutzbarkeit}
+\textbf{Durchführung einer empirischen Studie zur Usability:}
+\begin{itemize}
+\item Einkaufsaufgabe durchführen
+\item Probanden merken sich wo Artikel gefunden worden
+\item Nutzbarkeit über standardisierte Fragebögen (z.B. SUS, NASA-TLX) bewerten
+\item Vergleich mit anderen Interfaces (z.B. pointing-based Steering, redirected walking)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Aufgabe b) Messung der Performance}
+\begin{itemize}
+\item Wir messen für jeden Probanden die Zeit
+\item Wir loggen die Anzahl der Kollisionen mit Wänden oder anderen Objekten
+\item Bei hoher Anzahl an Kollisionen konnte die Umgebung nicht gut wahrgenommen werden
+\end{itemize}
+\end{frame}
 
 
 \begin{frame}{Quellen}
 	\begin{thebibliography}{1}
-\bibitem{nick}[1]{ siehe README.txt}
+\bibitem{esc}[1]{ https://vectorportal.com/de/vector/rolltreppe-nach-oben-vektorzeichen/9123}
+\bibitem{segway}[2]{ https://www.flaticon.com/free-icon/segway\textunderscore 1061246}
+\bibitem{smiley}[3]{ https://iconmonstr.com/smiley-2-png/}
+\bibitem{smileyNot}[4]{ https://iconmonstr.com/smiley-4-png/}
+\bibitem{nick}[5]{ Assets: siehe README.txt}
 \end{thebibliography}
 \end{frame}
 
