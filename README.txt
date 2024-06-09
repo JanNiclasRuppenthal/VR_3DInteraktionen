@@ -57,15 +57,15 @@ Schwaechen des Interfaces:
     - Durch die virtuelle mittlere Stange des Segways wird hier ein Verlust der Immersion erzielt. 
     - Die Controller muessen von der Quest 3 getrackt werden. Falls das Tracking fehlschlaegt, dann kann das Interface nicht genutzt werden.
 
-Messung der Performance:
-    - Wir koennen fuer jeden Probanden die Zeit messen.
-    - Wir loggen die Anzahl der Kollisionen mit Waenden oder anderen Objekten. Falls der Nutzer eine hohe Anzahl an Kollisionen erzielt, dann konnte dieser seine Umgebung nicht gut wahrnehmen.
-
 Messung der Nutzbarkeit:
     - Durchfuehrung einer empirischen Studie zur Usability:
         - Einkaufsaufgabe durchfuehren und die Probanden muessen sich merken, wo sie die passenden Artikel gefunden haben.
         - Dabei kann man die Nutzbarkeit nach der Aufgabe mit standardisierten Frageboegen, wie bspw. der System Usability Scale (SUS) oder der NASA-TLX bewerten.
         - Zudem kann man diese Studie mithilfe eines Vergleichs erweitern: Man kann unsere Methode mit anderen Interfaces wie z.B. pointing-based Steering oder redirected walking vergleichen.
+
+Messung der Performance:
+    - Wir koennen fuer jeden Probanden die Zeit messen.
+    - Wir loggen die Anzahl der Kollisionen mit Waenden oder anderen Objekten. Falls der Nutzer eine hohe Anzahl an Kollisionen erzielt, dann konnte dieser seine Umgebung nicht gut wahrnehmen.
 
 
 
@@ -130,6 +130,8 @@ Musik und Sound:
     - Hintergrundmusik: https://www.101soundboards.com/sounds/24303004-wii-shop
     - Hupe: https://www.101soundboards.com/sounds/27481824-horn-honk-short
 
+Segway:
+    - https://sketchfab.com/3d-models/off-road-segway-170e7ccbfb2a4492b97a58d8fc64a534
 
 Kaufhaus:
     - Uhr: https://assetstore.unity.com/packages/3d/props/interior/clock-free-44164
@@ -138,7 +140,10 @@ Kaufhaus:
     - Rahmen fuer die Poster: https://sketchfab.com/3d-models/poster-frame-fb500d75d785433c8b82fdafac9e18cb
     - Pothos Pflanzen: https://sketchfab.com/3d-models/free-pothos-potted-plant-money-plant-e9832f38484f4f85b3f9081b51fa3799
     - WC Tueren: https://assetstore.unity.com/packages/3d/props/interior/door-free-pack-aferar-148411
+    - Eingangstür: https://sketchfab.com/3d-models/sliding-door-c8d08012886f49798a0fb5ffbd5b2feb
     - Laeden: https://sketchfab.com/3d-models/sketchfab-store-in-mall-957c1d65e6db4598a198f7ac3888fed1
+    - Rolltreppen: https://sketchfab.com/3d-models/escalator-by-ilanos-aimer-6382f02bbb1a4f50ae76730ed40266d0
+    - Railings: https://www.cgtrader.com/free-3d-models/architectural/door/baranda-glazed
 
 Bilder fuer die Poster:
     - Deutsche Nationalmannschaft: https://www.ferrero-sammelspass.de/img/shop/Album/998-album.jpg?version=9
