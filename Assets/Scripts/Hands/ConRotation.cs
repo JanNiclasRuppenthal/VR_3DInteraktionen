@@ -12,8 +12,8 @@ public class ConRotation : MonoBehaviour
     private Transform rCon;
     [SerializeField]
     private GameObject segway;
-    private readonly float _baseRotation = 45f;
-    private readonly float _maxRotation = 45f;
+    private readonly float _baseRotation = 30f;
+    private readonly float _maxRotation = 30f;
     private readonly float _deadzone = 0.1f;
     private readonly float _times = 2f;
     private float _rotation = 0f;
