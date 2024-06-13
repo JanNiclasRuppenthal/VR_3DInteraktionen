@@ -4,12 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Embodied Locomotion.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 13375df27a8c6c04d9043bfc986a9f1f, type: 2}
-    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: ef204f50b4d893343b85562e2f4e06e4, type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ae35f65c43ffd5a4e83ba9fbf46046ce, type: 2}
-    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 9914f42ff65f8824fb6ebc6084484a90, type: 2}
+  m_Scenes: []
+  m_configObjects: {}
