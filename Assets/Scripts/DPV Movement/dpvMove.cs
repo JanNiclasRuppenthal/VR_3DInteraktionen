@@ -13,6 +13,8 @@ public class dpvMove : MonoBehaviour
     [SerializeField]
     private GameObject dpv;
     [SerializeField]
+    private GameObject rotor;
+    [SerializeField]
     private InputActionProperty button;
     [SerializeField]
     private float maxSpeed = 10;
@@ -29,7 +31,9 @@ public class dpvMove : MonoBehaviour
         {
             Vector3 direction = dpv.transform.forward;
             float bIntensity = button.action.ReadValue<float>();
-            locomotion.transform.position += maxSpeed * direction * bIntensity * Time.deltaTime;
+            float speed = maxSpeed * bIntensity;
+            rotor.GetComponent<rotorMove>().SetMovement(speed);
+            locomotion.transform.position += speed * direction * Time.deltaTime;
         }
     }
 }
