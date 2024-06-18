@@ -29,10 +29,12 @@ public class dpvMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(grabO.interactorsSelecting.Count >= 1)
+        if(grabO.interactorsSelecting.Count >= 1 || Input.GetKey(KeyCode.W))
         {
+            Debug.Log("move");
             Vector3 direction = dpv.transform.forward;
             float bIntensity = button.action.ReadValue<float>();
+            bIntensity = 1;
             if(bIntensity > 0f)
             {
                 vibration.GetComponent<Vibration>().activeVib = true;
