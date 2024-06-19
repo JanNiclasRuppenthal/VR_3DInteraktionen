@@ -34,7 +34,7 @@ public class dpvMove : MonoBehaviour
             Debug.Log("move");
             Vector3 direction = dpv.transform.forward;
             float bIntensity = button.action.ReadValue<float>();
-            bIntensity = 1;
+            //bIntensity = 1;
             if(bIntensity > 0f)
             {
                 vibration.GetComponent<Vibration>().activeVib = true;
