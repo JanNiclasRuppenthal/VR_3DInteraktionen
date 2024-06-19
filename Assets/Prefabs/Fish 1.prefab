@@ -1850,7 +1850,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3120964592803068601}
-  - component: {fileID: 9183892997029822671}
   m_Layer: 0
   m_Name: Fish 1
   m_TagString: Untagged
@@ -1874,30 +1873,6 @@ Transform:
   - {fileID: 3928869687854524237}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9183892997029822671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317364000556729247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7929d53088f69954db4067b7480a8917, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fovAngle: 270
-  smoothDamp: 1
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 64
-  directionsToCheckWhenAvoidingObstacles:
-  - {x: 1, y: 0, z: 0}
-  - {x: -1, y: 0, z: 0}
-  - {x: 0, y: 1, z: 0}
-  - {x: 0, y: -1, z: 0}
-  - {x: 0, y: 0, z: 1}
-  - {x: 0, y: 0, z: -1}
 --- !u!1 &6437942779136842862
 GameObject:
   m_ObjectHideFlags: 0

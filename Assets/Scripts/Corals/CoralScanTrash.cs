@@ -10,26 +10,25 @@ public class CoralScanTrash : MonoBehaviour
     private Material uniqueMaterial;
     private int Lifetime = 15;
     private Color targetColor;
+    GameObject coral1;
+    GameObject coral2;
+    GameObject coral3;
     // Start is called before the first frame update
     void Start()
     {
-        renderer = GetComponent<Renderer>();
- 
-        uniqueMaterial = renderer.material;
-        targetColor = new Color(1.0f,1.0f,1.0f);
-        
+        coral1 = this.gameObject.transform.GetChild(0).gameObject;
+        coral2 = this.gameObject.transform.GetChild(1).gameObject;
+        coral3 = this.gameObject.transform.GetChild(2).gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Lifetime <= 0){
-            uniqueMaterial.color = targetColor;
             Destroy(this);
         }
-        
-        
     }
+
     public float timeLeft = 1.0f;
     public float timeLeft2 = 1.0f;
     void OnTriggerStay(Collider obj){
@@ -40,10 +39,13 @@ public class CoralScanTrash : MonoBehaviour
             if (timeLeft <= 0) 
             {
                 Lifetime = Lifetime - 1;
+                coral1.GetComponent<CoralBreakDown>().Lifetime = Lifetime;
+                coral2.GetComponent<CoralBreakDown>().Lifetime = Lifetime;
+                coral3.GetComponent<CoralBreakDown>().Lifetime = Lifetime;
+                coral1.GetComponent<CoralBreakDown>().timeLeft = timeLeft;
+                coral2.GetComponent<CoralBreakDown>().timeLeft = timeLeft;
+                coral3.GetComponent<CoralBreakDown>().timeLeft = timeLeft;
                 timeLeft = 1.0f;
-                uniqueMaterial.color = Color.Lerp(uniqueMaterial.color, targetColor, Time.deltaTime / timeLeft2);
-                timeLeft2 -= Time.deltaTime;
-                
             }
 
             //If the GameObject has the same tag as specified, output this message in the console
