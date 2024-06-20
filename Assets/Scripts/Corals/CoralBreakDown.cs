@@ -8,7 +8,7 @@ public class CoralBreakDown : MonoBehaviour
     private Renderer renderer;
  
     private Material uniqueMaterial;
-    public int Lifetime = 15;
+    public float Lifetime = 50;
     private Color targetColor;
     // Start is called before the first frame update
     void Start()

@@ -8,7 +8,7 @@ public class CoralScanTrash : MonoBehaviour
     private Renderer renderer;
  
     private Material uniqueMaterial;
-    private int Lifetime = 15;
+    private float Lifetime = 50.0f;
     private Color targetColor;
     GameObject coral1;
     GameObject coral2;
@@ -25,7 +25,7 @@ public class CoralScanTrash : MonoBehaviour
     void Update()
     {
         if (Lifetime <= 0){
-            Destroy(this);
+            Destroy(this.gameObject.GetComponent<CoralScanTrash>());
         }
     }
 
@@ -38,7 +38,9 @@ public class CoralScanTrash : MonoBehaviour
             timeLeft -= Time.deltaTime;  
             if (timeLeft <= 0) 
             {
-                Lifetime = Lifetime - 1;
+                Lifetime = Lifetime - 1.75f + Vector3.Distance(obj.gameObject.transform.position, this.gameObject.transform.position);
+                
+                Debug.Log("Distance: " + Vector3.Distance(obj.gameObject.transform.position, this.gameObject.transform.position));
                 coral1.GetComponent<CoralBreakDown>().Lifetime = Lifetime;
                 coral2.GetComponent<CoralBreakDown>().Lifetime = Lifetime;
                 coral3.GetComponent<CoralBreakDown>().Lifetime = Lifetime;
@@ -48,8 +50,6 @@ public class CoralScanTrash : MonoBehaviour
                 timeLeft = 1.0f;
             }
 
-            //If the GameObject has the same tag as specified, output this message in the console
-            Debug.Log("Lifetime: " + Lifetime);
         }
     }
 }
