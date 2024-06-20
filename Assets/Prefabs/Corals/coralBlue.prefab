@@ -48,9 +48,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8310837274586594996, guid: 5ba0f1270ed926d439751a2820cfcb3c, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2230488196369062447, guid: 5ba0f1270ed926d439751a2820cfcb3c, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5ba0f1270ed926d439751a2820cfcb3c, type: 3}
       propertyPath: m_Name
       value: coralBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5ba0f1270ed926d439751a2820cfcb3c, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639566359090564205, guid: 5ba0f1270ed926d439751a2820cfcb3c, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 5ba0f1270ed926d439751a2820cfcb3c, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
@@ -62,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 5ba0f1270ed926d439751a2820cfcb3c, type: 3}
       propertyPath: m_LODs.Array.data[2].screenRelativeHeight
-      value: 0.1
+      value: 0.073380165
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
