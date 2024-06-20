@@ -5,7 +5,7 @@ using UnityEngine;
    public class spawnWaste : MonoBehaviour
 {
     public GameObject plane;
-    public GameObject spawnablePrefab;
+    public GameObject[] waste;
 
     // Plane Properties
     float x_dim;
@@ -36,7 +36,7 @@ using UnityEngine;
         public void Spawn()
     {
         // Spawn the object as a child of the plane. This will solve any rotation issues
-        GameObject obj = Instantiate(spawnablePrefab, plane.transform.position, 
+        GameObject obj = Instantiate(waste[Random.Range(0,waste.Length)], plane.transform.position, 
          Quaternion.identity) as GameObject;
 
         /* Move the object to where you want withing in the dimensions of the plane */
