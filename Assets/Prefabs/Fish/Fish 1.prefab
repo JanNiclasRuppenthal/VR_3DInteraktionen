@@ -58,7 +58,7 @@ LODGroup:
     renderers:
     - renderer: {fileID: 6367567475916301999}
     - renderer: {fileID: 2150743895695501352}
-  - screenRelativeHeight: 0.026633663
+  - screenRelativeHeight: 0.01
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 6367567475916301999}
@@ -80,8 +80,14 @@ MonoBehaviour:
   smoothDamp: 1
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
-  directionsToCheckWhenAvoidingObstacles: []
+    m_Bits: 8
+  directionsToCheckWhenAvoidingObstacles:
+  - {x: 1, y: 0, z: 0}
+  - {x: -1, y: 0, z: 0}
+  - {x: 0, y: 1, z: 0}
+  - {x: 0, y: -1, z: 0}
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: -1}
 --- !u!1001 &3102849837348682795
 PrefabInstance:
   m_ObjectHideFlags: 0
