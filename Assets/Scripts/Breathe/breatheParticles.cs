@@ -8,6 +8,8 @@ public class breatheParticles : MonoBehaviour
     private useMic mic;
     [SerializeField]
     private ParticleSystem particles;
+    [SerializeField]
+    private AudioSource audioS;
     private float loudness;
     private float factor;
     private ParticleSystem.EmissionModule emission;
@@ -24,13 +26,22 @@ public class breatheParticles : MonoBehaviour
         if(loudness == 0)
         {
             particles.Stop();
+            if (audioS.isPlaying)
+            {
+                audioS.Stop();
+            }
         }
         else
         {
             particles.Play();
             factor = loudness * 1000;
-            factor = Mathf.Clamp(factor, 1, 200);
+            factor = Mathf.Clamp(factor, 1, 100);
             emission.rateOverTime = factor;
+
+            if(factor > 5 && !audioS.isPlaying)
+            {
+                audioS.Play();
+            }
         }
     }
 }
