@@ -40,7 +40,7 @@ public class CoralScanTrash : MonoBehaviour
             {
                 Lifetime = Lifetime - 1.75f + Vector3.Distance(obj.gameObject.transform.position, this.gameObject.transform.position);
                 
-                Debug.Log("Distance: " + Vector3.Distance(obj.gameObject.transform.position, this.gameObject.transform.position));
+                //Debug.Log("Distance: " + Vector3.Distance(obj.gameObject.transform.position, this.gameObject.transform.position));
                 coral1.GetComponent<CoralBreakDown>().Lifetime = Lifetime;
                 coral2.GetComponent<CoralBreakDown>().Lifetime = Lifetime;
                 coral3.GetComponent<CoralBreakDown>().Lifetime = Lifetime;

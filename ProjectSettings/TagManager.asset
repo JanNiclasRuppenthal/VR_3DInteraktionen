@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Waste
+  - WasteDot
   layers:
   - Default
   - TransparentFX
