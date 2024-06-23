@@ -10,15 +10,17 @@ public class CoralScanTrash : MonoBehaviour
     private Material uniqueMaterial;
     private float Lifetime = 50.0f;
     private Color targetColor;
-    GameObject coral1;
-    GameObject coral2;
-    GameObject coral3;
+    private GameObject grayscale;
+    private float gameover;
+    private float looseLife;
+    public float timeLeft = 1.0f;
+    public float timeLeft2 = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
-        coral1 = this.gameObject.transform.GetChild(0).gameObject;
-        coral2 = this.gameObject.transform.GetChild(1).gameObject;
-        coral3 = this.gameObject.transform.GetChild(2).gameObject;
+        grayscale = GameObject.Find("Grayscale");
+        gameover = grayscale.GetComponent<PostProcessGray>().gameover;
+        looseLife = Lifetime/gameover;
     }
 
     // Update is called once per frame
@@ -27,10 +29,17 @@ public class CoralScanTrash : MonoBehaviour
         if (Lifetime <= 0){
             Destroy(this.gameObject.GetComponent<CoralScanTrash>());
         }
+        timeLeft2 -= Time.deltaTime;  
+        if (timeLeft2 <= 0){
+            Lifetime -= looseLife;
+            this.gameObject.GetComponent<CoralBreakDown>().Lifetime = Lifetime;
+            this.gameObject.GetComponent<CoralBreakDown>().timeLeft = timeLeft2;
+            
+            timeLeft2 = 1.0f;
+            //Debug.Log("Loose: " + looseLife + " Lifetime: " + Lifetime + " GameOver: " + gameover);
+        }
     }
 
-    public float timeLeft = 1.0f;
-    public float timeLeft2 = 1.0f;
     void OnTriggerStay(Collider obj){
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
         if (obj.gameObject.tag == "Waste")
@@ -38,15 +47,11 @@ public class CoralScanTrash : MonoBehaviour
             timeLeft -= Time.deltaTime;  
             if (timeLeft <= 0) 
             {
-                Lifetime = Lifetime - 1.75f + Vector3.Distance(obj.gameObject.transform.position, this.gameObject.transform.position);
+                Lifetime = Lifetime - (2.0f - Vector3.Distance(obj.gameObject.transform.position, this.gameObject.transform.position))*looseLife*5.0f;
                 
-                //Debug.Log("Distance: " + Vector3.Distance(obj.gameObject.transform.position, this.gameObject.transform.position));
-                coral1.GetComponent<CoralBreakDown>().Lifetime = Lifetime;
-                coral2.GetComponent<CoralBreakDown>().Lifetime = Lifetime;
-                coral3.GetComponent<CoralBreakDown>().Lifetime = Lifetime;
-                coral1.GetComponent<CoralBreakDown>().timeLeft = timeLeft;
-                coral2.GetComponent<CoralBreakDown>().timeLeft = timeLeft;
-                coral3.GetComponent<CoralBreakDown>().timeLeft = timeLeft;
+                Debug.Log("Distance: " + Vector3.Distance(obj.gameObject.transform.position, this.gameObject.transform.position));
+                this.gameObject.GetComponent<CoralBreakDown>().Lifetime = Lifetime;
+                this.gameObject.GetComponent<CoralBreakDown>().timeLeft = timeLeft;
                 timeLeft = 1.0f;
             }
 

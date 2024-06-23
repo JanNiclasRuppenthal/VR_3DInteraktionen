@@ -8,7 +8,7 @@ public class PostProcessGray : MonoBehaviour
     [SerializeField]
     private PostProcessVolume volume;
     [SerializeField]
-    private float gameover = 20;
+    public float gameover;
     [SerializeField]
     private List<GameObject> goList;
     [SerializeField]
@@ -18,20 +18,15 @@ public class PostProcessGray : MonoBehaviour
     [SerializeField]
     private VideoPlayer video;
     private float timer = 0;
+    public int aliveCorals = 2251;
+    private bool started = false;
     // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(GameOverTime());
-    }
 
-    IEnumerator GameOverTime()
-    {
-        while (timer < gameover)
-        {
-            timer += Time.deltaTime;
-            yield return null;
+    void Update(){
+        if (aliveCorals <= 0 && !started){
+            started = true;
+            StartCoroutine(ChangeWeight(5f));
         }
-        StartCoroutine(ChangeWeight(5f));
     }
     
     IEnumerator ChangeWeight(float time)

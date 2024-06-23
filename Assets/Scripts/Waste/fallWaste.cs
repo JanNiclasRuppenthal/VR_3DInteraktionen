@@ -12,10 +12,15 @@ public class fallWaste : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        float x = this.gameObject.GetComponent<BoxCollider>().bounds.size.x;
+        float y = this.gameObject.GetComponent<BoxCollider>().bounds.size.y;
+        float z = this.gameObject.GetComponent<BoxCollider>().bounds.size.z;
+        float max = Mathf.Max(x,y,z);
+        
         ground = GameObject.Find("Bottom");
         downRay = new Ray(transform.position, -Vector3.up);
         Physics.Raycast(downRay, out hit);
-        target = new Vector3(hit.point.x, hit.point.y + 0.2f, hit.point.z);
+        target = new Vector3(hit.point.x, hit.point.y + max + 0.1f, hit.point.z);
         transform.rotation = Random.rotation;
     }
 
