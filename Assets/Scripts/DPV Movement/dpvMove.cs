@@ -31,7 +31,6 @@ public class dpvMove : MonoBehaviour
     {
         if(grabO.interactorsSelecting.Count >= 1 || Input.GetKey(KeyCode.W))
         {
-            Debug.Log("move");
             Vector3 direction = dpv.transform.forward;
             float bIntensity = button.action.ReadValue<float>();
             //bIntensity = 1;
