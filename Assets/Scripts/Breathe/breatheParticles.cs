@@ -10,13 +10,17 @@ public class breatheParticles : MonoBehaviour
     private ParticleSystem particles;
     [SerializeField]
     private AudioSource audioS;
+    [SerializeField]
+    private float freqTime = 10f;
     private float loudness;
     private float factor;
+    private float passedTime = 0f;
     private ParticleSystem.EmissionModule emission;
     // Start is called before the first frame update
     void Start()
     {
         emission = particles.emission;
+        freqTime *= 2;
     }
 
     // Update is called once per frame
@@ -35,13 +39,14 @@ public class breatheParticles : MonoBehaviour
         {
             particles.Play();
             factor = loudness * 1000;
-            factor = Mathf.Clamp(factor, 1, 100);
+            factor = Mathf.Clamp(factor, 7 * Mathf.Abs(Mathf.Sin((Mathf.PI / freqTime) * passedTime)), 100);
             emission.rateOverTime = factor;
 
             if(factor > 5 && !audioS.isPlaying)
             {
                 audioS.Play();
             }
+            passedTime += Time.deltaTime;
         }
     }
 }

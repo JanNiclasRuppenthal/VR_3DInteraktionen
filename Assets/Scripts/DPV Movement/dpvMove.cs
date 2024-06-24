@@ -20,10 +20,15 @@ public class dpvMove : MonoBehaviour
     private InputActionProperty button;
     [SerializeField]
     private float maxSpeed = 10;
+    [SerializeField]
+    private ParticleSystem particles;
+    private float orgPartSpeed;
+    private float orgGravSpeed;
     // Start is called before the first frame update
     void Start()
     {
-        
+        orgPartSpeed = particles.startSpeed;
+        orgGravSpeed = particles.gravityModifier;
     }
 
     // Update is called once per frame
@@ -47,6 +52,8 @@ public class dpvMove : MonoBehaviour
             float speed = maxSpeed * bIntensity;
             rotor.GetComponent<rotorMove>().SetMovement(speed);
             locomotion.transform.position += speed * direction * Time.deltaTime;
+            particles.startSpeed = orgPartSpeed + speed*speed;
+            particles.gravityModifier = orgGravSpeed * (1 + speed*speed);
         }else if (vibration.GetComponent<Vibration>().activeVib == true)
         {
             vibration.GetComponent<Vibration>().activeVib = false;

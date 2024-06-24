@@ -18,7 +18,7 @@ public class rotorMove : MonoBehaviour
     {
         if (movement > 0 || movement < 0)
         {
-            rotor.transform.Rotate(new Vector3(0f, 0f, movement* 22.5f * Time.deltaTime), Space.Self);
+            rotor.transform.Rotate(new Vector3(0f, 0f, movement* 45f * Time.deltaTime), Space.Self);
         }
     }
 

@@ -46,7 +46,7 @@ public class PostProcessGray : MonoBehaviour
         }
         foreach (GameObject gameObject in GameObject.FindObjectsOfType<GameObject>())
         {
-            if (gameObject.name.StartsWith("Fish"))
+            if (gameObject.name.StartsWith("Fish") || gameObject.name.StartsWith("bottle") || gameObject.name.StartsWith("crushedCan") || gameObject.name.StartsWith("kefir") || gameObject.name.StartsWith("tin") || gameObject.name.StartsWith("trashbag") || gameObject.name.StartsWith("yogurt"))
             {
                 gameObject.SetActive(false);
             }
