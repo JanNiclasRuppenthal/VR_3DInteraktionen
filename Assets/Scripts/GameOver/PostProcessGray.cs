@@ -17,6 +17,8 @@ public class PostProcessGray : MonoBehaviour
     private GameObject GameOverRoom;
     [SerializeField]
     private VideoPlayer video;
+    [SerializeField]
+    private AudioSource audioS;
     private float timer = 0;
     public int aliveCorals = 2251;
     private bool started = false;
@@ -55,5 +57,6 @@ public class PostProcessGray : MonoBehaviour
         GameOverRoom.transform.rotation = Quaternion.Euler(GameOverRoom.transform.rotation.eulerAngles.x, Locomotion.transform.eulerAngles.y, GameOverRoom.transform.rotation.eulerAngles.z);
         GameOverRoom.SetActive(true);
         video.Play();
+        audioS.Play();
     }
 }

@@ -38,8 +38,8 @@ public class breatheParticles : MonoBehaviour
         else
         {
             particles.Play();
-            factor = loudness * 1000;
-            factor = Mathf.Clamp(factor, 7 * Mathf.Abs(Mathf.Sin((Mathf.PI / freqTime) * passedTime)), 100);
+            factor = loudness * 2000;
+            factor = Mathf.Clamp(factor, 10 * Mathf.Abs(Mathf.Sin((Mathf.PI / freqTime) * passedTime)), 30);
             emission.rateOverTime = factor;
 
             if(factor > 5 && !audioS.isPlaying)
