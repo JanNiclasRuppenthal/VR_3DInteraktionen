@@ -15,6 +15,7 @@ public class breatheParticles : MonoBehaviour
     private float loudness;
     private float factor;
     private float passedTime = 0f;
+    private float breatheCurve = 0f;
     private ParticleSystem.EmissionModule emission;
     // Start is called before the first frame update
     void Start()
@@ -27,26 +28,39 @@ public class breatheParticles : MonoBehaviour
     void Update()
     {
         loudness = mic.getLoudness();
-        if(loudness == 0)
+        //particles.Play();
+        factor = loudness * 1500;
+        breatheCurve = Mathf.Abs(Mathf.Sin((Mathf.PI / freqTime) * passedTime));
+        if (breatheCurve > 0.95f)
+        {
+            breatheCurve -= 0.95f;
+            factor = Mathf.Clamp(factor, 400 * breatheCurve, 40);
+        }
+        else
+        {
+            factor = Mathf.Clamp(factor, 0.01f, 40);
+        }
+        //Debug.Log("Breathe Factor: " + factor);
+        emission.rateOverTime = factor;
+
+        if (factor > 5 && !audioS.isPlaying)
+        {
+            audioS.time = 0.2f;
+            audioS.Play();
+        } else if(factor <= 5 && audioS.isPlaying)
+        {
+            audioS.Stop();
+        }
+        passedTime += Time.deltaTime;
+
+        /*
+        if (factor == 0)
         {
             particles.Stop();
             if (audioS.isPlaying)
             {
                 audioS.Stop();
             }
-        }
-        else
-        {
-            particles.Play();
-            factor = loudness * 2000;
-            factor = Mathf.Clamp(factor, 10 * Mathf.Abs(Mathf.Sin((Mathf.PI / freqTime) * passedTime)), 30);
-            emission.rateOverTime = factor;
-
-            if(factor > 5 && !audioS.isPlaying)
-            {
-                audioS.Play();
-            }
-            passedTime += Time.deltaTime;
-        }
+        }*/
     }
 }
