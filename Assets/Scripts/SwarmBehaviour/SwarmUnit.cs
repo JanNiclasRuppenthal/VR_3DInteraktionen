@@ -79,7 +79,8 @@ public class SwarmUnit : MonoBehaviour
         Vector3 obstacleVector = Vector3.zero;
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, 2,
-                obstacleMask))
+                obstacleMask) || Physics.Raycast(transform.position, transform.forward, out hit, 8,
+                cameraMask))
         {
             obstacleVector = FindBestDirectionToAvoidObstacle();
         }
@@ -97,7 +98,7 @@ public class SwarmUnit : MonoBehaviour
         {
             RaycastHit hit;
             if (!Physics.Raycast(transform.position, transform.forward, out hit, 2,
-                    obstacleMask) || !Physics.Raycast(transform.position, transform.forward, out hit, 4,
+                    obstacleMask) || !Physics.Raycast(transform.position, transform.forward, out hit, 8,
                     cameraMask))
             {
                 return _currentObstacleAvoidanceVector;
@@ -113,7 +114,7 @@ public class SwarmUnit : MonoBehaviour
             Vector3 currentDirection =
                 transform.TransformDirection(directionsToCheckWhenAvoidingObstacles[i].normalized);
             if (Physics.Raycast(transform.position, currentDirection, out hit, 2,
-                    obstacleMask) || Physics.Raycast(transform.position, transform.forward, out hit, 4,
+                    obstacleMask) || Physics.Raycast(transform.position, transform.forward, out hit, 8,
                     cameraMask))
             {
 
