@@ -16,10 +16,10 @@ public class CoralBreakDown : MonoBehaviour
     private Color targetColor;
     private GameObject grayscale;
     private float gameover;
-    private float looseLife;
     GameObject coral1;
     GameObject coral2;
     GameObject coral3;
+    GameObject wasteSpawner;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,14 +35,12 @@ public class CoralBreakDown : MonoBehaviour
         targetColor = new Color(1.0f,1.0f,1.0f);
         grayscale = GameObject.Find("Grayscale");
         gameover = grayscale.GetComponent<PostProcessGray>().gameover;
-        looseLife = Lifetime/gameover;
-
-        
+        Lifetime = Random.Range(gameover/3,gameover);
+        wasteSpawner =  GameObject.Find("WasteSpawner");
     }
 
-
-    public float timeLeft2 = 1.0f;
     public float timeLeft = 1.0f;
+    int cnt;
 
     // Update is called once per frame
     void Update()
@@ -54,11 +52,17 @@ public class CoralBreakDown : MonoBehaviour
             grayscale.GetComponent<PostProcessGray>().aliveCorals -= 1;
             Destroy(this.gameObject.GetComponent<CoralBreakDown>());
         }
+        timeLeft -= Time.deltaTime;
         if (timeLeft <= 0){
-            //Debug.Log(Time.deltaTime);
-            uniqueMaterial1.color = Color.Lerp(uniqueMaterial1.color, targetColor, looseLife * Time.deltaTime);
-            uniqueMaterial2.color = Color.Lerp(uniqueMaterial2.color, targetColor, looseLife * Time.deltaTime);
-            uniqueMaterial3.color = Color.Lerp(uniqueMaterial3.color, targetColor, looseLife * Time.deltaTime);
+            uniqueMaterial1.color = Color.Lerp(uniqueMaterial1.color, targetColor, Time.deltaTime/Lifetime);
+            uniqueMaterial2.color = Color.Lerp(uniqueMaterial2.color, targetColor, Time.deltaTime/Lifetime);
+            uniqueMaterial3.color = Color.Lerp(uniqueMaterial3.color, targetColor, Time.deltaTime/Lifetime);
+            cnt = wasteSpawner.GetComponent<spawnWaste>().cnt;
+            if (cnt > 5){
+                Lifetime -= 0.05f * wasteSpawner.GetComponent<spawnWaste>().cnt;
+            }else{
+                Lifetime += 0.05f * wasteSpawner.GetComponent<spawnWaste>().cnt;
+            }
             timeLeft = 1.0f;
         }
     }

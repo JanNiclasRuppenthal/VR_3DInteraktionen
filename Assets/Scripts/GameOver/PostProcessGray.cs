@@ -20,7 +20,7 @@ public class PostProcessGray : MonoBehaviour
     [SerializeField]
     private AudioSource audioS;
     private float timer = 0;
-    public int aliveCorals = 2251;
+    public int aliveCorals = 4052;
     private bool started = false;
     // Start is called before the first frame update
 

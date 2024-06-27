@@ -11,9 +11,10 @@ using UnityEngine;
     float x_dim;
     float z_dim;
 
-    public float timeLeft = 15.0f;
-    int max = 10;
-    int cnt = 0;
+    float spawnrate = 15.0f;
+    public float timeLeft;
+    int max = 100;
+    public int cnt = 0;
     void Start()
     {
         // Get the length and width of the plane
@@ -21,15 +22,35 @@ using UnityEngine;
         z_dim = plane.GetComponent<MeshRenderer>().bounds.size.z;
         x_dim /= 2;
         z_dim /= 2;  
+        timeLeft = spawnrate;
          
     }
 
+    
+    Color targetColor = new Color(0.0425f,0.2217f,0.3113f);
+    Color startColor = new Color(0.2352f,0.6274f,0.8235f);
+
     void Update(){
         timeLeft -= Time.deltaTime;  
-        if (timeLeft <= 0 && cnt < max){
-            Spawn();
-            cnt++;
-            timeLeft = 1.0f;
+        if (timeLeft <= 0){
+            if (cnt < max){
+                Spawn();
+                cnt++;
+            }
+            if (cnt > 0){
+                RenderSettings.fogColor = Color.Lerp(RenderSettings.fogColor, targetColor, Time.deltaTime);
+            }else{
+                RenderSettings.fogColor = Color.Lerp(RenderSettings.fogColor, startColor, Time.deltaTime);
+            }
+            if (cnt > 50){
+                foreach (GameObject gameObject in GameObject.FindObjectsOfType<GameObject>()){
+                    if (gameObject.name.StartsWith("Fish")){
+                        Destroy(gameObject);
+                        break;
+                    }
+                }
+            }
+            timeLeft = spawnrate;
         }
     }
 
