@@ -45,8 +45,10 @@ using UnityEngine;
             if (cnt > 50){
                 foreach (GameObject gameObject in GameObject.FindObjectsOfType<GameObject>()){
                     if (gameObject.name.StartsWith("Fish")){
-                        Destroy(gameObject);
-                        break;
+                        if (gameObject.activeSelf){
+                            gameObject.SetActive(false);
+                            break;
+                        }
                     }
                 }
             }

@@ -32,7 +32,7 @@ public class CoralBreakDown : MonoBehaviour
         uniqueMaterial1 = renderer1.material;
         uniqueMaterial2 = renderer2.material;
         uniqueMaterial3 = renderer3.material;
-        targetColor = new Color(1.0f,1.0f,1.0f);
+        targetColor = new Color(0.5849f,0.5849f,0.5849f);
         grayscale = GameObject.Find("Grayscale");
         gameover = grayscale.GetComponent<PostProcessGray>().gameover;
         Lifetime = Random.Range(gameover/3,gameover);

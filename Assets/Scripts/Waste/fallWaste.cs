@@ -20,7 +20,7 @@ public class fallWaste : MonoBehaviour
         ground = GameObject.Find("Bottom");
         downRay = new Ray(transform.position, -Vector3.up);
         Physics.Raycast(downRay, out hit);
-        target = new Vector3(hit.point.x, hit.point.y + max + 0.1f, hit.point.z);
+        target = new Vector3(hit.point.x, hit.point.y + max + 0.5f, hit.point.z);
         transform.rotation = Random.rotation;
     }
 
