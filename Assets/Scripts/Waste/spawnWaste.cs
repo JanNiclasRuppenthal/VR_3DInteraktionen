@@ -11,7 +11,7 @@ using UnityEngine;
     float x_dim;
     float z_dim;
 
-    float spawnrate = 15.0f;
+    [SerializeField] private float spawnrate = 6.0f;
     public float timeLeft;
     int max = 100;
     public int cnt = 0;

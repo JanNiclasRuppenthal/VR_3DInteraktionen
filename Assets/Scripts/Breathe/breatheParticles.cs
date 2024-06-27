@@ -11,7 +11,7 @@ public class breatheParticles : MonoBehaviour
     [SerializeField]
     private AudioSource audioS;
     [SerializeField]
-    private float freqTime = 10f;
+    private float freqTime;
     private float loudness;
     private float factor;
     private float passedTime = 0f;
@@ -31,9 +31,9 @@ public class breatheParticles : MonoBehaviour
         //particles.Play();
         factor = loudness * 1500;
         breatheCurve = Mathf.Abs(Mathf.Sin((Mathf.PI / freqTime) * passedTime));
-        if (breatheCurve > 0.95f)
+        if (breatheCurve > 0.9f)
         {
-            breatheCurve -= 0.95f;
+            breatheCurve -= 0.9f;
             factor = Mathf.Clamp(factor, 400 * breatheCurve, 40);
         }
         else

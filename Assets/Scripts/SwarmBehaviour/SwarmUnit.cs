@@ -2,51 +2,76 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class SwarmUnit : MonoBehaviour
 {
     [Header("Obstacle Settings")]
     [SerializeField] private LayerMask obstacleMask;
+    [SerializeField] private LayerMask cameraMask;
     [SerializeField] private Vector3[] directionsToCheckWhenAvoidingObstacles;
     
-    private float speed;
+    private float _speed;
     private Vector3 _currentObstacleAvoidanceVector;
     private Vector3 _currentVelocity;
     
+    
+    private PostProcessGray processGray;
+    private float _gameOverTime;
+    private float _lifeTime;
+    public float LifeTime
+    {
+        get => _lifeTime;
+        set => _lifeTime = value;
+    }
+
+    private spawnWaste _wasteSpawner;
+    private GameObject _ground;
+
     // Start is called before the first frame update
     void Start()
     {
-        speed = Random.Range(SwarmManager.SM.MinSpeed, SwarmManager.SM.MaxSpeed);
+        processGray = GameObject.Find("Grayscale").GetComponent<PostProcessGray>();
+        _wasteSpawner = GameObject.Find("WasteSpawner").GetComponent<spawnWaste>();
+        _speed = Random.Range(SwarmManager.SM.MinSpeed, SwarmManager.SM.MaxSpeed);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Random.Range(0, 100) < 5)
+        if (processGray.aliveCorals <= _lifeTime)
         {
-            speed = Random.Range(SwarmManager.SM.MinSpeed, SwarmManager.SM.MaxSpeed);
+            this.transform.gameObject.SetActive(false);
         }
-        if (Random.Range(0, 100) < 25)
+        else
         {
-            ApplyRules();
-        }
+            if (Random.Range(0, 100) < 5)
+            {
+                _speed = Random.Range(SwarmManager.SM.MinSpeed, SwarmManager.SM.MaxSpeed);
+            }
+            if (Random.Range(0, 100) < 25)
+            {
+                ApplyRules();
+            }
         
-        Vector3 obstacleVector = CalculateObstacleVector() * 10;
+            Vector3 obstacleVector = CalculateObstacleVector() * 10;
 
-        // transform.forward = obstacleVector;
-        // this.transform.position += obstacleVector * speed * Time.deltaTime;
+            // transform.forward = obstacleVector;
+            // this.transform.position += obstacleVector * speed * Time.deltaTime;
         
-        Vector3 moveVector = obstacleVector;
+            Vector3 moveVector = obstacleVector;
 			
 			
-        moveVector = Vector3.SmoothDamp(transform.forward, moveVector, ref _currentVelocity, 1);
-        moveVector = moveVector.normalized * speed;
-        if (moveVector == Vector3.zero)
-            moveVector = transform.forward;
+            moveVector = Vector3.SmoothDamp(transform.forward, moveVector, ref _currentVelocity, 1);
+            moveVector = moveVector.normalized * _speed;
+            if (moveVector == Vector3.zero)
+                moveVector = transform.forward;
 
-        transform.forward = moveVector;
-        transform.position += moveVector * Time.deltaTime;
+            transform.forward = moveVector;
+            transform.position += moveVector * Time.deltaTime;
+        }
     }
     
     private Vector3 CalculateObstacleVector()
@@ -72,7 +97,8 @@ public class SwarmUnit : MonoBehaviour
         {
             RaycastHit hit;
             if (!Physics.Raycast(transform.position, transform.forward, out hit, 2,
-                    obstacleMask))
+                    obstacleMask) || !Physics.Raycast(transform.position, transform.forward, out hit, 4,
+                    cameraMask))
             {
                 return _currentObstacleAvoidanceVector;
             }
@@ -87,7 +113,8 @@ public class SwarmUnit : MonoBehaviour
             Vector3 currentDirection =
                 transform.TransformDirection(directionsToCheckWhenAvoidingObstacles[i].normalized);
             if (Physics.Raycast(transform.position, currentDirection, out hit, 2,
-                    obstacleMask))
+                    obstacleMask) || Physics.Raycast(transform.position, transform.forward, out hit, 4,
+                    cameraMask))
             {
 
                 float currentDistance = (hit.point - transform.position).sqrMagnitude;
@@ -136,7 +163,7 @@ public class SwarmUnit : MonoBehaviour
                     }
 
                     SwarmUnit anotherFlock = go.GetComponent<SwarmUnit>();
-                    gSpeed = gSpeed + anotherFlock.speed;
+                    gSpeed = gSpeed + anotherFlock._speed;
                 }
             }
         }
@@ -144,11 +171,11 @@ public class SwarmUnit : MonoBehaviour
         if (groupSize > 0)
         {
             vcentre = vcentre / groupSize + (SwarmManager.SM.GoalPos - this.transform.position);
-            speed = gSpeed / groupSize;
+            _speed = gSpeed / groupSize;
 
-            if (speed > SwarmManager.SM.MaxSpeed)
+            if (_speed > SwarmManager.SM.MaxSpeed)
             {
-                speed = SwarmManager.SM.MaxSpeed;
+                _speed = SwarmManager.SM.MaxSpeed;
             }
 
             Vector3 direction = (vcentre + vavoid) - transform.position;

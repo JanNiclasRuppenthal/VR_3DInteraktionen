@@ -29,12 +29,15 @@ public class SwarmManager : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     
     
+    
     private GameObject[] _allFish;
     
     
     // Start is called before the first frame update
     void Start()
     {
+
+        var deathRate = new[] { (0, 500), (501, 1000), (1000, 1800), (1800, 2500) };
         _allFish = new GameObject[numFish];
         for (int index = 0; index < numFish; index++)
         {
@@ -43,7 +46,10 @@ public class SwarmManager : MonoBehaviour
                 Random.Range(-swimLimit.y, swimLimit.y),
                 Random.Range(-swimLimit.z, swimLimit.z)
             );
-            _allFish[index] = Instantiate(fishPrefab, startPos, Quaternion.identity);
+            GameObject fish = Instantiate(fishPrefab, startPos, Quaternion.identity);
+            var (minDeath, maxDeath) = deathRate[index % 4];
+            fish.GetComponent<SwarmUnit>().LifeTime = Random.Range(minDeath, maxDeath);
+            _allFish[index] = fish;
         }
 
         SM = this;

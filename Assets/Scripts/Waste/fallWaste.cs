@@ -5,7 +5,7 @@ using UnityEngine;
 public class fallWaste : MonoBehaviour
 {
     GameObject ground;
-    float speed = 1.0f;
+    float speed = 1f;
     RaycastHit hit;
     Ray downRay;
     Vector3 target;
@@ -30,10 +30,11 @@ public class fallWaste : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, target) <= 0){
             Destroy(transform.GetComponent<fallWaste>());
-        }else{
-            
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target, step);
+        }
+        else
+        {
+            float step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, target, step);
         }
             
     }
