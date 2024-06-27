@@ -10,31 +10,30 @@ public class activeRadar : MonoBehaviour
     [SerializeField] private XRBaseInteractor rInteractor;
     [SerializeField] private GameObject dpv;
 
-    // [SerializeField] private LineRenderer rayLineLeft;
-    // [SerializeField] private LineRenderer rayLineRight;
+    [SerializeField] private XRRayInteractor rayLineLeft;
+    [SerializeField] private XRRayInteractor rayLineRight;
     
     // Update is called once per frame
     void Update()
     {
-
-        // if (rConGrab())
-        // {
-        //     rayLineRight.transform.gameObject.SetActive(false);
-        // }
-        // else if(dpv.activeSelf)
-        // {
-        //     rayLineRight.transform.gameObject.SetActive(true);
-        // }
+        if (rConGrab())
+        {
+            rayLineRight.maxRaycastDistance = 0;
+        }
+        else if(dpv.activeSelf)
+        {
+            rayLineRight.maxRaycastDistance = 0.5f;
+        }
         
         if (lConGrab())
         {
             radar.SetActive(false);
-            // rayLineLeft.transform.gameObject.SetActive(false);
+            rayLineLeft.maxRaycastDistance = 0f;
         }
         else if (!radar.activeSelf && dpv.activeSelf)
         {
             radar.SetActive(true);
-            // rayLineLeft.transform.gameObject.SetActive(true);
+            rayLineLeft.maxRaycastDistance = 0.5f;
         }
     }
     private bool lConGrab()
