@@ -14,6 +14,8 @@ public class SwarmManager : MonoBehaviour
     
     [Header("Settings")]
     [SerializeField] private GameObject fishPrefab;
+    [SerializeField] private GameObject fishPrefab2;
+    private GameObject f;
     [SerializeField] private int numFish = 100;
     [SerializeField] private Vector3 swimLimit = new Vector3(5, 5, 5);
     [SerializeField] private Transform goalTransform;
@@ -46,7 +48,16 @@ public class SwarmManager : MonoBehaviour
                 Random.Range(-swimLimit.y, swimLimit.y),
                 Random.Range(-swimLimit.z, swimLimit.z)
             );
-            GameObject fish = Instantiate(fishPrefab, startPos, Quaternion.identity);
+            
+            if (Random.Range(0,100) < 60)
+            {
+                f = fishPrefab;
+            }
+            else
+            {
+                f = fishPrefab2;
+            }
+            GameObject fish = Instantiate(f, startPos, Quaternion.identity);
             var (minDeath, maxDeath) = deathRate[index % 4];
             fish.GetComponent<SwarmUnit>().LifeTime = Random.Range(minDeath, maxDeath);
             _allFish[index] = fish;
