@@ -10,7 +10,7 @@ public class SeaturtleMovement : MonoBehaviour
     private float speed = 1f;
     [SerializeField]
     private float turnspeed = 20f;
-    private float forwardTime = 7.5f;
+    private float forwardTime = 10f;
     private float angle = 0f;
     private float fullAngle = 0f;
     private bool turnRight = false;
@@ -42,10 +42,10 @@ public class SeaturtleMovement : MonoBehaviour
         }
 
         fullAngle += angle;
-        Debug.Log("fullangle:"+fullAngle);
+        //Debug.Log("fullangle:"+fullAngle);
         if (fullAngle >= 180.0f)
         {
-            Debug.Log("Switch");
+            //Debug.Log("Switch");
             fullAngle = 0f;
             pause = true;
             StartCoroutine(ForwardMove());
