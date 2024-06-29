@@ -28,11 +28,7 @@ public class fallWaste : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, target) <= 0){
-            Destroy(transform.GetComponent<fallWaste>());
-        }
-        else
-        {
+        if (Vector3.Distance(transform.position, target) > 0){
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target, step);
         }

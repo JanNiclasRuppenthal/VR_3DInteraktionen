@@ -51,6 +51,15 @@ using UnityEngine;
                         }
                     }
                 }
+            }else{
+                foreach (GameObject gameObject in GameObject.FindObjectsOfType<GameObject>()){
+                    if (gameObject.name.StartsWith("Fish")){
+                        if (!gameObject.activeSelf){
+                            gameObject.SetActive(true);
+                            break;
+                        }
+                    }
+                }
             }
             timeLeft = spawnrate;
         }
