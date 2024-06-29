@@ -10,58 +10,69 @@ public class SeaturtleMovement : MonoBehaviour
     private float speed = 1f;
     [SerializeField]
     private float turnspeed = 20f;
-    private float forwardTime = 10f;
-    private float angle = 0f;
-    private float fullAngle = 0f;
-    private bool turnRight = false;
-    private bool pause = true;
+
+    [SerializeField] private int lifeTime;
+    
+    private readonly float _forwardTime = 10f;
+    private float _angle = 0f;
+    private float _fullAngle = 0f;
+    private bool _turnRight = false;
+    private bool _pause = true;
+    private PostProcessGray _processGray;
     void Start()
     {
+        _processGray = GameObject.Find("Grayscale").GetComponent<PostProcessGray>();
         StartCoroutine(ForwardMoveStart());
     }
 
     private void Update()
     {
-        turtle.transform.position += turtle.transform.right * speed * Time.deltaTime;
-        if (pause)
+        if (_processGray.aliveCorals <= lifeTime)
         {
-            angle = 0f;
+            this.gameObject.SetActive(false);
             return;
         }
-        angle = turnspeed * speed * Time.deltaTime;
-
-        if (turnRight)
+        
+        turtle.transform.position += turtle.transform.right * speed * Time.deltaTime;
+        if (_pause)
         {
-            turtle.transform.Rotate(Vector3.up, angle);
+            _angle = 0f;
+            return;
+        }
+        _angle = turnspeed * speed * Time.deltaTime;
+
+        if (_turnRight)
+        {
+            turtle.transform.Rotate(Vector3.up, _angle);
             //turtle.transform.rotation = Quaternion.RotateTowards(turtle.transform.rotation, Quaternion.Euler(0, 180, 0), angle);
         }
         else
         {
-            turtle.transform.Rotate(Vector3.up, -angle);
+            turtle.transform.Rotate(Vector3.up, -_angle);
             //turtle.transform.rotation = Quaternion.RotateTowards(turtle.transform.rotation, Quaternion.Euler(0, -180, 0), angle);
         }
 
-        fullAngle += angle;
+        _fullAngle += _angle;
         //Debug.Log("fullangle:"+fullAngle);
-        if (fullAngle >= 180.0f)
+        if (_fullAngle >= 180.0f)
         {
             //Debug.Log("Switch");
-            fullAngle = 0f;
-            pause = true;
+            _fullAngle = 0f;
+            _pause = true;
             StartCoroutine(ForwardMove());
         }
 
     }
     IEnumerator ForwardMoveStart()
     {
-        yield return new WaitForSeconds(forwardTime);
-        pause = false;
-        turnRight = !turnRight;
+        yield return new WaitForSeconds(_forwardTime);
+        _pause = false;
+        _turnRight = !_turnRight;
     }
     IEnumerator ForwardMove()
     {
-        yield return new WaitForSeconds(2*forwardTime);
-        pause = false;
-        turnRight = !turnRight;
+        yield return new WaitForSeconds(2*_forwardTime);
+        _pause = false;
+        _turnRight = !_turnRight;
     }
 }

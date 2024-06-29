@@ -17,7 +17,7 @@ public class SwarmUnit : MonoBehaviour
     private Vector3 _currentVelocity;
     
     
-    private PostProcessGray processGray;
+    private PostProcessGray _processGray;
     private float _gameOverTime;
     private float _lifeTime;
     public float LifeTime
@@ -32,7 +32,7 @@ public class SwarmUnit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        processGray = GameObject.Find("Grayscale").GetComponent<PostProcessGray>();
+        _processGray = GameObject.Find("Grayscale").GetComponent<PostProcessGray>();
         _wasteSpawner = GameObject.Find("WasteSpawner").GetComponent<spawnWaste>();
         _speed = Random.Range(SwarmManager.SM.MinSpeed, SwarmManager.SM.MaxSpeed);
         
@@ -41,9 +41,10 @@ public class SwarmUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (processGray.aliveCorals <= _lifeTime)
+        if (_processGray.aliveCorals <= _lifeTime)
         {
             this.transform.gameObject.SetActive(false);
+            return;
         }
         else
         {
@@ -149,7 +150,7 @@ public class SwarmUnit : MonoBehaviour
 
         foreach (GameObject go in gos)
         {
-            if (go != this.gameObject)
+            if (go.activeSelf && go != this.gameObject)
             {
                 nDistance = Vector3.Distance(go.transform.position, this.transform.position);
 
