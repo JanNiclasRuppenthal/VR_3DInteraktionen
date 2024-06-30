@@ -42,30 +42,11 @@ using UnityEngine;
             }else{
                 RenderSettings.fogColor = Color.Lerp(RenderSettings.fogColor, startColor, Time.deltaTime);
             }
-            if (cnt > 50){
-                foreach (GameObject gameObject in GameObject.FindObjectsOfType<GameObject>()){
-                    if (gameObject.name.StartsWith("Fish")){
-                        if (gameObject.activeSelf){
-                            gameObject.SetActive(false);
-                            break;
-                        }
-                    }
-                }
-            }else{
-                foreach (GameObject gameObject in GameObject.FindObjectsOfType<GameObject>()){
-                    if (gameObject.name.StartsWith("Fish")){
-                        if (!gameObject.activeSelf){
-                            gameObject.SetActive(true);
-                            break;
-                        }
-                    }
-                }
-            }
             timeLeft = spawnrate;
         }
     }
 
-        public void Spawn()
+    private void Spawn()
     {
         // Spawn the object as a child of the plane. This will solve any rotation issues
         GameObject obj = Instantiate(waste[Random.Range(0,waste.Length)], plane.transform.position, 
