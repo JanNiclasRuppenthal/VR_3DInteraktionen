@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoralShellBreakDown : MonoBehaviour
+public class CoralShellBreakDown : Coral
 {
     
     private Renderer renderer1;
@@ -17,14 +17,14 @@ public class CoralShellBreakDown : MonoBehaviour
     private Material uniqueMaterial6;
     public float Lifetime = 50.0f;
     private Color targetColor;
-    private GameObject grayscale;
+    private PostProcessGray grayscale;
     private float gameover;
     GameObject coral1;
     GameObject coral2;
     GameObject coral3;
-    GameObject wasteSpawner;
+    spawnWaste wasteSpawner;
     // Start is called before the first frame update
-    public void startColor()
+    public override void startColor()
     {
         coral1 = this.gameObject.transform.GetChild(0).gameObject;
         coral2 = this.gameObject.transform.GetChild(1).gameObject;
@@ -39,10 +39,10 @@ public class CoralShellBreakDown : MonoBehaviour
         uniqueMaterial5 = renderer2.materials[1];
         uniqueMaterial6 = renderer3.materials[1];
         targetColor = new Color(1.0f,1.0f,1.0f);
-        grayscale = GameObject.Find("Grayscale");
-        gameover = grayscale.GetComponent<PostProcessGray>().gameover;
+        grayscale = GameObject.Find("Grayscale").GetComponent<PostProcessGray>();
+        gameover = grayscale.gameover;
         Lifetime = Random.Range(gameover/2,gameover);
-        wasteSpawner =  GameObject.Find("WasteSpawner");
+        wasteSpawner =  GameObject.Find("WasteSpawner").GetComponent<spawnWaste>();
     }
 
     public float timeLeft = 1.0f;
@@ -50,7 +50,7 @@ public class CoralShellBreakDown : MonoBehaviour
     private bool dead = false;
 
     // Update is called once per frame
-    public void changeColor(float step)
+    public override void changeColor(float step)
     {
         if (Lifetime <= 0 && !dead){
             uniqueMaterial1.color = targetColor;
@@ -59,20 +59,20 @@ public class CoralShellBreakDown : MonoBehaviour
             uniqueMaterial4.color = targetColor;
             uniqueMaterial5.color = targetColor;
             uniqueMaterial6.color = targetColor;
-            grayscale.GetComponent<PostProcessGray>().aliveCorals -= 1;
+            grayscale.aliveCorals -= 1;
             dead = true;
         }
-        uniqueMaterial1.color = Color.Lerp(uniqueMaterial1.color, targetColor, step/Lifetime);
-        uniqueMaterial2.color = Color.Lerp(uniqueMaterial2.color, targetColor, step/Lifetime);
-        uniqueMaterial3.color = Color.Lerp(uniqueMaterial3.color, targetColor, step/Lifetime);
-        uniqueMaterial4.color = Color.Lerp(uniqueMaterial4.color, targetColor, step/Lifetime);
-        uniqueMaterial5.color = Color.Lerp(uniqueMaterial5.color, targetColor, step/Lifetime);
-        uniqueMaterial6.color = Color.Lerp(uniqueMaterial6.color, targetColor, step/Lifetime);
-        cnt = wasteSpawner.GetComponent<spawnWaste>().cnt;
+        cnt = wasteSpawner.cnt;
         if (cnt > 5){
-            Lifetime -= 0.05f * wasteSpawner.GetComponent<spawnWaste>().cnt;
+            Lifetime -= 0.5f * wasteSpawner.cnt;
+            uniqueMaterial1.color = Color.Lerp(uniqueMaterial1.color, targetColor, step/Lifetime);
+            uniqueMaterial2.color = Color.Lerp(uniqueMaterial2.color, targetColor, step/Lifetime);
+            uniqueMaterial3.color = Color.Lerp(uniqueMaterial3.color, targetColor, step/Lifetime);
+            uniqueMaterial4.color = Color.Lerp(uniqueMaterial4.color, targetColor, step/Lifetime);
+            uniqueMaterial5.color = Color.Lerp(uniqueMaterial5.color, targetColor, step/Lifetime);
+            uniqueMaterial6.color = Color.Lerp(uniqueMaterial6.color, targetColor, step/Lifetime);
         }else{
-            Lifetime += 0.05f * wasteSpawner.GetComponent<spawnWaste>().cnt;
+            Lifetime += 0.05f * wasteSpawner.cnt;
         }
     }
 }

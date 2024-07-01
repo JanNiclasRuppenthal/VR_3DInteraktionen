@@ -10,6 +10,8 @@ public class Radar : MonoBehaviour
     [SerializeField] private bool usePlayerDirection;
     [SerializeField] private Transform playerLocomotion; 
     [SerializeField] private GameObject dotPrefab;
+    [SerializeField] private GameObject spawnWasteParent;
+    [SerializeField] private GameObject dotsParent;
 
     private const string WasteTag = "Waste";
     private const string DotTag = "WasteDot";
@@ -25,9 +27,7 @@ public class Radar : MonoBehaviour
     private void CalculateDots()
     {
         Vector3 playerPos = playerLocomotion.position;
-        GameObject[] targets = GameObject.FindGameObjectsWithTag(WasteTag);
-
-        foreach (GameObject target in targets)
+        foreach (Transform target in spawnWasteParent.transform)
         {
             Vector3 targetPos = target.transform.position;
             float distanceToTarget = Vector3.Distance(targetPos, playerPos);
@@ -43,8 +43,7 @@ public class Radar : MonoBehaviour
 
     private void RemoveAllDots()
     {
-        GameObject[] dots = GameObject.FindGameObjectsWithTag(DotTag);
-        foreach (GameObject dot in dots)
+        foreach (GameObject dot in dotsParent.transform)
         {
             Destroy(dot);
         }
@@ -74,8 +73,7 @@ public class Radar : MonoBehaviour
 
     private void ShowDot(Vector2 pos)
     {
-        GameObject dot = Instantiate(dotPrefab);
-        dot.transform.SetParent(this.transform, false);
+        GameObject dot = Instantiate(dotPrefab, this.transform, false);
         dot.transform.localPosition = new Vector3(pos.x, pos.y, 0);
     }
 }

@@ -33,7 +33,7 @@ public class SeaturtleMovement : MonoBehaviour
             return;
         }
         
-        turtle.transform.position += turtle.transform.right * speed * Time.deltaTime;
+        turtle.transform.position += turtle.transform.right * (speed * Time.deltaTime);
         if (_pause)
         {
             _angle = 0f;

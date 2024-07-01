@@ -5,18 +5,18 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class deleteWaste : XRGrabInteractable
 {
-    GameObject wasteSpawner;
+    GameObject _wasteSpawner;
     void Start(){
-        wasteSpawner =  GameObject.Find("WasteSpawner");
+        _wasteSpawner =  GameObject.Find("WasteSpawner");
     }
 
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
         base.OnSelectExited(args);
-        if (tag == "Waste")
+        if (CompareTag("Waste"))
         {
             GameObject.FindObjectOfType<WasteStats>().setCollected();
-            wasteSpawner.GetComponent<spawnWaste>().cnt -= 1;
+            _wasteSpawner.GetComponent<spawnWaste>().cnt -= 1;
             Destroy(gameObject);
         }
     }

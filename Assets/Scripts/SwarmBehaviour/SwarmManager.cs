@@ -5,7 +5,7 @@ using UnityEngine;
 public class SwarmManager : MonoBehaviour
 {
     public static SwarmManager SM;
-    public GameObject[] AllFish { get => _allFish; }
+    public SwarmUnit[] AllFish { get => _allFish; }
     public Vector3 GoalPos => goalTransform.position;
     public float MinSpeed => minSpeed;
     public float MaxSpeed => maxSpeed;
@@ -32,7 +32,7 @@ public class SwarmManager : MonoBehaviour
     
     
     
-    private GameObject[] _allFish;
+    private SwarmUnit[] _allFish;
     
     
     // Start is called before the first frame update
@@ -40,7 +40,7 @@ public class SwarmManager : MonoBehaviour
     {
 
         var deathRate = new[] { (0, 500), (501, 1000), (1000, 1800), (1800, 2500) };
-        _allFish = new GameObject[numFish];
+        _allFish = new SwarmUnit[numFish];
         for (int index = 0; index < numFish; index++)
         {
             Vector3 startPos = this.transform.position + new Vector3(
@@ -57,10 +57,12 @@ public class SwarmManager : MonoBehaviour
             {
                 f = fishPrefab2;
             }
+            
             GameObject fish = Instantiate(f, startPos, Quaternion.identity);
             var (minDeath, maxDeath) = deathRate[index % 4];
             fish.GetComponent<SwarmUnit>().LifeTime = Random.Range(minDeath, maxDeath);
-            _allFish[index] = fish;
+            _allFish[index] = fish.GetComponent<SwarmUnit>();
+            _allFish[index].ID = index;
         }
 
         SM = this;

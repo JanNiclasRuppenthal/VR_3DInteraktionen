@@ -13,9 +13,10 @@ public class dpvMove : MonoBehaviour
     [SerializeField]
     private GameObject dpv;
     [SerializeField]
-    private GameObject rotor;
+    private rotorMove rotor;
     [SerializeField]
     private GameObject vibration;
+    private Vibration _vibration;
     [SerializeField]
     private InputActionProperty button;
     [SerializeField]
@@ -29,6 +30,7 @@ public class dpvMove : MonoBehaviour
     {
         orgPartSpeed = particles.startSpeed;
         orgGravSpeed = particles.gravityModifier;
+        _vibration = vibration.GetComponent<Vibration>();
     }
 
     // Update is called once per frame
@@ -41,23 +43,23 @@ public class dpvMove : MonoBehaviour
             //bIntensity = 1;
             if(bIntensity > 0f)
             {
-                vibration.GetComponent<Vibration>().activeVib = true;
-                vibration.GetComponent<Vibration>().setAmplitude(bIntensity);
+                _vibration.activeVib = true;
+                _vibration.setAmplitude(bIntensity);
             }
             else
             {
-                vibration.GetComponent<Vibration>().activeVib = false;
-                rotor.GetComponent<rotorMove>().SetMovement(0f);
+                _vibration.activeVib = false;
+                rotor.SetMovement(0f);
             }
             float speed = maxSpeed * bIntensity;
-            rotor.GetComponent<rotorMove>().SetMovement(speed);
-            locomotion.transform.position += speed * direction * Time.deltaTime;
+            rotor.SetMovement(speed);
+            locomotion.transform.position += direction * (speed * Time.deltaTime);
             particles.startSpeed = orgPartSpeed + speed*speed;
             particles.gravityModifier = orgGravSpeed * (1 + speed*speed);
-        }else if (vibration.GetComponent<Vibration>().activeVib == true)
+        }else if (_vibration.activeVib == true)
         {
-            vibration.GetComponent<Vibration>().activeVib = false;
-            rotor.GetComponent<rotorMove>().SetMovement(0f);
+            _vibration.activeVib = false;
+            rotor.SetMovement(0f);
         }
     }
 }

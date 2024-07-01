@@ -50,7 +50,7 @@ using UnityEngine;
     {
         // Spawn the object as a child of the plane. This will solve any rotation issues
         GameObject obj = Instantiate(waste[Random.Range(0,waste.Length)], plane.transform.position, 
-         Quaternion.identity) as GameObject;
+         Quaternion.identity, this.transform) as GameObject;
 
         /* Move the object to where you want withing in the dimensions of the plane */
         // random the x and z position between bounds
@@ -63,8 +63,5 @@ using UnityEngine;
         // Now move the object
         // Since the object is a child of the plane it will automatically handle rotational offset
         obj.transform.position = new Vector3(x_rand,plane.transform.position.y, z_rand);
-
-        // Now unassign the parent
-        obj.transform.parent = null;
     }
 }

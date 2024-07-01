@@ -15,8 +15,16 @@ public class SwarmUnit : MonoBehaviour
     private float _speed;
     private Vector3 _currentObstacleAvoidanceVector;
     private Vector3 _currentVelocity;
-    
-    
+
+    private static bool[,] _distances;
+    private int id = 0;
+    public int ID
+    {
+        get => id;
+        set => id = value;
+    }
+
+
     private PostProcessGray _processGray;
     private float _gameOverTime;
     private float _lifeTime;
@@ -26,36 +34,46 @@ public class SwarmUnit : MonoBehaviour
         set => _lifeTime = value;
     }
 
-    private spawnWaste _wasteSpawner;
     private GameObject _ground;
 
     // Start is called before the first frame update
     void Start()
     {
         _processGray = GameObject.Find("Grayscale").GetComponent<PostProcessGray>();
-        _wasteSpawner = GameObject.Find("WasteSpawner").GetComponent<spawnWaste>();
         _speed = Random.Range(SwarmManager.SM.MinSpeed, SwarmManager.SM.MaxSpeed);
-        
+
+        _distances = new bool[SwarmManager.SM.AllFish.Length, SwarmManager.SM.AllFish.Length];
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_processGray.aliveCorals <= _lifeTime)
+        // The first fish should be the last to deactivate
+        if (id == 0 && _processGray.aliveCorals <= 0)
         {
             this.transform.gameObject.SetActive(false);
-            return;
+        }
+        if (id != 0 && _processGray.aliveCorals <= _lifeTime)
+        {
+            this.transform.gameObject.SetActive(false);
         }
         else
         {
-            if (Random.Range(0, 100) < 5)
+            float random = Random.Range(0, 100);
+            if (random < 5)
             {
                 _speed = Random.Range(SwarmManager.SM.MinSpeed, SwarmManager.SM.MaxSpeed);
             }
-            if (Random.Range(0, 100) < 25)
+            else if (random < 20)
             {
-                ApplyRules();
+                StartCoroutine(ApplyRules());
             }
+            else if (id == 0 && random < 20)
+            {
+                StopCoroutine(CalculateDistances());
+            }
+            
         
             Vector3 obstacleVector = CalculateObstacleVector() * 10;
 
@@ -74,7 +92,32 @@ public class SwarmUnit : MonoBehaviour
             transform.position += moveVector * Time.deltaTime;
         }
     }
-    
+
+    private static IEnumerator CalculateDistances()
+    {
+        foreach (SwarmUnit firstUnit in SwarmManager.SM.AllFish)
+        {
+            int firstUnitID = firstUnit.id;
+            foreach (SwarmUnit secondUnit in SwarmManager.SM.AllFish)
+            {
+                int secondUnitID = secondUnit.id;
+
+                if (firstUnitID != secondUnitID)
+                {
+                    bool closeUnits = Vector3.Distance(firstUnit.transform.position, secondUnit.transform.position) <
+                                      1.0f;
+
+                    _distances[firstUnitID, secondUnitID] = closeUnits;
+                    _distances[secondUnitID, firstUnitID] = closeUnits;
+                }
+
+                yield return null;
+            }
+
+        }
+        
+    }
+
     private Vector3 CalculateObstacleVector()
     {
         Vector3 obstacleVector = Vector3.zero;
@@ -137,36 +180,29 @@ public class SwarmUnit : MonoBehaviour
         return selectedDirection.normalized;
     }
 
-    private void ApplyRules()
+    private IEnumerator ApplyRules()
     {
-        GameObject[] gos;
+        SwarmUnit[] gos;
         gos = SwarmManager.SM.AllFish;
 
         Vector3 vcentre = Vector3.zero;
         Vector3 vavoid = Vector3.zero;
         float gSpeed = 0.01f;
-        float nDistance;
         int groupSize = 0;
 
-        foreach (GameObject go in gos)
+        foreach (SwarmUnit go in gos)
         {
-            if (go.activeSelf && go != this.gameObject)
+            if (go.gameObject.activeSelf && go.gameObject != this.gameObject)
             {
-                nDistance = Vector3.Distance(go.transform.position, this.transform.position);
+                vcentre += go.transform.position;
+                groupSize++;
 
-                if (nDistance <= SwarmManager.SM.NeighbourDistance)
+                if (_distances[this.id, go.id])
                 {
-                    vcentre += go.transform.position;
-                    groupSize++;
-
-                    if (nDistance < 1.0f)
-                    {
-                        vavoid = vavoid + (this.transform.position - go.transform.position);
-                    }
-
-                    SwarmUnit anotherFlock = go.GetComponent<SwarmUnit>();
-                    gSpeed = gSpeed + anotherFlock._speed;
+                    vavoid += (this.transform.position - go.transform.position);
                 }
+
+                gSpeed += go._speed;
             }
         }
 
@@ -186,6 +222,7 @@ public class SwarmUnit : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), SwarmManager.SM.RotationSpeed * Time.deltaTime);
             }
         }
-        
+        yield return null;
+
     }
 }
