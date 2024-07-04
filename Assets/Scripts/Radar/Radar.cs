@@ -43,9 +43,9 @@ public class Radar : MonoBehaviour
 
     private void RemoveAllDots()
     {
-        foreach (GameObject dot in dotsParent.transform)
+        foreach (Transform dot in dotsParent.transform)
         {
-            Destroy(dot);
+            Destroy(dot.gameObject);
         }
     }
 
@@ -73,7 +73,7 @@ public class Radar : MonoBehaviour
 
     private void ShowDot(Vector2 pos)
     {
-        GameObject dot = Instantiate(dotPrefab, this.transform, false);
+        GameObject dot = Instantiate(dotPrefab, this.dotsParent.transform, false);
         dot.transform.localPosition = new Vector3(pos.x, pos.y, 0);
     }
 }

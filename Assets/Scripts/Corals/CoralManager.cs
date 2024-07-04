@@ -8,12 +8,20 @@ public class CoralManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject coralParent;
-    private List<Coral> _coralList;
+    private List<Coral>[] _coralGroups;
+	private int[] callCounts;
+	[SerializeField] private PostProcessGray grayscale;
+    private float timePerChange;
+	private float delay;
 
-    // Start is called before the first frame update
     void Start()
     {
-        _coralList = new List<Coral>();
+        _coralGroups = new List<Coral>[6];
+        callCounts = new int[6];
+        for (int i = 0; i < 6; i++)
+        {
+            _coralGroups[i] = new List<Coral>();
+        }
         foreach (Transform child in coralParent.transform){
 
             if (!child.gameObject.activeSelf)
@@ -21,54 +29,41 @@ public class CoralManager : MonoBehaviour
                 continue;
             }
             
-            child.gameObject.GetComponent<Coral>().startColor();
-            _coralList.Add(child.gameObject.GetComponent<Coral>());
+            Coral coral = child.gameObject.GetComponent<Coral>();
+            coral.startColor();
+
+            for (int i = 0; i < 6; i++)
+            {
+                if (child.gameObject.CompareTag("Coral" + (i + 1)))
+                {
+                    _coralGroups[i].Add(coral);
+                    break;
+                }
+            }
         }
+		timePerChange = grayscale.gameover / 21;
+		delay = 3*timePerChange;
     }
 
-    private float timeLeft = 1.0f;
-    // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < batchSize; i++)
+        float timePassed = Time.timeSinceLevelLoad - delay;
+		if (timePassed > 0)
         {
-            if (currentIndex >= _coralList.Count)
+            for (int i = 0; i < 6; i++)
             {
-                currentIndex = 0;
+                if (callCounts[i] < 3 && timePassed >= (callCounts[i] * 6 + i + 1) * timePerChange)
+                {
+                    foreach (Coral coral in _coralGroups[i])
+                    {
+                        coral.changeColor();
+                    }
+                    callCounts[i]++;
+                }
             }
-
-            Coral currentCoral = _coralList[currentIndex];
-            currentCoral.changeColor(72f * Time.deltaTime);
-
-            currentIndex++;
         }
     }
 
-    private int batchSize = 25;
-    private int currentIndex = 0;
 
-
-    IEnumerator method()
-    {
-
-        // foreach (Coral c in _coralList)
-        // {
-        //     c.changeColor(Time.deltaTime);
-        //     yield return null;
-        // }
-        
-        for (int i = 0; i < batchSize; i++)
-        {
-            if (currentIndex >= _coralList.Count)
-            {
-                currentIndex = 0;
-            }
-        
-            Coral currentCoral = _coralList[currentIndex];
-            
-            currentCoral.changeColor(Time.deltaTime);
-            currentIndex++;
-            yield return null;
-        }
-    }
+    
 }

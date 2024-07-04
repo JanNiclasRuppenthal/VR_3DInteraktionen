@@ -39,7 +39,7 @@ public class SwarmManager : MonoBehaviour
     void Start()
     {
 
-        var deathRate = new[] { (0, 500), (501, 1000), (1000, 1800), (1800, 2500) };
+        var deathRate = new[] { (0, 1500), (1503, 3000), (3000, 5400), (5400, 7500) };
         _allFish = new SwarmUnit[numFish];
         for (int index = 0; index < numFish; index++)
         {
