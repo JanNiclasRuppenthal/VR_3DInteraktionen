@@ -69,7 +69,9 @@ public class SwarmUnit : MonoBehaviour
             {
                 StartCoroutine(ApplyRules());
             }
-            else if (id == 0 && random < 20)
+            
+            
+            if (id == 0 && random < 20)
             {
                 StopCoroutine(CalculateDistances());
             }
@@ -158,7 +160,7 @@ public class SwarmUnit : MonoBehaviour
             Vector3 currentDirection =
                 transform.TransformDirection(directionsToCheckWhenAvoidingObstacles[i].normalized);
             if (Physics.Raycast(transform.position, currentDirection, out hit, 2,
-                    obstacleMask) || Physics.Raycast(transform.position, transform.forward, out hit, 8,
+                    obstacleMask) || Physics.Raycast(transform.position, currentDirection, out hit, 8,
                     cameraMask))
             {
 
