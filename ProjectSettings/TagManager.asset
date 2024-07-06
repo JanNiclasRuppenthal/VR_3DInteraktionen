@@ -12,6 +12,7 @@ TagManager:
   - Coral4
   - Coral5
   - Coral6
+  - TerrainNeighbour
   layers:
   - Default
   - TransparentFX
