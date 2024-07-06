@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Serialization;
 using UnityEngine.Video;
 public class PostProcessGray : MonoBehaviour
 {
@@ -12,21 +13,21 @@ public class PostProcessGray : MonoBehaviour
     [SerializeField]
     private List<GameObject> goList;
     [SerializeField]
-    private GameObject Locomotion;
+    private GameObject locomotion;
     [SerializeField]
-    private GameObject GameOverRoom;
+    private GameObject gameOverRoom;
     [SerializeField]
     private VideoPlayer video;
     [SerializeField]
     private AudioSource audioS;
-    private float timer = 0;
-    public int aliveCorals = 3556;
-    private bool started = false;
+    [SerializeField] private GameObject wasteSpawner;
+    public int aliveCorals;
+    private bool _started = false;
     // Start is called before the first frame update
 
     void Update(){
-        if (aliveCorals <= 0 && !started){
-            started = true;
+        if (aliveCorals <= 0 && !_started){
+            _started = true;
             StartCoroutine(ChangeWeight(5f));
         }
     }
@@ -46,16 +47,13 @@ public class PostProcessGray : MonoBehaviour
         {
             go.SetActive(false);
         }
-        foreach (GameObject gameObject in GameObject.FindObjectsOfType<GameObject>())
-        {
-            if (gameObject.name.StartsWith("Fish") || gameObject.name.StartsWith("bottle") || gameObject.name.StartsWith("crushedCan") || gameObject.name.StartsWith("kefir") || gameObject.name.StartsWith("tin") || gameObject.name.StartsWith("trashbag") || gameObject.name.StartsWith("yogurt"))
-            {
-                gameObject.SetActive(false);
-            }
-        }
-        GameOverRoom.transform.position = Locomotion.transform.position;
-        GameOverRoom.transform.rotation = Quaternion.Euler(GameOverRoom.transform.rotation.eulerAngles.x, Locomotion.transform.eulerAngles.y, GameOverRoom.transform.rotation.eulerAngles.z);
-        GameOverRoom.SetActive(true);
+        
+        // deactivate waste spawner
+        wasteSpawner.SetActive(false);
+        
+        gameOverRoom.transform.position = locomotion.transform.position;
+        gameOverRoom.transform.rotation = Quaternion.Euler(gameOverRoom.transform.rotation.eulerAngles.x, locomotion.transform.eulerAngles.y, gameOverRoom.transform.rotation.eulerAngles.z);
+        gameOverRoom.SetActive(true);
         video.Play();
         audioS.Play();
     }

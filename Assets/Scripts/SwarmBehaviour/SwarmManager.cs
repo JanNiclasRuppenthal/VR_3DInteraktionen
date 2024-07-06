@@ -10,14 +10,12 @@ public class SwarmManager : MonoBehaviour
     public float MinSpeed => minSpeed;
     public float MaxSpeed => maxSpeed;
     public float RotationSpeed => rotationSpeed;
-    public float NeighbourDistance => neighbourDistance;
     
     [Header("Settings")]
     [SerializeField] private GameObject fishPrefab;
     [SerializeField] private GameObject fishPrefab2;
-    private GameObject f;
-    [SerializeField] private int numFish = 100;
-    [SerializeField] private Vector3 swimLimit = new Vector3(5, 5, 5);
+    [SerializeField] private int numFish;
+    [SerializeField] private Vector3 swimLimit;
     [SerializeField] private Transform goalTransform;
     
     [Header("Speed")] 
@@ -25,14 +23,13 @@ public class SwarmManager : MonoBehaviour
     [SerializeField] private float minSpeed;
     [Range(0.0f, 5.0f)]
     [SerializeField] private float maxSpeed;
-    [Range(1.0f, 100.0f)]
-    [SerializeField] private float neighbourDistance;
     [Range(1.0f, 5.0f)]
     [SerializeField] private float rotationSpeed;
     
     
     
     private SwarmUnit[] _allFish;
+    private GameObject _fishTemp;
     
     
     // Start is called before the first frame update
@@ -51,14 +48,14 @@ public class SwarmManager : MonoBehaviour
             
             if (Random.Range(0,100) < 60)
             {
-                f = fishPrefab;
+                _fishTemp = fishPrefab;
             }
             else
             {
-                f = fishPrefab2;
+                _fishTemp = fishPrefab2;
             }
             
-            GameObject fish = Instantiate(f, startPos, Quaternion.identity);
+            GameObject fish = Instantiate(_fishTemp, startPos, Quaternion.identity);
             var (minDeath, maxDeath) = deathRate[index % 4];
             fish.GetComponent<SwarmUnit>().LifeTime = Random.Range(minDeath, maxDeath);
             _allFish[index] = fish.GetComponent<SwarmUnit>();
