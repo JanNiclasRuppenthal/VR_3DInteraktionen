@@ -20,9 +20,12 @@ public class CreateTerrains : MonoBehaviour
         {
             _givenCoordinateList.Add(_neighbourTerrains[index].GetPosition());
         }
+        
+        // Call this method every second
+        InvokeRepeating("DeterminePossibleTerrains", 0f, 1f);
     }
 
-    void Update()
+    private void DeterminePossibleTerrains()
     {
         // Raycast from the player's position downward
         RaycastHit hit;
@@ -42,14 +45,14 @@ public class CreateTerrains : MonoBehaviour
 
                     Vector3[] newPositions = new Vector3[8]
                     {
-                        new Vector3(xPos+25, 0, zPos-25),
-                        new Vector3(xPos-25, 0, zPos-75),
-                        new Vector3(xPos+25, 0, zPos-75),
-                        new Vector3(xPos-75, 0, zPos-75),
-                        new Vector3(xPos-75, 0, zPos-25),
-                        new Vector3(xPos-75, 0, zPos+25),
-                        new Vector3(xPos-25, 0, zPos+25),
-                        new Vector3(xPos+25, 0, zPos+25)
+                        new Vector3(xPos+50, 0, zPos-0),
+                        new Vector3(xPos-50, 0, zPos-0),
+                        new Vector3(xPos+0, 0, zPos+50),
+                        new Vector3(xPos-0, 0, zPos-50),
+                        new Vector3(xPos+50, 0, zPos+50),
+                        new Vector3(xPos+50, 0, zPos-50),
+                        new Vector3(xPos-50, 0, zPos+50),
+                        new Vector3(xPos-50, 0, zPos-50)
                     };
 
                     for (int i = 0; i < newPositions.Length; i++)
