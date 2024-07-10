@@ -6,5 +6,5 @@ public abstract class Coral : MonoBehaviour
 {
 
     public abstract void startColor();
-    public abstract void changeColor();
+    public abstract void changeColor(int groupCount);
 }

@@ -26,10 +26,14 @@ public class CoralManager : MonoBehaviour
         foreach (Transform child in coralParent.transform){
             
             Coral coral = child.gameObject.GetComponent<Coral>();
-            coral.startColor();
 
             int index = (child.gameObject.tag[_tagLength] - '0') - 1;
             _coralGroups[index].Add(coral);
+			
+			if (_coralGroups[index].Count == 1)
+            {
+                coral.startColor();
+            }
             
         }
 		_timePerChange = grayscale.gameover / 21;
@@ -45,14 +49,21 @@ public class CoralManager : MonoBehaviour
             {
                 if (_callCounts[i] < 3 && timePassed >= (_callCounts[i] * 6 + i + 1) * _timePerChange)
                 {
-                    foreach (Coral coral in _coralGroups[i])
+                    if (_coralGroups[i].Count > 0)
                     {
-                        coral.changeColor();
+                        _coralGroups[i][0].changeColor(_coralGroups[i].Count);
                     }
                     _callCounts[i]++;
                 }
             }
         }
+		if(Time.timeSinceLevelLoad >= _timePerChange * 21 + 4.9f){
+			for (int i = 0; i < 6; i++)
+            {
+				_coralGroups[i][0].startColor();
+			}
+			_timePerChange = _timePerChange * 21;
+		}
     }
 
 
