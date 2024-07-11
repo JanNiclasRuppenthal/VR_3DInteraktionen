@@ -73,14 +73,11 @@ public class SwarmUnit : MonoBehaviour
             
             if (id == 0 && random < 20)
             {
-                StopCoroutine(CalculateDistances());
+                StartCoroutine(CalculateDistances());
             }
             
         
             Vector3 obstacleVector = CalculateObstacleVector() * 10;
-
-            // transform.forward = obstacleVector;
-            // this.transform.position += obstacleVector * speed * Time.deltaTime;
         
             Vector3 moveVector = obstacleVector;
 			
