@@ -46,6 +46,7 @@ Verwendete externe Ressourcen:
 Virtual Reality und 3D Interaktionen:
     - XR Interaction Toolkit
 
+
 Sound waehrend des Spiels:
     - Ambiente: https://freesound.org/people/Xemptful/sounds/406623/
     - Luftblasen : https://freesound.org/people/ristooooo1/sounds/539819/?page=2#comments
@@ -89,3 +90,4 @@ Sonstige Ressourcen:
     - Quick Outline: https://assetstore.unity.com/packages/tools/particles-effects/quick-outline-115488
     - Mass Spawner: https://assetstore.unity.com/packages/tools/terrain/mass-spawner-object-placement-tool-191111
     - Zweiseitige Shader: https://assetstore.unity.com/packages/vfx/shaders/free-double-sided-shaders-23087
+    - TextMeshPro

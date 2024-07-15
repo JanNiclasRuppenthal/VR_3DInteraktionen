@@ -15,7 +15,6 @@ public class deleteWaste : XRGrabInteractable
         base.OnSelectExited(args);
         if (CompareTag("Waste"))
         {
-            GameObject.FindObjectOfType<WasteStats>().setCollected();
             _wasteSpawner.GetComponent<spawnWaste>().cnt -= 1;
             Destroy(gameObject);
         }

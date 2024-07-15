@@ -67,13 +67,13 @@ public class SwarmUnit : MonoBehaviour
             }
             else if (random < 20)
             {
-                StartCoroutine(ApplyRules());
+                ApplyRules();
             }
             
             
             if (id == 0 && random < 20)
             {
-                StartCoroutine(CalculateDistances());
+                CalculateDistances();
             }
             
         
@@ -92,7 +92,7 @@ public class SwarmUnit : MonoBehaviour
         }
     }
 
-    private static IEnumerator CalculateDistances()
+    private static void CalculateDistances()
     {
         foreach (SwarmUnit firstUnit in SwarmManager.SM.AllFish)
         {
@@ -109,12 +109,8 @@ public class SwarmUnit : MonoBehaviour
                     _distances[firstUnitID, secondUnitID] = closeUnits;
                     _distances[secondUnitID, firstUnitID] = closeUnits;
                 }
-
-                yield return null;
             }
-
         }
-        
     }
 
     private Vector3 CalculateObstacleVector()
@@ -179,7 +175,7 @@ public class SwarmUnit : MonoBehaviour
         return selectedDirection.normalized;
     }
 
-    private IEnumerator ApplyRules()
+    private void ApplyRules()
     {
         SwarmUnit[] gos;
         gos = SwarmManager.SM.AllFish;
@@ -221,7 +217,6 @@ public class SwarmUnit : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), SwarmManager.SM.RotationSpeed * Time.deltaTime);
             }
         }
-        yield return null;
 
     }
 }

@@ -10,6 +10,7 @@ public class CoralManager : MonoBehaviour
     [SerializeField] private GameObject coralParent;
     private List<Coral>[] _coralGroups;
 	private int[] _callCounts;
+    public int[] CallCounts => _callCounts;
 	[SerializeField] private PostProcessGray grayscale;
     private float _timePerChange;
 	private float _delay;
