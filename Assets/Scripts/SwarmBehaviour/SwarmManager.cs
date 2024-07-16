@@ -25,9 +25,6 @@ public class SwarmManager : MonoBehaviour
     [SerializeField] private float maxSpeed;
     [Range(1.0f, 5.0f)]
     [SerializeField] private float rotationSpeed;
-
-    [Header("Parent GameObject")] 
-    [SerializeField] private GameObject swarmUnitParent;
     
     
     private SwarmUnit[] _allFish;
@@ -57,7 +54,7 @@ public class SwarmManager : MonoBehaviour
                 _fishTemp = fishPrefab2;
             }
             
-            GameObject fish = Instantiate(_fishTemp, startPos, Quaternion.identity, swarmUnitParent.transform);
+            GameObject fish = Instantiate(_fishTemp, startPos, Quaternion.identity);
             var (minDeath, maxDeath) = deathRate[index % 4];
             fish.GetComponent<SwarmUnit>().LifeTime = Random.Range(minDeath, maxDeath);
             _allFish[index] = fish.GetComponent<SwarmUnit>();

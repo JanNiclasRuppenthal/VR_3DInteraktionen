@@ -10,11 +10,12 @@ public class CoralManager : MonoBehaviour
     [SerializeField] private GameObject coralParent;
     private List<Coral>[] _coralGroups;
 	private int[] _callCounts;
-    public int[] CallCounts => _callCounts;
 	[SerializeField] private PostProcessGray grayscale;
     private float _timePerChange;
 	private float _delay;
     private readonly int _tagLength = 5;
+    
+    private float _timeSinceLevelLoad;
 
     void Start()
     {
@@ -43,7 +44,8 @@ public class CoralManager : MonoBehaviour
 
     void Update()
     {
-        float timePassed = Time.timeSinceLevelLoad - _delay;
+        _timeSinceLevelLoad += Time.deltaTime;
+        float timePassed = _timeSinceLevelLoad - _delay;
 		if (timePassed > 0)
         {
             for (int i = 0; i < 6; i++)
@@ -58,7 +60,7 @@ public class CoralManager : MonoBehaviour
                 }
             }
         }
-		if(Time.timeSinceLevelLoad >= _timePerChange * 21 + 4.9f){
+		if(_timeSinceLevelLoad >= _timePerChange * 21 + 4.9f){
 			for (int i = 0; i < 6; i++)
             {
 				_coralGroups[i][0].startColor();

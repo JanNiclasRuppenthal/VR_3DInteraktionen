@@ -16,8 +16,6 @@ public class PostProcessGray : MonoBehaviour
     private List<GameObject> goList;
     [SerializeField] 
     private List<GameObject> turtleList;
-    [SerializeField]
-    private GameObject swarmUnitParent;
     [SerializeField] 
     private CoralManager coralManager;
     [SerializeField]
@@ -31,7 +29,6 @@ public class PostProcessGray : MonoBehaviour
     [SerializeField] private GameObject wasteSpawner;
     public int aliveCorals;
     private bool _started = false;
-    // Start is called before the first frame update
 
     void Update(){
         if (aliveCorals <= 0 && !_started){
@@ -73,30 +70,6 @@ public class PostProcessGray : MonoBehaviour
 
     public void RestartGame()
     {
-        // video.Stop();
-        // audioS.Stop();
-        //
-        // foreach (GameObject go in goList)
-        // {
-        //     go.SetActive(true);
-        // }
-        //
-        // foreach (Transform child in swarmUnitParent.transform)
-        // {
-        //     child.gameObject.SetActive(true);
-        // }
-        //
-        // for (int index = 0; index < coralManager.CallCounts.Length; index++)
-        // {
-        //     coralManager.CallCounts[index] = 0;
-        // }
-        //
-        //
-        // gameOverRoom.SetActive(false);
-        // wasteSpawner.SetActive(true);
-        // aliveCorals = 9048;
-        // _started = false;
-        
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
 
