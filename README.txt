@@ -38,6 +38,7 @@ Einsatz von 3D Interaktionen und multimodalem Feedback:
 Tastenbelegungen:
     - Greifen: Den Abfall und der Griff des DPV kann man mithilfe der Greiftaste greifen.
     - Fortbewegung: Wenn man mit mindestens einem Controller das DPV greift, kann man mithilfe des rechten Triggers die Geschwindigkeit des DPVs einstellen.
+    - Drehen: Falls ein sicheres physisches Drehen nicht gewaehrleistet ist, kann der Stick am rechten Controller für eine horizontale Drehung genutzt werden.
     - UI-Interaktion: Durch das Druecken eines Buttons des UIs mit dem Controller.
 
 
