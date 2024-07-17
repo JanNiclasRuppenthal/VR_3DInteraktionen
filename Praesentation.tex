@@ -18,8 +18,8 @@
 
 
 \author[Jan Niclas Ruppenthal, Michael Feldmann, Philipp Geier]{}
-\title[]{3. Übung zur Vorlesung
-Virtual Reality\\ Embodied Locomotion}
+\title[]{4. Übung zur Vorlesung
+Virtual Reality\\ Serious Game}
 \institute[Universität Trier]{}
 \date[10. Juni 2024]{}
 \beamertemplatenavigationsymbolsempty
@@ -40,8 +40,7 @@ Virtual Reality\\ Embodied Locomotion}
 
 \begin{document}
 {
-  \usebackgroundtemplate{
-    \hspace{1.8cm} \includegraphics[width=.8\paperwidth]{img/cop}}
+  \usebackgroundtemplate{ \includegraphics[width=\paperwidth]{img/plastic_bg}}
   \begin{frame}
     \maketitle
   \end{frame}
@@ -54,23 +53,87 @@ Virtual Reality\\ Embodied Locomotion}
 	
 %—------------------------------------------------------
 
-
-\begin{frame}{Locomotion}
+\begin{frame}{Thema}
+\textbf{Müllsammeln im Korallenriff}
+\begin{minipage}[c]{0.72\textwidth}
+\begin{itemize}
+\item Nachhaltigkeit
+\item Förderung von Empathie
+\item Bildung \& Aufklärung
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.25\textwidth}
 \begin{figure}
-    \centering
-    \movie[externalviewer]{
-\includegraphics[width=0.6\textwidth, keepaspectratio]{img/Locomotion}
-}{vid/Locomotion_Movement.mp4}
-\caption{Locomotion}
+\centering
+\includegraphics[width=0.9\textwidth, keepaspectratio]{img/waste}
+\caption{\cite{a}}
 \end{figure}
+\end{minipage}
+\end{frame}
+
+
+\begin{frame}{Technischer Aufwand \& Qualität der technischen Umsetzung}
+\begin{minipage}[c]{0.72\textwidth}
+\begin{itemize}
+\item Simulation von über 3000 Korallen
+\item Unendliche Generierung der Landschaft
+\item Simulation eines einfachen Schwarms
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.25\textwidth}
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth, keepaspectratio]{img/aufwand}
+\caption{\cite{b}}
+\end{figure}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{Authentizitaet \& Immersion der vermittelten Inhalte}
+\begin{minipage}[c]{0.72\textwidth}
+\begin{itemize}
+\item Verschlechterung der Sicht
+\item Korallensterben und Fischsterben
+\item Simulation des Atems
+\item Bewegung ist nur mithilfe des DPVs moeglich
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.25\textwidth}
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth, keepaspectratio]{img/immersion}
+\caption{\cite{c}}
+\end{figure}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{Nutzbarkeit \& Benutzererfahrung}
+\begin{minipage}[c]{0.72\textwidth}
+\begin{itemize}
+\item Radar zur Müllortung
+\item Rote Outline an den Müllobjekten
+\item Bewegung: Steering durch Pointing-based und linearer Beschleunigung implementiert
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.25\textwidth}
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth, keepaspectratio]{img/radar}
+\caption{\cite{d}}
+\end{figure}
+\end{minipage}
 \end{frame}
 
 \begin{frame}{Locomotion}
 \textbf{Metapher}
 \begin{itemize}
-\item Steering-Leaning:\begin{itemize}
-\item 1 DOF vTranslation: Durch Lehnen entlang der z-Achse
-\item 1 DOF vRotation: Durch Bewegen der Controller entlang der x-Achse
+\item Pointing-based:\begin{itemize}
+\item 1 DOF vTranslation: Durch Drücken des Triggers
+\item 3 DOF vRotation: Durch Bewegen der Controller im Raum
 \end{itemize}
 \end{itemize}
 \textbf{Travel-Task}
@@ -82,154 +145,72 @@ Virtual Reality\\ Embodied Locomotion}
 \begin{frame}{Locomotion}
 \textbf{Funktion}
 \begin{itemize}
-\item Leaning:\begin{itemize}
-\item Powerfunktion mit Deadzone von 5 cm
-\item Maximalgeschwindigkeit: 5 Meter pro Sekunde nach 34.8 cm
-\end{itemize}
+\item Maximalgeschwindigkeit: 5 Meter pro Sekunde
 \end{itemize}
 \begin{figure}
 \centering
-\includegraphics[width=.7\textwidth, keepaspectratio]{img/Movement}
+\includegraphics[width=.7\textwidth, keepaspectratio]{img/DPV}
 \caption{Movement}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Locomotion}
-\textbf{Funktion}
+\begin{frame}{3D Interaktion \& multimodalem Feedback}
+\begin{minipage}[c]{0.72\textwidth}
 \begin{itemize}
-\item Steering:\begin{itemize}
-\item Funktion: Powerfunktion mit Deadzone von 10 cm
-\item Maximalgeschwindigkeit: 30 Grad pro Sekunde nach 28.3 cm
+\item Greifen des Mülls mithilfe eines Controllers
+\item Vibration der Controller in Abhängigkeit der aktuellen Geschwindigkeit
 \end{itemize}
-\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.25\textwidth}
 \begin{figure}
 \centering
-\includegraphics[width=.7\textwidth, keepaspectratio]{img/Rotation}
-\caption{Rotation}
+\includegraphics[width=0.9\textwidth, keepaspectratio]{img/cont}
+\caption{\cite{e}}
 \end{figure}
+\end{minipage}
 \end{frame}
 
 
-\begin{frame}{Aufgabe a)}
+\begin{frame}{Aufgabe}
+\textbf{Ziel:} Möglichst viel Müllaufsammeln\\
+\begin{minipage}[c]{0.49\textwidth}
 \begin{figure}
-\begin{itemize}
-\item Fahre in der Mall und kaufe die 4 Items auf der Liste
-\item 2 Items befinden sich unten, 2 oben
-\end{itemize}
+\centering
+\includegraphics[width=\textwidth, keepaspectratio]{img/vorher}
+\caption{Vorher}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.49\textwidth}
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth, keepaspectratio]{img/nachher}
+\caption{Nachher}
+\end{figure}
+\end{minipage}
+\end{frame}
+
+
+\begin{frame}{Gameplay}
+\begin{figure}
     \centering
     \movie[externalviewer]{
-\includegraphics[width=0.6\textwidth, keepaspectratio]{img/aufgabe}
-}{vid/Aufgabe.mp4}
-\caption{Mallfahrt}
+\includegraphics[width=0.6\textwidth, keepaspectratio]{img/Locomotion}
+}{vid/Locomotion_Movement.mp4}
+\caption{Gameplay}
 \end{figure}
-\end{frame}
-
-\begin{frame}{Aufgabe a) Performance}
-\begin{minipage}[c]{0.72\textwidth}
-\begin{itemize}
-\item Movement bedienbar
-\item Aufgabe kann schnell gelöst werden
-\item Rolltreppe als kurze Ruhepause
-\item Nutzerfreiheit (außer auf der Rolltreppe)
-\item Rotation war zu schnell (45°/s -> 30°/s)
-\end{itemize}
-\end{minipage}
-\hfill
-\begin{minipage}[c]{0.25\textwidth}
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth, keepaspectratio]{img/escalatorup}
-\caption{\cite{esc}}
-\end{figure}
-\end{minipage}
-\end{frame}
-
-\begin{frame}{Aufgabe b) Wahl des Interfaces}
-\begin{minipage}[c]{0.72\textwidth}
-\begin{itemize}
-\item Uns bekannte Fortbewegung mit Hand und Kopf Steuerung
-\item Was plausibles für mehr Immersion und Wiedererkennung
-\item Rolltreppe statt Rampe für das Mall-Design
-\end{itemize}
-\end{minipage}
-\hfill
-\begin{minipage}[c]{0.25\textwidth}
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth, keepaspectratio]{img/segway}
-\caption{\cite{segway}}
-\end{figure}
-\end{minipage}
-\end{frame}
-
-
-\begin{frame}{Aufgabe b) Stärken}
-\begin{minipage}[c]{0.72\textwidth}
-\begin{itemize}
-\item Multimodale Interaktion mit der Lenkstange
-\item Immersion durch ein plausibles Szenario
-\item Kontrolle der Fortbewegung über Powerfunktion
-\item Stoppen der Bewegung über die Deadzone
-\end{itemize}
-\end{minipage}
-\hfill
-\begin{minipage}[c]{0.25\textwidth}
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth, keepaspectratio]{img/smile}
-\caption{\cite{smiley}}
-\end{figure}
-\end{minipage}
-\end{frame}
-
-\begin{frame}{Aufgabe b) Schwächen}
-\begin{minipage}[c]{0.72\textwidth}
-\begin{itemize}
-\item Physische Rotation zerstört das Interface
-\item Rotation verursacht trotz Maßnahmen Cybersickness
-\item Vertikale Bewegung nur begrenzt möglich
-\item Bewegung nicht gut auf höhere Distanzen skalierbar
-\item Immersionsverlust durch sich streckende Stange
-\end{itemize}
-\end{minipage}
-\hfill
-\begin{minipage}[c]{0.25\textwidth}
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth, keepaspectratio]{img/smileNot}
-\caption{\cite{smileyNot}}
-\end{figure}
-\end{minipage}
-\end{frame}
-
-
-\begin{frame}{Aufgabe b) Messung der Nutzbarkeit}
-\textbf{Durchführung einer empirischen Studie zur Usability:}
-\begin{itemize}
-\item Einkaufsaufgabe durchführen
-\item Probanden merken sich wo Artikel gefunden worden
-\item Nutzbarkeit über standardisierte Fragebögen (z.B. SUS, NASA-TLX) bewerten
-\item Vergleich mit anderen Interfaces (z.B. pointing-based Steering, redirected walking)
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{Aufgabe b) Messung der Performance}
-\begin{itemize}
-\item Wir messen für jeden Probanden die Zeit
-\item Wir loggen die Anzahl der Kollisionen mit Wänden oder anderen Objekten
-\item Bei hoher Anzahl an Kollisionen konnte die Umgebung nicht gut wahrgenommen werden
-\end{itemize}
 \end{frame}
 
 
 \begin{frame}{Quellen}
 	\begin{thebibliography}{1}
-\bibitem{esc}[1]{ https://vectorportal.com/de/vector/rolltreppe-nach-oben-vektorzeichen/9123}
-\bibitem{segway}[2]{ https://www.flaticon.com/free-icon/segway\textunderscore 1061246}
-\bibitem{smiley}[3]{ https://iconmonstr.com/smiley-2-png/}
-\bibitem{smileyNot}[4]{ https://iconmonstr.com/smiley-4-png/}
-\bibitem{nick}[5]{ Assets: siehe README.txt}
+\bibitem{a}[1]{ https://cdn-icons-png.flaticon.com/512/535/535624.png }
+\bibitem{b}[2]{ https://cdn-icons-png.flaticon.com/512/535/535624.png }
+\bibitem{c}[3]{ https://static.thenounproject.com/png/981555-200.png }
+\bibitem{d}[4]{ https://cdn-icons-png.flaticon.com/512/477/477840.png }
+\bibitem{e}[5]{ https://static.thenounproject.com/png/4145521-200.png }
+\bibitem{nick}[6]{ Assets: siehe README.txt}
 \end{thebibliography}
 \end{frame}
 
