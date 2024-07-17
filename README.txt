@@ -16,15 +16,15 @@ Technischer Aufwand und Qualitaet der technischen Umsetzung:
     - Simulation eines einfachen Schwarms
 
 Authentizitaet und Immersion der vermittelten Inhalte:
-    - Verschlechterung der Sicht durch Einsatz eines Nebels
-    - Korallensterben und sowie Fischsterben, wenn zu wenig Muell aufgesammelt wird.
-    - Simulation des Atems durch eine Sinuskurve oder durch Eingabe des Mikrofons
-    - Bewegung ist nur mithilfe des DPVs moeglich
+    - Verschlechterung der Sicht durch Einsatz eines Nebels und einer allmaehlichen Grauwerdung mit Post-Processing
+    - Korallensterben und sowie Fischsterben, wenn zu wenig Muell aufgesammelt wird
+    - Simulation des Atems durch eine Sinuskurve oder durch Eingabe des Mikrofons mit Hilfe eines Partikelsystems
+    - Bewegung ist nur mit Hilfe des DPVs moeglich, hierbei dreht sich zusaetzlich der Rotor des DPVs
 
 Nutzbarkeit (Usability) und Benutzererfahrung (User Experience):
     - Radar, um den Muell zu orten
-    - Rote Outline an den Muellobjekten, damit man diese in der Naehe von Korallen besser erkennen kann besser erkennen kann
-    - Bewegung: Steering durch Pointing-based implementiert
+    - Rote Outline an den Muellobjekten, damit man diese in der Naehe von Korallen besser erkennen kann
+    - Bewegung: Steering durch Pointing-based implementiert mit 3 DOF vTranslation und physischer Rotation
 
 Einsatz von 3D Interaktionen und multimodalem Feedback:
     - Greifen des Muells mithilfe eines Controllers
@@ -34,9 +34,9 @@ Einsatz von 3D Interaktionen und multimodalem Feedback:
 --------------------------------------------------------------------------------------------------------------------------------------
 
 Tastenbelegungen:
-    - Greifen: Den Abfall und der Griff des DPV kann man mithilfe der Greiftaste greifen 
-    - Fortbewegung: Wenn man mit mindestens einem Controller das DPV greift, kann man mithilfe des rechten Triggers die Geschwindigkeit des DPV einstellen.
-
+    - Greifen: Den Abfall und der Griff des DPV kann man mithilfe der Greiftaste greifen.
+    - Fortbewegung: Wenn man mit mindestens einem Controller das DPV greift, kann man mithilfe des rechten Triggers die Geschwindigkeit des DPVs einstellen.
+    - UI-Interaktion: Durch das Beruehren des UIs mit dem Controller.
 
 
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -80,7 +80,6 @@ Game Over Raum (Video und Sound):
     - Fakten:
         - https://en.nabu.de/topics/ecosystems/ocean-trash.html
         - https://www.unep.org/plastic-pollution
-        - https://www.europarl.europa.eu/topics/en/article/20181005STO15110/plastic-in-the-ocean-the-facts-effects-and-new-eu-rules
         - https://www.europarl.europa.eu/pdfs/news/expert/2018/10/story/20181005STO15110/20181005STO15110_en.pdf
         - https://www.science.org/doi/10.1126/science.aar3320
 
