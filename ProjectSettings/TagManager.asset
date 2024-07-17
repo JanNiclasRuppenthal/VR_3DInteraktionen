@@ -3,17 +3,26 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Waste
+  - WasteDot
+  - Coral1
+  - Coral2
+  - Coral3
+  - Coral4
+  - Coral5
+  - Coral6
+  - TerrainNeighbour
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Walls
+  - Bottom
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Obstacle
+  - PostProcessing
+  - Radar
   - 
   - 
   - 
