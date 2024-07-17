@@ -17,14 +17,16 @@ Technischer Aufwand und Qualitaet der technischen Umsetzung:
 
 Authentizitaet und Immersion der vermittelten Inhalte:
     - Verschlechterung der Sicht durch Einsatz eines Nebels und einer allmaehlichen Grauwerdung mit Post-Processing
-    - Korallensterben und sowie Fischsterben, wenn zu wenig Muell aufgesammelt wird
+    - Leben und Sterben der Meereslebewesen (Fische, Korallen und Schildkroeten), wenn zu wenig Muell aufgesammelt wird
     - Simulation des Atems durch eine Sinuskurve oder durch Eingabe des Mikrofons mit Hilfe eines Partikelsystems
     - Bewegung ist nur mit Hilfe des DPVs moeglich, hierbei dreht sich zusaetzlich der Rotor des DPVs
+    - Faktenvideo in einem Raum am Ende der Simulation
 
 Nutzbarkeit (Usability) und Benutzererfahrung (User Experience):
     - Radar, um den Muell zu orten
     - Rote Outline an den Muellobjekten, damit man diese in der Naehe von Korallen besser erkennen kann
     - Bewegung: Steering durch Pointing-based implementiert mit 3 DOF vTranslation und physischer Rotation
+    - Neustart mit Hilfe eines UIs am Ende des Spiels
 
 Einsatz von 3D Interaktionen und multimodalem Feedback:
     - Greifen des Muells mithilfe eines Controllers
