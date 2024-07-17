@@ -18,15 +18,15 @@ Technischer Aufwand und Qualitaet der technischen Umsetzung:
 Authentizitaet und Immersion der vermittelten Inhalte:
     - Verschlechterung der Sicht durch Einsatz eines Nebels und einer allmaehlichen Grauwerdung mit Post-Processing
     - Leben und Sterben der Meereslebewesen (Fische, Korallen und Schildkroeten), wenn zu wenig Muell aufgesammelt wird
-    - Simulation des Atems durch eine Sinuskurve oder durch Eingabe des Mikrofons mit Hilfe eines Partikelsystems
-    - Bewegung ist nur mit Hilfe des DPVs moeglich, hierbei dreht sich zusaetzlich der Rotor des DPVs
-    - Faktenvideo in einem Raum am Ende der Simulation
+    - Simulation des Atems durch eine Sinuskurve oder durch Eingabe des Mikrofons. Der Atem wird durch ein Partikelsystem visualisiert.
+    - Bewegung ist nur mithilfe des Diver Propulsion Vehicles (DPVs) moeglich, hierbei dreht sich zusaetzlich der Rotor des DPVs
+    - Faktenvideo in einem Raum am Ende der Simulation, welches über die Problematik des Meeresmuells und dessen weitreichende Auswirkungen aufklaert
 
 Nutzbarkeit (Usability) und Benutzererfahrung (User Experience):
     - Radar, um den Muell zu orten
     - Rote Outline an den Muellobjekten, damit man diese in der Naehe von Korallen besser erkennen kann
-    - Bewegung: Steering durch Pointing-based implementiert mit 3 DOF vTranslation und physischer Rotation
-    - Neustart mit Hilfe eines UIs am Ende des Spiels
+    - Bewegung: Steering durch Pointing-based implementiert mit 3 DOF vTranslation und physischer Rotation durch eine lineare Funktion mit Maximalgeschwindigkeit von 5 m/s
+    - Neustart mithilfe eines User Interfaces (UI) am Ende des Spiels
 
 Einsatz von 3D Interaktionen und multimodalem Feedback:
     - Greifen des Muells mithilfe eines Controllers
@@ -38,7 +38,7 @@ Einsatz von 3D Interaktionen und multimodalem Feedback:
 Tastenbelegungen:
     - Greifen: Den Abfall und der Griff des DPV kann man mithilfe der Greiftaste greifen.
     - Fortbewegung: Wenn man mit mindestens einem Controller das DPV greift, kann man mithilfe des rechten Triggers die Geschwindigkeit des DPVs einstellen.
-    - UI-Interaktion: Durch das Beruehren des UIs mit dem Controller.
+    - UI-Interaktion: Durch das Druecken eines Buttons des UIs mit dem Controller.
 
 
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -91,4 +91,5 @@ Sonstige Ressourcen:
     - Quick Outline: https://assetstore.unity.com/packages/tools/particles-effects/quick-outline-115488
     - Mass Spawner: https://assetstore.unity.com/packages/tools/terrain/mass-spawner-object-placement-tool-191111
     - Zweiseitige Shader: https://assetstore.unity.com/packages/vfx/shaders/free-double-sided-shaders-23087
+    - Post Processing
     - TextMeshPro
